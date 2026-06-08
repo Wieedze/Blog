@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/fetch-github-activity.mjs)",
+      "Bash(ls -la /mnt/c/Users/Max/Downloads/blogperso/ 2>&1)",
+      "Read(//mnt/c/Users/Max/Downloads/blogperso/**)",
+      "WebFetch(domain:atlas.discourse.group)"
+    ]
+  }
+}

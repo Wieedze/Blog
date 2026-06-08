@@ -1,0 +1,1 @@
+Lance "bun install" (ou "npm install") à la racine pour générer le lockfile et installer les dépendances.

@@ -1,0 +1,70 @@
+---
+title: "Attribution as Graph Traversal"
+date: "2026-05-14"
+summary: "A two-layer hypothesis for honest agent reputation. The second reflection — after the wrapper problem — on the road to ARP."
+tags: ["agents", "reputation", "graph", "intuition", "arp"]
+---
+
+*The follow-up to [the wrapper problem](/journal/wrapper-problem), and part of
+the thinking that led to [ARP](/projects/arp). Originally posted on the
+[Intuition Atlas
+Discourse](https://atlas.discourse.group/t/a-two-layer-model-for-attributing-reputation-across-agent-compositions/1261)
+— reposted here for the journal.*
+
+---
+
+the hardest problem in agent reputation isn't scoring. it's attribution.
+
+when an agent gives you a good answer, who gets the credit? the agent? the tool it used? the data source that tool pulled from? the model that processed it?
+
+the naive answer is shapley values — a game theory concept that distributes credit fairly across all contributors to an outcome. it's mathematically elegant. it's also computationally insane at scale. you can't run shapley on every agent interaction in a live system.
+
+so i've been thinking about a simpler approach. not mathematically perfect, but honest and auditable. i'm calling it the two-layer hypothesis.
+
+---
+
+## layer one — the economic position
+
+when an agent uses a tool, it takes an economic position on that tool. not metaphorically — literally. it buys shares on the tool's bonding curve.
+
+this is the key insight. a bonding curve makes the dependency visible and permanent. the agent's stake in the tool is recorded on-chain, with a timestamp. you can see exactly when the agent started relying on that tool, and how much it was willing to bet on it.
+
+this is historically auditable. if a tool turns out to be compromised or unreliable, you can trace back every agent that was staking on it at the time. the economic position is the first-order signal of trust.
+
+---
+
+## layer two — the immutable triple
+
+the second layer is the attestation. when an agent uses a tool and produces an output, a triple is created on-chain:
+
+```
+(agent) → [used] → (tool)
+(agent) → [produced] → (output)
+(tool) → [contributed_to] → (output)
+```
+
+these triples are immutable. they can't be deleted or modified. the graph builds up over time as a permanent record of what used what to produce what.
+
+---
+
+## attribution as traversal
+
+now attribution becomes a graph problem, not a computation problem.
+
+you start at the output. you traverse the graph backwards through the triples. you find every tool and data source that contributed to that output. you weight each contributor by the economic position the agent had on it at the time of the attestation.
+
+that's it. no shapley. no complex math. just graph traversal, weighted by stake.
+
+it's not perfect — it doesn't capture indirect contributions, it doesn't handle feedback loops cleanly. but it's honest, it's fast, and it's auditable by anyone who can read a graph.
+
+---
+
+## why two layers matter
+
+the economic position alone isn't enough — anyone can buy shares in a tool they never use. the triple alone isn't enough — you can attest anything without having skin in the game.
+
+together they're hard to fake. you need both the economic commitment and the behavioral record. that combination is what makes the signal meaningful.
+
+i've been testing these ideas on [Intuition](https://intuition.systems) where the primitive infrastructure (atoms, triples, bonding curves, staking) already exists. the next step is wiring the agent layer on top of it.
+
+if this resonates and you're building something in this space — reach out.

@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Deploy on every push to the default branch.
+  push:
+    branches: [main]
+  # Refresh the GitHub-activity dashboard daily (and redeploy).
+  schedule:
+    - cron: "17 6 * * *"
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+
+# Permissions required by the Pages deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; don't cancel an in-progress production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # Regenerate src/content/activity.json from the GitHub API.
+      # Needs a Personal Access Token (read:user + public_repo) stored as the
+      # repo secret ACTIVITY_GITHUB_TOKEN. If it's missing the build still runs
+      # with the committed activity.json.
+      - name: Refresh GitHub activity
+        continue-on-error: true
+        env:
+          GITHUB_USER: Wieedze
+          GITHUB_TOKEN: ${{ secrets.ACTIVITY_GITHUB_TOKEN }}
+        run: bun run sync:activity
+
+      - name: Build (static export)
+        run: bun run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
