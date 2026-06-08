@@ -4,6 +4,9 @@ import path from "node:path";
 
 // Social preview card (LinkedIn / X / Slack / Discord). Mirrors the hero:
 // a typographic, on-brand card — cream paper, claret accent, Fraunces display.
+// Generate the card at build time (required with output: "export", since the
+// font fetch below would otherwise make this route look dynamic).
+export const dynamic = "force-static";
 export const alt = "Maxime Saint-Joannis — I build, in public.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
