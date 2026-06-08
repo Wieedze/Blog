@@ -7,7 +7,7 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   // No image optimization server on a static host.
   images: { unoptimized: true },
-  // Custom domain (wieedze.dev) is served at the root, so no basePath.
+  // Custom domain (wieedze.com) is served at the root, so no basePath.
   // For a project page (wieedze.github.io/blogperso) instead, set:
   //   basePath: "/blogperso", assetPrefix: "/blogperso",
   trailingSlash: true,

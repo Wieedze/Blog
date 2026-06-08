@@ -3,7 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const SITE = "https://wieedze.dev"; // ← set this to your Coolify domain
+const SITE = "https://wieedze.com"; // production domain (GitHub Pages custom domain)
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
