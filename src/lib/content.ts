@@ -36,7 +36,7 @@ export function getJournalPost(slug: string): JournalPost {
     slug,
     title: data.title ?? slug,
     date: data.date ?? "",
-    summary: data.summary ?? "",
+    summary: data.summary ?? data.description ?? "",
     tags: data.tags ?? [],
     readingTime: readingTime(content).text.replace("min read", "min"),
     content,
