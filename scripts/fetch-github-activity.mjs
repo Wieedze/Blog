@@ -269,29 +269,40 @@ async function fetchEventsFallback() {
 }
 
 async function main() {
+  const dest = path.join(process.cwd(), "src", "content", "activity.json");
   const out = { user: USER, syncedAt: new Date().toISOString() };
 
-  if (TOKEN) {
-    const [contrib, repos] = await Promise.all([
-      fetchContributions(),
-      fetchRepos(),
-    ]);
-    Object.assign(out, contrib, { repos });
-    out.events = await fetchEventsFallback();
-    console.log(
-      `✓ commits=${out.stats.commits} prs=${out.stats.prs} issues=${out.stats.issues}, ${out.repos.length} repos, years ${out.years.join("/")}`
-    );
-  } else {
+  if (!TOKEN) {
+    // No token → degraded events-only mode. Crucially, DON'T clobber an
+    // existing full dashboard (e.g. a CI run where the secret isn't set):
+    // keep the committed activity.json so prod never falls back to garbage.
+    try {
+      const existing = JSON.parse(fs.readFileSync(dest, "utf8"));
+      if (existing && existing.stats) {
+        console.warn(
+          "! No GITHUB_TOKEN: keeping the existing full dashboard (not overwriting). Set GITHUB_TOKEN to refresh."
+        );
+        return;
+      }
+    } catch {
+      /* no existing file — fall through and write the events-only fallback */
+    }
     console.warn(
       "! No GITHUB_TOKEN: writing recent events only. Set GITHUB_TOKEN for the full dashboard."
     );
     out.events = await fetchEventsFallback();
-    console.log(`✓ ${out.events.length} events written (fallback mode)`);
+    fs.writeFileSync(dest, JSON.stringify(out, null, 2));
+    console.log(`✓ ${out.events.length} events written (fallback mode)\n  → ${dest}`);
+    return;
   }
 
-  const dest = path.join(process.cwd(), "src", "content", "activity.json");
+  const [contrib, repos] = await Promise.all([fetchContributions(), fetchRepos()]);
+  Object.assign(out, contrib, { repos });
+  out.events = await fetchEventsFallback();
   fs.writeFileSync(dest, JSON.stringify(out, null, 2));
-  console.log(`  → ${dest}`);
+  console.log(
+    `✓ commits=${out.stats.commits} prs=${out.stats.prs} issues=${out.stats.issues}, ${out.repos.length} repos, years ${out.years.join("/")}\n  → ${dest}`
+  );
 }
 
 main().catch((err) => {
