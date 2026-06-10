@@ -1,16 +1,16 @@
 {
   "user": "Wieedze",
-  "syncedAt": "2026-06-03T08:47:37.246Z",
+  "syncedAt": "2026-06-10T06:54:38.730Z",
   "profile": {
     "name": "Maxime Saint-joannis",
     "bio": " The Hacking Project | Intuition | 0xSofia\r\n\r\n",
-    "followers": 11,
-    "following": 27,
+    "followers": 13,
+    "following": 28,
     "createdAt": "2025-01-06T07:47:26Z"
   },
   "stats": {
-    "commits": 2698,
-    "prs": 318,
+    "commits": 2857,
+    "prs": 320,
     "issues": 186,
     "reviews": 11
   },
@@ -1952,7 +1952,7 @@
       ]
     },
     "2026": {
-      "total": 2111,
+      "total": 2273,
       "weeks": [
         [
           {
@@ -2021,7 +2021,7 @@
           },
           {
             "date": "2026-01-13",
-            "count": 16,
+            "count": 15,
             "level": 4
           },
           {
@@ -2761,23 +2761,23 @@
           },
           {
             "date": "2026-06-02",
-            "count": 48,
+            "count": 54,
             "level": 4
           },
           {
             "date": "2026-06-03",
-            "count": 4,
-            "level": 2
+            "count": 53,
+            "level": 4
           },
           {
             "date": "2026-06-04",
-            "count": 0,
-            "level": 0
+            "count": 24,
+            "level": 4
           },
           {
             "date": "2026-06-05",
-            "count": 0,
-            "level": 0
+            "count": 1,
+            "level": 1
           },
           {
             "date": "2026-06-06",
@@ -2793,18 +2793,18 @@
           },
           {
             "date": "2026-06-08",
-            "count": 0,
-            "level": 0
+            "count": 40,
+            "level": 4
           },
           {
             "date": "2026-06-09",
-            "count": 0,
-            "level": 0
+            "count": 42,
+            "level": 4
           },
           {
             "date": "2026-06-10",
-            "count": 0,
-            "level": 0
+            "count": 1,
+            "level": 1
           },
           {
             "date": "2026-06-11",
@@ -3907,13 +3907,24 @@
     {
       "name": "ARP",
       "fullName": "Wieedze/ARP",
-      "description": "ARP (Agent Reputation Protocol) — Monorepo bridging ERC-8004 agent identity with Intuition's semantic graph to deliver domain-modular, calibration-weighted reputation for autonomous agents.",
+      "description": "ARP (Agent Reputation Protocol) — Monorepo bridging ERC-8004 agent identity with Intuition's semantic graph to deliver domain-modular, weighted reputation for autonomous agents.",
       "url": "https://github.com/Wieedze/ARP",
+      "stars": 1,
+      "forks": 0,
+      "isPrivate": false,
+      "language": "TypeScript",
+      "languageColor": "#3178c6"
+    },
+    {
+      "name": "OurGlass",
+      "fullName": "intuition-box/OurGlass",
+      "description": "Recurring payments for Safe treasuries. Signers signs one agreement — service retainer, payroll,  subscription — and the payee charges itself each period, capped on-chain via ERC-7710, documented on IPFS, revocable anytime.",
+      "url": "https://github.com/intuition-box/OurGlass",
       "stars": 0,
       "forks": 0,
       "isPrivate": false,
-      "language": "Solidity",
-      "languageColor": "#AA6746"
+      "language": "TypeScript",
+      "languageColor": "#3178c6"
     },
     {
       "name": "WisPear",
@@ -3960,10 +3971,10 @@
       "languageColor": "#3178c6"
     },
     {
-      "name": "sdk",
-      "fullName": "Wieedze/sdk",
-      "description": "",
-      "url": "https://github.com/Wieedze/sdk",
+      "name": "Blog",
+      "fullName": "Wieedze/Blog",
+      "description": "My portfolio blog ",
+      "url": "https://github.com/Wieedze/Blog",
       "stars": 0,
       "forks": 0,
       "isPrivate": false,
@@ -3971,21 +3982,10 @@
       "languageColor": "#3178c6"
     },
     {
-      "name": "Tessera-VST",
-      "fullName": "Wieedze/Tessera-VST",
-      "description": "Multi effect , Granular , Glitch matrix Vst3 , build with juice framework ",
-      "url": "https://github.com/Wieedze/Tessera-VST",
-      "stars": 0,
-      "forks": 0,
-      "isPrivate": false,
-      "language": "C++",
-      "languageColor": "#f34b7d"
-    },
-    {
-      "name": "Ontology",
-      "fullName": "Wieedze/Ontology",
-      "description": "https://ontology.intuition.box",
-      "url": "https://github.com/Wieedze/Ontology",
+      "name": "SubscritptionDelegation-",
+      "fullName": "Wieedze/SubscritptionDelegation-",
+      "description": "",
+      "url": "https://github.com/Wieedze/SubscritptionDelegation-",
       "stars": 0,
       "forks": 0,
       "isPrivate": false,
@@ -3996,281 +3996,281 @@
   "events": [
     {
       "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-03T08:15:38Z",
+      "repo": "Wieedze/Blog",
+      "date": "2026-06-10T06:54:24Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T22:59:58Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T22:33:41Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T22:09:48Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T22:06:30Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T21:44:52Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T21:32:36Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T21:08:25Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T21:06:54Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T20:51:14Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T20:29:25Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T20:02:53Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "Wieedze/SubscritptionDelegation-",
+      "date": "2026-06-09T17:12:27Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T17:07:07Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T16:52:49Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T16:48:26Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T16:22:40Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T15:54:30Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T15:04:12Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T14:52:11Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T14:49:38Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T14:48:16Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T14:13:09Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "intuition-box/OurGlass",
+      "date": "2026-06-09T14:06:06Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T13:34:41Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T13:34:00Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T12:09:43Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T12:09:39Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:54:49Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:54:37Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:45:05Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:44:57Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:16:34Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "gnosis-box/TheKitty",
+      "date": "2026-06-09T11:15:39Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "Wieedze/Blog",
+      "date": "2026-06-09T10:08:28Z",
       "detail": "0 commit(s)",
       "message": ""
     },
     {
       "type": "PullRequestEvent",
-      "repo": "aboutcircles/sdk",
-      "date": "2026-06-03T07:24:58Z",
-      "detail": "PR opened",
-      "message": ""
-    },
-    {
-      "type": "CreateEvent",
-      "repo": "Wieedze/sdk",
-      "date": "2026-06-03T07:21:20Z",
-      "detail": "branch feat/runner-miniapp",
+      "repo": "intuition-box/Sofia",
+      "date": "2026-06-08T17:50:47Z",
+      "detail": "PR closed",
       "message": ""
     },
     {
       "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-03T06:36:45Z",
+      "repo": "Wieedze/Blog",
+      "date": "2026-06-09T09:47:52Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "Wieedze/SubscritptionDelegation-",
+      "date": "2026-06-09T09:35:08Z",
+      "detail": "0 commit(s)",
+      "message": ""
+    },
+    {
+      "type": "PushEvent",
+      "repo": "Wieedze/Blog",
+      "date": "2026-06-09T09:30:33Z",
       "detail": "0 commit(s)",
       "message": ""
     },
     {
       "type": "PushEvent",
       "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-03T06:14:37Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T15:37:32Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T15:37:30Z",
-      "detail": "PR merged",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T15:37:21Z",
-      "detail": "PR opened",
-      "message": ""
-    },
-    {
-      "type": "CreateEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T15:37:15Z",
-      "detail": "branch fix/audit-tontine-liveness",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T15:31:23Z",
-      "detail": "PR merged",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T15:31:24Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T15:31:14Z",
-      "detail": "PR opened",
-      "message": ""
-    },
-    {
-      "type": "CreateEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T15:30:44Z",
-      "detail": "branch chore/explorer-release-cleanup",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T13:55:18Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T13:35:39Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T12:57:55Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T12:31:12Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T12:27:11Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T12:15:59Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T12:13:22Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T12:10:54Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T12:09:38Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T12:06:37Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:58:47Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:42:26Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:35:09Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:33:15Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:24:29Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:24:27Z",
-      "detail": "PR merged",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:23:09Z",
-      "detail": "PR opened",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:22:19Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T11:22:01Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T11:19:48Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:11:01Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:10:59Z",
-      "detail": "PR merged",
-      "message": ""
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T11:10:51Z",
-      "detail": "PR opened",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "intuition-box/Sofia",
-      "date": "2026-06-02T10:55:46Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T10:51:24Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T09:08:03Z",
-      "detail": "0 commit(s)",
-      "message": ""
-    },
-    {
-      "type": "PushEvent",
-      "repo": "gnosis-box/TheKitty",
-      "date": "2026-06-02T09:03:57Z",
+      "date": "2026-06-09T08:57:17Z",
       "detail": "0 commit(s)",
       "message": ""
     }
