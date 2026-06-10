@@ -58,6 +58,7 @@ const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const PINNED = [
   "intuition-box/Sofia",
   "Wieedze/ARP",
+  "intuition-box/OurGlass",
   "intuition-box/WisPear",
   "Wieedze/Intuition-Proxy-Factory",
   "Wieedze/TrackHunter",

@@ -85,6 +85,30 @@ export const projects: Project[] = [
     year: "2026",
   },
   {
+    slug: "ourglass",
+    name: "OurGlass",
+    tagline: "Recurring payments for Safe treasuries — sign once, capped on-chain.",
+    status: "live",
+    role: "Creator — Safe App + smart-account integration",
+    stack: ["TypeScript", "React", "Solidity", "Safe App", "ERC-7710", "MetaMask Delegation Framework", "IPFS"],
+    description:
+      "A Safe App for recurring on-chain payments. A DAO treasury (or any Safe) signs one agreement — a service retainer, payroll, or a subscription — and the payee charges itself each period, never above an on-chain cap and never twice in the same period. No escrow, no streaming contract, no relayer: funds stay in the treasury until they're charged, and the Safe can revoke unilaterally at any time. Built on the MetaMask Delegation Framework (ERC-7710) + Smart Accounts Kit, with each agreement pinned to IPFS and the EIP-712 signature cryptographically bound to the exact terms.",
+    highlights: [
+      "Sign once → the payee charges itself each period (no monthly multisig round)",
+      "Hard on-chain cap via ERC-7710 — never above the amount, never twice per period",
+      "Funds stay in the treasury until charged — no escrow, no streaming, no relayer",
+      "Agreement pinned to IPFS; EIP-712 signature bound to the exact terms",
+      "Revocable unilaterally on-chain at any time",
+      "Live as a Safe App",
+    ],
+    links: [
+      { label: "Site", url: "https://ourglass.intuition.box" },
+      { label: "Repo", url: "https://github.com/intuition-box/OurGlass" },
+    ],
+    featured: true,
+    year: "2026",
+  },
+  {
     slug: "intuition-fee-proxy",
     name: "Intuition Fee Proxy Factory",
     tagline: "Versioned fee proxies for the Intuition MultiVault.",
