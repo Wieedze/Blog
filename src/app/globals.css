@@ -1,5 +1,5 @@
 /* ============================================================
-   Wieedze — Design system
+   Wieedze: Design system
    Direction: editorial / light / understated technical
    ============================================================ */
 
@@ -13,7 +13,7 @@
   --ink-soft:      #4a443c;   /* secondary text */
   --ink-faint:     #8c8478;   /* meta, captions */
   --line:          #ddd6c8;   /* rules, separators */
-  --accent:        #8c2f39;   /* claret — single, understated warm accent */
+  --accent:        #8c2f39;   /* claret, single, understated warm accent */
   --accent-soft:   #e7d4d2;   /* soft accent background (dusty rose tint) */
   --code-bg:       #1c1a17;   /* code blocks, contrast */
 

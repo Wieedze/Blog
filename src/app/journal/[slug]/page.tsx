@@ -27,7 +27,7 @@ export async function generateMetadata({
 // Compile MDX content to a React component (server-side). We use @mdx-js/mdx
 // directly instead of next-mdx-remote, which is incompatible with Next 15 /
 // React 19 (it surfaced as "Cannot read properties of undefined (reading
-// 'stack')" — a masked render error).
+// 'stack')", a masked render error).
 async function renderMDX(source: string) {
   const compiled = String(
     await compile(source, {

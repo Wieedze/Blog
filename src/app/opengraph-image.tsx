@@ -3,11 +3,11 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 // Social preview card (LinkedIn / X / Slack / Discord). Mirrors the hero:
-// a typographic, on-brand card — cream paper, claret accent, Fraunces display.
+// a typographic, on-brand card: cream paper, claret accent, Fraunces display.
 // Generate the card at build time (required with output: "export", since the
 // font fetch below would otherwise make this route look dynamic).
 export const dynamic = "force-static";
-export const alt = "Maxime Saint-Joannis — I build, in public.";
+export const alt = "Maxime Saint-Joannis. I build, in public.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,15 +24,15 @@ async function loadPhoto(): Promise<string | null> {
       const buf = await readFile(path.join(process.cwd(), "public", file));
       return `data:${mime};base64,${buf.toString("base64")}`;
     } catch {
-      /* not found — try next */
+      /* not found, try next */
     }
   }
   return null;
 }
 
 // Load a Google font as TTF (Satori can't use woff2). The CSS2 endpoint returns
-// truetype/opentype when the request UA isn't a modern browser — which is the
-// case from the server — so the regex below picks up a usable font URL.
+// truetype/opentype when the request UA isn't a modern browser, which is the
+// case from the server, so the regex below picks up a usable font URL.
 async function loadFont(familyParam: string, text: string): Promise<ArrayBuffer> {
   const url = `https://fonts.googleapis.com/css2?family=${familyParam}&text=${encodeURIComponent(
     text

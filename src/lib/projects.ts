@@ -19,13 +19,13 @@ export const projects: Project[] = [
     name: "Sofia",
     tagline: "Turn your browsing into certified knowledge, on-chain.",
     status: "live",
-    role: "Co-creator — full-stack & smart contracts (two-dev team)",
+    role: "Co-creator: full-stack & smart contracts (two-dev team)",
     stack: ["TypeScript", "React", "Chrome Extension", "Node.js", "Solidity", "Intuition Protocol", "Base", "MCP"],
     description:
-      "A monorepo — Chrome extension, reputation dashboard, workflows and an MCP server — that turns your browsing into certified knowledge on Intuition Protocol. Sofia maps a user's activity signals to on-chain attestations via Intuition's atom/triple model on Base. It started as our graduation project for a web-dev degree (two of us) and grew into my only product truly in production, with real users and an Intuition grant. Currently shipping the v1.0.x extension alpha.",
+      "A monorepo (Chrome extension, reputation dashboard, workflows and an MCP server) that turns your browsing into certified knowledge on Intuition Protocol. Sofia maps a user's activity signals to on-chain attestations via Intuition's atom/triple model on Base. It started as our graduation project for a web-dev degree (two of us) and grew into my only product truly in production, with real users and an Intuition grant. Currently shipping the v1.0.x extension alpha.",
     highlights: [
       "Started as our web-dev degree graduation project (two devs)",
-      "Live with real users — extension v1.0.3 (alpha) + reputation dashboard",
+      "Live with real users: extension v1.0.3 (alpha) + reputation dashboard",
       "On-chain attestations on Base (Intuition atom/triple model)",
       "Intuition grant secured",
       "Chrome extension + dashboard + workflows + MCP server in one monorepo",
@@ -43,13 +43,13 @@ export const projects: Project[] = [
   },
   {
     slug: "arp",
-    name: "ARP — Agent Reputation Protocol",
+    name: "ARP: Agent Reputation Protocol",
     tagline: "Weighted, on-chain reputation for AI agents.",
     status: "building",
-    role: "Creator — protocol, SDK & app",
+    role: "Creator: protocol, SDK & app",
     stack: ["TypeScript", "Solidity", "Intuition Protocol", "ERC-8004", "React"],
     description:
-      "A protocol bridging ERC-8004 agent identity with Intuition's semantic graph to give autonomous agents domain-modular, weighted reputation. The thesis (worked out in two posts — the wrapper problem, then attribution as graph traversal): an agent is a wrapper around tools, so reputation should flow through the tools it uses. Tools become atoms an agent takes an economic position on, usage is recorded as immutable triples, and attribution becomes a graph traversal weighted by stake. The MVP — a self-serve tool registry, stake-to-vouch, and one-click agent runtime — is live as a demo, built for the MetaMask Snap Smart Wallet hackathon.",
+      "A protocol bridging ERC-8004 agent identity with Intuition's semantic graph to give autonomous agents domain-modular, weighted reputation. The thesis (worked out in two posts, the wrapper problem, then attribution as graph traversal): an agent is a wrapper around tools, so reputation should flow through the tools it uses. Tools become atoms an agent takes an economic position on, usage is recorded as immutable triples, and attribution becomes a graph traversal weighted by stake. The MVP, a self-serve tool registry, stake-to-vouch, and one-click agent runtime, is live as a demo, built for the MetaMask Snap Smart Wallet hackathon.",
     highlights: [
       "Bridges ERC-8004 agent identity with Intuition's semantic graph",
       "Tools as atoms: stake to vouch, usage recorded as triples",
@@ -69,10 +69,10 @@ export const projects: Project[] = [
     name: "TheKitty",
     tagline: "Onchain group pots & a services marketplace, CRC-native.",
     status: "live",
-    role: "Creator — full-stack & smart contracts",
+    role: "Creator: full-stack & smart contracts",
     stack: ["TypeScript", "React", "Solidity", "Gnosis Chain", "Circles (CRC)"],
     description:
-      "A Circles miniapp on Gnosis Chain, CRC-native. It started as onchain group pots & tontines and grew, week by week, into a small services marketplace: a provider board with ratings and trust badges, a pay sheet, an onchain reward pool, and a \"recommended by your circle\" panel that's really a traversal over the Circles trust graph — the same primitive behind Sofia and ARP. Pushed through a 6-week Gnosis hackathon: 2nd in week 2, iterating weekly toward the finale.",
+      "A Circles miniapp on Gnosis Chain, CRC-native. It started as onchain group pots & tontines and grew, week by week, into a small services marketplace: a provider board with ratings and trust badges, a pay sheet, an onchain reward pool, and a \"recommended by your circle\" panel that's really a traversal over the Circles trust graph, the same primitive behind Sofia and ARP. Pushed through a 6-week Gnosis hackathon: 2nd in week 2, iterating weekly toward the finale.",
     highlights: [
       "2nd in week 2 of a 6-week Gnosis hackathon (iterating weekly toward the finale)",
       "Onchain group pots & tontines, CRC-native on Gnosis",
@@ -87,19 +87,19 @@ export const projects: Project[] = [
   {
     slug: "ourglass",
     name: "OurGlass",
-    tagline: "Recurring payments for Safe treasuries — sign once, capped on-chain.",
+    tagline: "Recurring payments for Safe treasuries: sign once, capped on-chain.",
     status: "live",
-    role: "Creator — Safe App + smart-account integration",
+    role: "Creator: Safe App + smart-account integration",
     stack: ["TypeScript", "React", "Solidity", "Safe App", "ERC-7710", "MetaMask Delegation Framework", "IPFS"],
     description:
-      "A Safe App for recurring on-chain payments. A DAO treasury (or any Safe) signs one agreement — a service retainer, payroll, or a subscription — and the payee charges itself each period, never above an on-chain cap and never twice in the same period. No escrow, no streaming contract, no relayer: funds stay in the treasury until they're charged, and the Safe can revoke unilaterally at any time. Built on the MetaMask Delegation Framework (ERC-7710) + Smart Accounts Kit, with each agreement pinned to IPFS and the EIP-712 signature cryptographically bound to the exact terms. A separate, independent verifier — its own repo, deployed to IPFS and reachable at the ENS verify.ourglass.eth — lets anyone check an agreement's provenance without trusting any server I run; the app also exposes a public /verify page that deep-links into it.",
+      "A Safe App for recurring on-chain payments. A DAO treasury (or any Safe) signs one agreement (a service retainer, payroll, or a subscription) and the payee charges itself each period, never above an on-chain cap and never twice in the same period. No escrow, no streaming contract, no relayer: funds stay in the treasury until they're charged, and the Safe can revoke unilaterally at any time. Built on the MetaMask Delegation Framework (ERC-7710) + Smart Accounts Kit, with each agreement pinned to IPFS and the EIP-712 signature cryptographically bound to the exact terms. A separate, independent verifier (its own repo, deployed to IPFS and reachable at the ENS verify.ourglass.eth) lets anyone check an agreement's provenance without trusting any server I run; the app also exposes a public /verify page that deep-links into it.",
     highlights: [
       "Sign once → the payee charges itself each period (no monthly multisig round)",
-      "Hard on-chain cap via ERC-7710 — never above the amount, never twice per period",
-      "Funds stay in the treasury until charged — no escrow, no streaming, no relayer",
+      "Hard on-chain cap via ERC-7710: never above the amount, never twice per period",
+      "Funds stay in the treasury until charged: no escrow, no streaming, no relayer",
       "Agreement pinned to IPFS; EIP-712 signature bound to the exact terms",
       "Independent verifier (separate repo, deployed to IPFS) at ENS verify.ourglass.eth",
-      "Revocable unilaterally on-chain at any time — live as a Safe App",
+      "Revocable unilaterally on-chain at any time: live as a Safe App",
     ],
     links: [
       { label: "Site", url: "https://ourglass.intuition.box" },
@@ -114,10 +114,10 @@ export const projects: Project[] = [
     name: "Intuition FeeProxy",
     tagline: "The affiliate webapp for Intuition's FeeProxy singleton.",
     status: "live",
-    role: "Delivered DAO mission (intuition.box) — affiliate webapp + SDK / Safe tooling",
+    role: "Delivered DAO mission (intuition.box): affiliate webapp + SDK / Safe tooling",
     stack: ["TypeScript", "React", "Vite", "wagmi/viem", "Tailwind", "Intuition MultiVault"],
     description:
-      "A paid mission for the intuition.box DAO — the hub where Intuition missions and their solutions live — which I delivered. It's the affiliate webapp for Intuition's FeeProxy singleton: a multi-tenant fee layer in front of the Intuition MultiVault. One shared contract per network — no factory, no per-affiliate deploy — so any dApp builder registers once as an affiliate (their wallet is the id), sets a fee schedule, and points their app at it. The proxy takes their fee on every routed deposit / atom creation and pushes it to their recipient instantly: no pool, no withdraw. The webapp covers registration, fee config, on-chain stats (read directly, no indexer), an affiliate directory, and a copy-paste agent integration guide. Built with React + wagmi/viem, live on Intuition's testnet. An earlier per-affiliate factory design was retired in favor of this singleton — and the FeeProxy contract itself is Intuition's audited one; my deliverable is the affiliate webapp (plus SDK/Safe tooling). Finishing the design now — in public, with a designer — ahead of mainnet.",
+      "A paid mission for the intuition.box DAO (the hub where Intuition missions and their solutions live) which I delivered. It's the affiliate webapp for Intuition's FeeProxy singleton: a multi-tenant fee layer in front of the Intuition MultiVault. One shared contract per network (no factory, no per-affiliate deploy) so any dApp builder registers once as an affiliate (their wallet is the id), sets a fee schedule, and points their app at it. The proxy takes their fee on every routed deposit / atom creation and pushes it to their recipient instantly: no pool, no withdraw. The webapp covers registration, fee config, on-chain stats (read directly, no indexer), an affiliate directory, and a copy-paste agent integration guide. Built with React + wagmi/viem, live on Intuition's testnet. An earlier per-affiliate factory design was retired in favor of this singleton, and the FeeProxy contract itself is Intuition's audited one; my deliverable is the affiliate webapp (plus SDK/Safe tooling). Finishing the design now, in public, with a designer, ahead of mainnet.",
     highlights: [
       "Paid mission delivered for the intuition.box DAO",
       "Affiliate webapp for Intuition's FeeProxy singleton (one shared contract per network)",
@@ -135,10 +135,10 @@ export const projects: Project[] = [
     name: "WisPear",
     tagline: "Community wisdom, whispered to your agent.",
     status: "shipped",
-    role: "Hackathon build — team of 5 (ETHGlobal Cannes 2026)",
+    role: "Hackathon build: team of 5 (ETHGlobal Cannes 2026)",
     stack: ["TypeScript", "React", "Intuition Protocol", "AI agents"],
     description:
-      "A community-curated marketplace and discovery layer for AI-agent tools, built on Intuition. Tell it what you want your agent to do — say, \"find me job offers\" — and WisPear returns the tools the community recommends for that exact context, ranked by what performs best today, plus a ready-to-paste meta-prompt so your own AI builds the tool just the way you want it. Tool quality lives on-chain as Intuition attestations, so the picks are community-verified rather than guessed. Built with a team of five at ETHGlobal Cannes 2026.",
+      "A community-curated marketplace and discovery layer for AI-agent tools, built on Intuition. Tell it what you want your agent to do (say, \"find me job offers\") and WisPear returns the tools the community recommends for that exact context, ranked by what performs best today, plus a ready-to-paste meta-prompt so your own AI builds the tool just the way you want it. Tool quality lives on-chain as Intuition attestations, so the picks are community-verified rather than guessed. Built with a team of five at ETHGlobal Cannes 2026.",
     highlights: [
       "Community-curated marketplace for AI-agent tools",
       "Describe a goal → the right tools for that context, ranked by performance",
@@ -158,10 +158,10 @@ export const projects: Project[] = [
     name: "TrackHunter",
     tagline: "Search & compare tracks across every platform, from one playlist.",
     status: "live",
-    role: "Creator — full-stack",
+    role: "Creator: full-stack",
     stack: ["React", "TypeScript", "Spotify API", "Beatport API", "Bandcamp", "Discogs"],
     description:
-      "A web app for DJs and crate-diggers: paste a playlist and search and compare its tracks across Spotify, Bandcamp, Beatport, Discogs and more — from a single input. My long-running playground on the music side, where my background in live performance meets code.",
+      "A web app for DJs and crate-diggers: paste a playlist and search and compare its tracks across Spotify, Bandcamp, Beatport, Discogs and more, from a single input. My long-running playground on the music side, where my background in live performance meets code.",
     highlights: [
       "Compare a track across Spotify, Bandcamp, Beatport, Discogs",
       "Single playlist input → cross-platform results",

@@ -8,16 +8,16 @@ const SITE = "https://wieedze.com"; // production domain (GitHub Pages custom do
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Maxime Saint-Joannis — builder, learning in public",
+    default: "Maxime Saint-Joannis, builder, learning in public",
     template: "%s · Wieedze",
   },
   description:
-    "Full-stack & smart-contract developer in the Intuition / crypto ecosystem. I build products in the open — Sofia, ARP, and more. An experimenter documenting the work as it happens.",
+    "Full-stack & smart-contract developer in the Intuition / crypto ecosystem. I build products in the open: Sofia, ARP, and more. An experimenter documenting the work as it happens.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Wieedze",
-    title: "Maxime Saint-Joannis — builder, learning in public",
+    title: "Maxime Saint-Joannis, builder, learning in public",
     description:
       "I build crypto products in public. Sofia (in prod), ARP, and continuous explorations.",
   },

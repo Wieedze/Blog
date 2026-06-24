@@ -236,7 +236,7 @@ export default function ActivityPage() {
                 </span>
                 <div style={{ flex: 1 }}>
                   <span className="mono" style={{ fontSize: ".9rem" }}>{e.repo}</span>
-                  {e.message && <span style={{ color: "var(--ink-soft)" }}> — {e.message}</span>}
+                  {e.message && <span style={{ color: "var(--ink-soft)" }}>: {e.message}</span>}
                   <div className="mono" style={{ fontSize: ".72rem", color: "var(--ink-faint)", marginTop: 2 }}>
                     {e.detail} · {fmtDate(e.date)}
                   </div>

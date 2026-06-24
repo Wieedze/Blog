@@ -1,13 +1,13 @@
 ---
 title: "OurGlass: recurring payments for Safe treasuries"
 date: "2026-06-10"
-summary: "A Safe App where a treasury signs one agreement and the payee charges itself each period — capped on-chain via ERC-7710, no escrow, revocable anytime."
+summary: "A Safe App where a treasury signs one agreement and the payee charges itself each period: capped on-chain via ERC-7710, no escrow, revocable anytime."
 tags: ["ourglass", "safe", "delegation", "intuition", "build"]
 ---
 
 [OurGlass](/projects/ourglass) is the thing i just shipped, and the one i'm most
 quietly proud of on the contract side. it's a [Safe
-App](https://ourglass.intuition.box) for **recurring on-chain payments** — the
+App](https://ourglass.intuition.box) for **recurring on-chain payments**: the
 kind of plumbing DAOs actually need but nobody wants to babysit.
 
 ## the problem
@@ -20,7 +20,7 @@ bottleneck, every single month.
 ## what i shipped
 
 the paying Safe signs **one** agreement. after that, the payee charges itself
-each period — within a hard cap enforced on-chain, never above the agreed
+each period, within a hard cap enforced on-chain, never above the agreed
 amount, never twice in the same period. revocable unilaterally whenever.
 
 the part i like: there's **no escrow, no streaming contract, no relayer**. funds
@@ -33,16 +33,16 @@ does the capping on-chain.
 
 two things stuck.
 
-first — binding the signature to the *exact* terms. the delegation's salt is
+first, binding the signature to the *exact* terms. the delegation's salt is
 `keccak256(terms)`, and the agreement itself is pinned to IPFS. change a comma in
 the terms and the signature is void. the legal-ish document and the cryptographic
 authorization are the same object. that's a cleaner guarantee than i expected to
 get.
 
-second — the relayer was a crutch. i started with a hosted "1Shot" relayer to
+second, the relayer was a crutch. i started with a hosted "1Shot" relayer to
 redeem the delegation, then ripped it out for a **direct on-chain redeem** where
 the payee (the one collecting the money) just pays the gas. removing the middle
-service made the whole trust story simpler to explain — which is usually the
+service made the whole trust story simpler to explain, which is usually the
 sign it was the right call.
 
 ## what fought back

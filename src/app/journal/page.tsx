@@ -5,7 +5,7 @@ import { getAllJournal } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Build notes, lines of thinking, and learnings — building in public.",
+    "Build notes, lines of thinking, and learnings, building in public.",
 };
 
 export default function JournalPage() {
@@ -21,7 +21,7 @@ export default function JournalPage() {
         className="rise d3"
         style={{ marginTop: 18, color: "var(--ink-soft)" }}
       >
-        Build notes, lines of thinking, raw learnings. No expert posturing —
+        Build notes, lines of thinking, raw learnings. No expert posturing,
         just the work as it unfolds.
       </p>
 

@@ -8,13 +8,13 @@ tags: ["agents", "reputation", "web3", "intuition", "arp"]
 *Part of the thinking that came out of ETHGlobal Cannes and led to
 [ARP](/projects/arp). Originally posted on the [Intuition Atlas
 Discourse](https://atlas.discourse.group/t/the-wrapper-problem-reputation-should-flow-through-tools-not-stop-at-the-agent/1260)
-— reposted here for the journal.*
+reposted here for the journal.*
 
 ---
 
 there's a problem nobody talks about yet with ai agent reputation.
 
-when we think about trusting an agent, we think about the agent itself. does this agent give good answers? does it make good decisions? but that framing misses something fundamental — an agent is not a monolith. it's a wrapper around a set of tools.
+when we think about trusting an agent, we think about the agent itself. does this agent give good answers? does it make good decisions? but that framing misses something fundamental: an agent is not a monolith. it's a wrapper around a set of tools.
 
 a DeFi research agent is really: a web scraper + a data parser + an onchain query tool + a summarization model. the agent itself is just the orchestration layer. the quality of its outputs depends almost entirely on the quality of the tools it uses.
 
@@ -36,7 +36,7 @@ that's the wrapper problem. reputation stops at the agent surface. it doesn't go
 
 reputation should flow compositionally. like pagerank, but for tool dependencies.
 
-if agent X uses tool Y, and tool Y has a good reputation, that should contribute to agent X's reputation — weighted by how much agent X depends on that tool. and if tool Y's reputation drops (because it starts returning stale data, or gets compromised), agent X's reputation should reflect that automatically.
+if agent X uses tool Y, and tool Y has a good reputation, that should contribute to agent X's reputation, weighted by how much agent X depends on that tool. and if tool Y's reputation drops (because it starts returning stale data, or gets compromised), agent X's reputation should reflect that automatically.
 
 the graph carries the signal. you don't need to manually re-evaluate every agent every time something in its dependency chain changes.
 
@@ -44,10 +44,10 @@ the graph carries the signal. you don't need to manually re-evaluate every agent
 
 ## why this matters now
 
-we're about to hit a wave of agents that all look the same on the surface. same name, same description, same benchmark scores. the differentiation will be invisible — which data sources they use, which tools they call, which APIs they trust.
+we're about to hit a wave of agents that all look the same on the surface. same name, same description, same benchmark scores. the differentiation will be invisible: which data sources they use, which tools they call, which APIs they trust.
 
 the platforms that figure out how to make that visible will define what "trustworthy agent" means for the next decade.
 
-i've been building toward this on [Intuition](https://intuition.systems) — a semantic graph where you can attest relationships between entities on-chain. the primitives are there. the question is how to wire them up correctly.
+i've been building toward this on [Intuition](https://intuition.systems): a semantic graph where you can attest relationships between entities on-chain. the primitives are there. the question is how to wire them up correctly.
 
 more on that soon.

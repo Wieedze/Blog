@@ -23,9 +23,9 @@ export default function Home() {
             lineHeight: 1.6,
           }}
         >
-          Full-stack & web3 junior developer . A
+          Full-stack & web3 junior developer. A
           product live with real users, an Intuition grant, a mission landed
-          with a DAO — and a wide-open field still left to explore.
+          with a DAO, and a wide-open field still left to explore.
         </p>
         <p
           className="rise d3 mono"
@@ -36,7 +36,7 @@ export default function Home() {
             color: "var(--ink-faint)",
           }}
         >
-          Not an expert — an experimenter. I build in the open and write it
+          Not an expert, an experimenter. I build in the open and write it
           down as it happens: what ships, what breaks, what I learn next.
         </p>
 

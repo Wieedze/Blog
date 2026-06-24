@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         className="rise d3"
         style={{ marginTop: 20, maxWidth: "56ch", color: "var(--ink-soft)" }}
       >
-        Everything I'm building or have shipped — products in production,
+        Everything I'm building or have shipped: products in production,
         paid contracts, hackathon experiments. Roughly ordered by maturity, not
         importance. I'm not claiming to have mastered any of it; each one taught
         me something I didn't know going in.

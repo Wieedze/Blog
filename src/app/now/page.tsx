@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "What I'm working on right now.",
 };
 
-// Edit this page often — it's the pulse of the site.
+// Edit this page often: it's the pulse of the site.
 export default function NowPage() {
   return (
     <section className="prose-wrap" style={{ paddingTop: 80 }}>
@@ -16,47 +16,43 @@ export default function NowPage() {
 
       <div className="prose rise d3" style={{ marginTop: 36 }}>
         <p>
-          A "now" page — the idea is simple: what I'm actually doing today,
+          A "now" page. The idea is simple: what I'm actually doing today,
           updated often, without ceremony.
         </p>
 
         <h2>Main focus</h2>
         <ul>
           <li>
-            <strong>OurGlass</strong> — just shipped: a Safe App for recurring
-            on-chain payments (sign once, capped via ERC-7710, revocable). Live
-            at ourglass.intuition.box.
+            <strong>Sofia</strong>: building out the social layer (groups,
+            notifications, circle-pro). This is what I'm heads-down on right now.
           </li>
           <li>
-            <strong>ARP</strong> — MVP for the MetaMask Snap Smart Wallet
-            hackathon, shipped this week.
+            <strong>Intuition FeeProxy</strong>: finishing the design before it
+            goes to mainnet.
           </li>
           <li>
-            <strong>Sofia</strong> — continuous iteration on the product in
-            production (onboarding, scoring, attestations).
+            <strong>ARP</strong>: working out which ontology to adopt (deep in
+            the discussion on the Intuition Atlas). Starting the code next week.
           </li>
           <li>
-            <strong>Intuition Fee Proxy contract</strong> — a proxy factory for
-            businesses in the ecosystem.
-          </li>
-          <li>
-            <strong>TheKitty</strong> — evolving it through a 6-week Gnosis
-            hackathon (weekly prizes, then a grand finale). 2nd in week 2, and
-            re-entering every week — week 3, then week 4 — with new progress
-            each time, building toward the finale.
+            <strong>Mastering-studio site</strong>: a more design-led build,
+            back on the music side.
           </li>
         </ul>
 
-        <h2>On the horizon</h2>
+        <h2>Recently shipped</h2>
         <ul>
-          <li>ETHGlobal Lisbon 2026 (July 24) with ARP.</li>
-          <li>Learning ZK / Noir ahead of that deadline.</li>
-          <li>Building a team.</li>
+          <li>
+            <strong>OurGlass</strong>: live, a Safe App for recurring on-chain
+            payments. It pulled ~6,000 likes at the hackathon, but that wasn't
+            enough to place (the winner had ~14,000). Didn't make the ranking.
+            Still, it's live and I'm keeping it.
+          </li>
         </ul>
 
         <h2>In the background</h2>
         <ul>
-          <li>TrackHunter, music production, a VST plugin.</li>
+          <li>TheKitty (Gnosis hackathon), TrackHunter, music production, a VST plugin.</li>
         </ul>
       </div>
     </section>

@@ -3896,7 +3896,7 @@
     {
       "name": "Sofia",
       "fullName": "intuition-box/Sofia",
-      "description": "Sofia monorepo — Transform your browsing into certified knowledge on the Intuition protocol. Chrome extension, dashboard, workflows, and docs.",
+      "description": "Sofia monorepo. Transform your browsing into certified knowledge on the Intuition protocol. Chrome extension, dashboard, workflows, and docs.",
       "url": "https://github.com/intuition-box/Sofia",
       "stars": 9,
       "forks": 1,
@@ -3907,7 +3907,7 @@
     {
       "name": "ARP",
       "fullName": "Wieedze/ARP",
-      "description": "ARP (Agent Reputation Protocol) — Monorepo bridging ERC-8004 agent identity with Intuition's semantic graph to deliver domain-modular, weighted reputation for autonomous agents.",
+      "description": "ARP (Agent Reputation Protocol): Monorepo bridging ERC-8004 agent identity with Intuition's semantic graph to deliver domain-modular, weighted reputation for autonomous agents.",
       "url": "https://github.com/Wieedze/ARP",
       "stars": 1,
       "forks": 0,
@@ -3918,7 +3918,7 @@
     {
       "name": "OurGlass",
       "fullName": "intuition-box/OurGlass",
-      "description": "Recurring payments for Safe treasuries. Signers signs one agreement — service retainer, payroll,  subscription — and the payee charges itself each period, capped on-chain via ERC-7710, documented on IPFS, revocable anytime.",
+      "description": "Recurring payments for Safe treasuries. Signers signs one agreement (service retainer, payroll,  subscription) and the payee charges itself each period, capped on-chain via ERC-7710, documented on IPFS, revocable anytime.",
       "url": "https://github.com/intuition-box/OurGlass",
       "stars": 0,
       "forks": 0,
@@ -3962,7 +3962,7 @@
     {
       "name": "TheKitty",
       "fullName": "gnosis-box/TheKitty",
-      "description": "The Kitty — onchain group pots &  tontine  for Circles . Build on Gnosis chain",
+      "description": "The Kitty: onchain group pots &  tontine  for Circles . Build on Gnosis chain",
       "url": "https://github.com/gnosis-box/TheKitty",
       "stars": 0,
       "forks": 0,
