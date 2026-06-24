@@ -23,6 +23,11 @@ export default function NowPage() {
         <h2>Main focus</h2>
         <ul>
           <li>
+            <strong>OurGlass</strong> — just shipped: a Safe App for recurring
+            on-chain payments (sign once, capped via ERC-7710, revocable). Live
+            at ourglass.intuition.box.
+          </li>
+          <li>
             <strong>ARP</strong> — MVP for the MetaMask Snap Smart Wallet
             hackathon, shipped this week.
           </li>
