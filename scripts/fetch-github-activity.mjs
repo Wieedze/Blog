@@ -60,7 +60,7 @@ const PINNED = [
   "Wieedze/ARP",
   "intuition-box/OurGlass",
   "intuition-box/WisPear",
-  "Wieedze/Intuition-Proxy-Factory",
+  "intuition-box/FeeProxy",
   "Wieedze/TrackHunter",
   "gnosis-box/TheKitty",
 ];
