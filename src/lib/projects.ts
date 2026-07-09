@@ -22,10 +22,10 @@ export const projects: Project[] = [
     role: "Co-creator: full-stack & smart contracts (two-dev team)",
     stack: ["TypeScript", "React", "Chrome Extension", "Node.js", "Solidity", "Intuition Protocol", "Base", "MCP"],
     description:
-      "A monorepo (Chrome extension, reputation dashboard, workflows and an MCP server) that turns your browsing into certified knowledge on Intuition Protocol. Sofia maps a user's activity signals to on-chain attestations via Intuition's atom/triple model on Base. It started as our graduation project for a web-dev degree (two of us) and grew into my only product truly in production, with real users and an Intuition grant. Currently shipping the v1.0.x extension alpha.",
+      "A monorepo (Chrome extension, reputation dashboard, workflows and an MCP server) that turns your browsing into certified knowledge on Intuition Protocol. Sofia maps a user's activity signals to on-chain attestations via Intuition's atom/triple model on Base. It started as our graduation project for a web-dev degree (two of us) and grew into my only product truly in production, with real users and an Intuition grant. Now on the v1.2 extension, with an \"Add to Sofia\" right-click capture flow (auto-minting context atoms) and a guided explorer onboarding.",
     highlights: [
       "Started as our web-dev degree graduation project (two devs)",
-      "Live with real users: extension v1.0.3 (alpha) + reputation dashboard",
+      "Live with real users: extension v1.2 + reputation dashboard + \"Add to Sofia\" capture",
       "On-chain attestations on Base (Intuition atom/triple model)",
       "Intuition grant secured",
       "Chrome extension + dashboard + workflows + MCP server in one monorepo",

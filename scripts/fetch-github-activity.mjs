@@ -63,6 +63,7 @@ const PINNED = [
   "intuition-box/FeeProxy",
   "Wieedze/TrackHunter",
   "gnosis-box/TheKitty",
+  "Wieedze/OddWave-Studio-",
 ];
 
 // Max number of repo cards to write to the dashboard.

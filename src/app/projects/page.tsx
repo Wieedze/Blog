@@ -5,7 +5,7 @@ import { projects, statusLabel } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Maxime Saint-Joannis's projects: Sofia, ARP, the Intuition Fee Proxy contract, TrackHunter, TheKitty.",
+    "Maxime Saint-Joannis's projects: Sofia, ARP, TheKitty, OurGlass, the Intuition FeeProxy, WisPear, TrackHunter.",
 };
 
 export default function ProjectsPage() {
