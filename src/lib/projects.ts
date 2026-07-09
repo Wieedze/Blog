@@ -72,15 +72,18 @@ export const projects: Project[] = [
     role: "Creator: full-stack & smart contracts",
     stack: ["TypeScript", "React", "Solidity", "Gnosis Chain", "Circles (CRC)"],
     description:
-      "A Circles miniapp on Gnosis Chain, CRC-native. It started as onchain group pots & tontines and grew, week by week, into a small services marketplace: a provider board with ratings and trust badges, a pay sheet, an onchain reward pool, and a \"recommended by your circle\" panel that's really a traversal over the Circles trust graph, the same primitive behind Sofia and ARP. Pushed through a 6-week Gnosis hackathon: 2nd in week 2, iterating weekly toward the finale.",
+      "A Circles miniapp on Gnosis Chain, CRC-native. It started as onchain group pots & tontines and grew, week by week, into a small services marketplace: a provider board with ratings and trust badges, a pay sheet, an onchain reward pool, and a \"recommended by your circle\" panel that's really a traversal over the Circles trust graph, the same primitive behind Sofia and ARP. Pushed through the 6-week Gnosis Circles hackathon, where it finished 2nd overall.",
     highlights: [
-      "2nd in week 2 of a 6-week Gnosis hackathon (iterating weekly toward the finale)",
+      "2nd place overall in the Gnosis Circles hackathon (official)",
       "Onchain group pots & tontines, CRC-native on Gnosis",
       "Services marketplace: providers, ratings, trust badges, pay sheet",
       "Onchain reward pool + a trust-graph \"recommended by your circle\" recommender",
       "ServiceRegistry contract, Sourcify-verified",
     ],
-    links: [{ label: "Repo", url: "https://github.com/gnosis-box/TheKitty" }],
+    links: [
+      { label: "2nd place", url: "https://garage.aboutcircles.com/leaderboard" },
+      { label: "Repo", url: "https://github.com/gnosis-box/TheKitty" },
+    ],
     featured: true,
     year: "2026",
   },
