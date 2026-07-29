@@ -3,6 +3,7 @@ import { projects, statusLabel } from "@/lib/projects";
 import Story from "@/components/Story";
 import Timeline from "@/components/Timeline";
 import Portrait from "@/components/Portrait";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -92,17 +93,15 @@ export default function Home() {
           </Link>
         </div>
 
-        <div>
-          {featured.map((p, i) => (
+        <Reveal style={{ marginTop: 8 }} y={24} stagger={0.1}>
+          {featured.map((p) => (
             <Link
               key={p.slug}
               href={`/projects/${p.slug}`}
-              className="rise"
               style={{
                 display: "block",
                 borderBottom: "1px solid var(--line)",
                 padding: "30px 0",
-                animationDelay: `${0.1 + i * 0.08}s`,
               }}
             >
               <div
@@ -137,7 +136,7 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       <Portrait />

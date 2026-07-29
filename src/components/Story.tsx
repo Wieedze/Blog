@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import { story } from "@/lib/story";
 
 export default function Story() {
@@ -7,9 +8,13 @@ export default function Story() {
         <p className="eyebrow">The story</p>
         <h2 style={{ fontSize: "1.6rem", marginTop: 8 }}>How I got here</h2>
 
-        <div style={{ marginTop: 36, display: "flex", flexDirection: "column", gap: 40 }}>
+        <Reveal
+          y={30}
+          stagger={0.12}
+          style={{ marginTop: 36, display: "flex", flexDirection: "column", gap: 40 }}
+        >
           {story.map((c) => (
-            <div key={c.n} className="reveal" style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+            <div key={c.n} style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
               <div
                 style={{
                   fontFamily: "var(--font-display)",
@@ -41,7 +46,7 @@ export default function Story() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
