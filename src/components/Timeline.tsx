@@ -16,6 +16,7 @@ export default function Timeline() {
           {timeline.map((m, i) => (
             <div
               key={i}
+              className="reveal"
               style={{
                 display: "flex",
                 gap: 20,

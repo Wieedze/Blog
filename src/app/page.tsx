@@ -2,6 +2,8 @@ import Link from "next/link";
 import { projects, statusLabel } from "@/lib/projects";
 import Story from "@/components/Story";
 import Timeline from "@/components/Timeline";
+import Marquee from "@/components/Marquee";
+import Portrait from "@/components/Portrait";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -69,6 +71,8 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <Marquee />
 
       <Story />
       <Timeline />
@@ -138,6 +142,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <Portrait />
     </>
   );
 }

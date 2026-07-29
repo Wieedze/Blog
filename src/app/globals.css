@@ -97,7 +97,53 @@ h3 { font-size: 1.35rem; }
 
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
+  .marquee-track { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+/* --- Keyword marquee (Sprint 4) --- */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 2.4rem;
+  animation: marquee 34s linear infinite;
+  will-change: transform;
+}
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  letter-spacing: .05em;
+  color: var(--ink-faint);
+}
+.marquee-item .dot { color: var(--accent); margin-right: 2.4rem; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- Scroll reveal (Sprint 4) --- */
+/* Progressive: only browsers with scroll-driven animations start hidden, so
+   unsupported browsers and reduced-motion users always see full content. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 18%;
+    }
+  }
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* --- Prose (MDX articles) --- */

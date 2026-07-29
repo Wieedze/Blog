@@ -9,7 +9,7 @@ export default function Story() {
 
         <div style={{ marginTop: 36, display: "flex", flexDirection: "column", gap: 40 }}>
           {story.map((c) => (
-            <div key={c.n} style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+            <div key={c.n} className="reveal" style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
               <div
                 style={{
                   fontFamily: "var(--font-display)",
