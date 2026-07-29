@@ -29,7 +29,7 @@ export const hackathons: Hackathon[] = [
     date: "2026-07-24", // 24–26 July 2026
     duration: "TODO(maxime): duration",
     team: ["TODO(maxime): solo or teammates"],
-    project: "OurGlass — A2A delegation streaming",
+    project: "OurGlass: A2A delegation streaming",
     pitch:
       "Agent-to-agent delegation streaming on OurGlass: recurring, capped payments over ERC-7710, without ERC-4337.",
     stack: ["TypeScript", "Solidity", "ERC-7710", "ENS", "The Graph"],

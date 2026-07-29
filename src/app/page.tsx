@@ -45,7 +45,7 @@ export default function Home() {
           style={{ marginTop: 40, display: "flex", gap: 18, flexWrap: "wrap" }}
         >
           <Link
-            href="/projects"
+            href="/hackathons"
             className="mono"
             style={{
               background: "var(--ink)",
@@ -56,7 +56,7 @@ export default function Home() {
               transition: "opacity .25s var(--ease)",
             }}
           >
-            View projects →
+            View my work →
           </Link>
           <Link
             href="/journal"

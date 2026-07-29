@@ -4,7 +4,12 @@
       "Bash(node scripts/fetch-github-activity.mjs)",
       "Bash(ls -la /mnt/c/Users/Max/Downloads/blogperso/ 2>&1)",
       "Read(//mnt/c/Users/Max/Downloads/blogperso/**)",
-      "WebFetch(domain:atlas.discourse.group)"
+      "WebFetch(domain:atlas.discourse.group)",
+      "Read(//mnt/c/Users/Max/Downloads/**)",
+      "Bash(cd /home/max/Project/BlogPerso *)"
+    ],
+    "additionalDirectories": [
+      "/mnt/c/Users/Max/Downloads"
     ]
   }
 }

@@ -32,6 +32,7 @@ export default function Nav() {
           style={{ display: "flex", gap: 28, fontSize: ".95rem" }}
           className="mono"
         >
+          <Link href="/hackathons" className="link">hackathons</Link>
           <Link href="/projects" className="link">projects</Link>
           <Link href="/journal" className="link">journal</Link>
           <Link href="/now" className="link">now</Link>

@@ -55,7 +55,7 @@ export const timeline: Milestone[] = [
   },
   {
     year: "2026",
-    title: "ARP — Agent Reputation Protocol",
+    title: "ARP: Agent Reputation Protocol",
     context: "Reputation for AI agents",
     body: "TODO(maxime): on-chain reputation for agents (ERC-8004 + Intuition), SDK published as @arp-protocol/sdk.",
     link: "/projects/arp",
