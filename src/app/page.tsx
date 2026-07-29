@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { projects, statusLabel } from "@/lib/projects";
+import Story from "@/components/Story";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -67,6 +69,9 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <Story />
+      <Timeline />
 
       {/* ---------- FEATURED PROJECTS ---------- */}
       <section className="wrap" style={{ paddingTop: 24 }}>
