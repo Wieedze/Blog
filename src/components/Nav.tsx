@@ -29,7 +29,7 @@ export default function Nav() {
           Wieedze<span style={{ color: "var(--accent)" }}>.</span>
         </Link>
         <div
-          style={{ display: "flex", gap: 28, fontSize: ".95rem" }}
+          style={{ display: "flex", gap: 22, fontSize: ".95rem", alignItems: "center" }}
           className="mono"
         >
           <Link href="/hackathons" className="link">hackathons</Link>
@@ -37,6 +37,18 @@ export default function Nav() {
           <Link href="/journal" className="link">journal</Link>
           <Link href="/now" className="link">now</Link>
           <Link href="/activity" className="link">activity</Link>
+          <Link
+            href="/contact"
+            style={{
+              background: "var(--accent)",
+              color: "var(--bg)",
+              padding: "7px 14px",
+              borderRadius: 999,
+              fontSize: ".82rem",
+            }}
+          >
+            Let&apos;s talk
+          </Link>
         </div>
       </nav>
     </header>
