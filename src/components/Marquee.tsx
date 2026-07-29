@@ -9,7 +9,6 @@ const KEYWORDS = [
   "TypeScript",
   "ERC-7710",
   "ERC-8004",
-  "atom/triple",
   "MultiVault",
   "delegation",
   "Safe",
