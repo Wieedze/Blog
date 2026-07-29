@@ -1,20 +1,22 @@
 // Keyword marquee. CSS-only animation (see globals.css), paused under
 // prefers-reduced-motion. aria-hidden because it's decorative.
+// Concrete tech / ecosystems only, no buzzwords.
 
 const KEYWORDS = [
   "Intuition",
-  "ERC-7710",
-  "delegation",
-  "AI agents",
-  "on-chain reputation",
-  "ERC-8004",
   "Circles",
-  "Safe App",
+  "Solidity",
+  "TypeScript",
+  "ERC-7710",
+  "ERC-8004",
   "atom/triple",
+  "MultiVault",
+  "delegation",
+  "Safe",
   "IPFS",
   "ENS",
   "The Graph",
-  "building in public",
+  "wagmi/viem",
 ];
 
 export default function Marquee() {
