@@ -100,6 +100,28 @@ h3 { font-size: 1.35rem; }
   html { scroll-behavior: auto; }
 }
 
+/* --- Timeline progressive reveal (JS-gated: no-JS keeps content visible) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .tl.tl-ready .tl-row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+  }
+  .tl.tl-ready .tl-row .tl-year {
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity .65s var(--ease) .08s, transform .65s var(--ease) .08s;
+  }
+  .tl.tl-ready .tl-row.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tl.tl-ready .tl-row.in .tl-year {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* --- Scroll reveal (Sprint 4) --- */
 /* Progressive: only browsers with scroll-driven animations start hidden, so
    unsupported browsers and reduced-motion users always see full content. */
