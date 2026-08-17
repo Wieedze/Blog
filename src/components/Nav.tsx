@@ -39,15 +39,10 @@ export default function Nav() {
           <Link href="/activity" className="link">activity</Link>
           <Link
             href="/contact"
-            style={{
-              background: "var(--accent)",
-              color: "var(--bg)",
-              padding: "7px 14px",
-              borderRadius: 999,
-              fontSize: ".82rem",
-            }}
+            className="link"
+            style={{ color: "var(--accent)", borderColor: "var(--accent)" }}
           >
-            Let&apos;s talk
+            contact
           </Link>
         </div>
       </nav>

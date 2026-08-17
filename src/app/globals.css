@@ -18,7 +18,7 @@
   --code-bg:       #1c1a17;   /* code blocks, contrast */
 
   --maxw:          1120px;
-  --maxw-prose:    680px;
+  --maxw-prose:    780px;
 
   --font-display:  "Fraunces", Georgia, serif;
   --font-body:     "IBM Plex Sans", system-ui, sans-serif;
@@ -91,15 +91,55 @@ h3 { font-size: 1.35rem; }
 
 /* --- Entrance animations --- */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.rise { animation: rise .7s var(--ease) both; }
-.d1 { animation-delay: .05s; }
-.d2 { animation-delay: .14s; }
-.d3 { animation-delay: .23s; }
-.d4 { animation-delay: .32s; }
-.d5 { animation-delay: .41s; }
+.rise { animation: rise .55s var(--ease) both; }
+.d1 { animation-delay: .03s; }
+.d2 { animation-delay: .09s; }
+.d3 { animation-delay: .15s; }
+.d4 { animation-delay: .21s; }
+.d5 { animation-delay: .27s; }
+
+/* --- Project meta: status words, stack lines, fact rows --- */
+/* Typographic only: status is a word, never a pill; stacks read as a quiet
+   mono line; facts are ruled rows like a colophon. */
+.status-word {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.status-word.is-strong { color: var(--accent); }
+.stack-line {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .02em;
+  color: var(--ink-faint);
+}
+.facts { border-top: 1px solid var(--line); }
+.facts-row {
+  display: flex;
+  gap: 24px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts-label {
+  flex: 0 0 92px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: .3em;
+}
+.facts-value {
+  font-family: var(--font-mono);
+  font-size: .84rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
@@ -126,6 +166,35 @@ h3 { font-size: 1.35rem; }
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* --- Story scrollytelling (JS-gated via .story-ready) --- */
+/* Default: chapters stack in normal flow (no-JS, reduced motion, small
+   screens). Ready: the stage pins for the height of the track and Story.tsx
+   crossfades one chapter into the next as you scroll. */
+.story-track { position: relative; }
+.story-stage { display: flex; flex-direction: column; justify-content: center; }
+.story-panels {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.story-ready .story-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+.story-ready .story-panels {
+  display: block;
+  position: relative;
+}
+.story-ready .story-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: opacity, transform;
 }
 
 /* --- Scroll reveal (Sprint 4) --- */
@@ -194,6 +263,11 @@ h3 { font-size: 1.35rem; }
 .prose a { color: var(--accent); border-bottom: 1px solid var(--accent-soft); }
 .prose ul, .prose ol { padding-left: 1.4rem; color: var(--ink-soft); }
 .prose li + li { margin-top: .4rem; }
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin-top: 2.2rem;
+}
 .prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 1.2rem;

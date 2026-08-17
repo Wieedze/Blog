@@ -25,7 +25,7 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <section className="prose-wrap" style={{ paddingTop: 80 }}>
+    <section className="wrap" style={{ paddingTop: 80 }}>
       <div
         style={{
           display: "flex",
@@ -41,11 +41,15 @@ export default function ContactPage() {
           </h1>
           <p
             className="rise d3"
-            style={{ marginTop: 20, fontSize: "1.15rem", color: "var(--ink-soft)", lineHeight: 1.6 }}
+            style={{
+              marginTop: 20,
+              maxWidth: "68ch",
+              fontSize: "1.15rem",
+              color: "var(--ink-soft)",
+              lineHeight: 1.6,
+            }}
           >
-            Freelance work, collaborations, hackathons, or something I haven&apos;t
-            thought of yet. If you&apos;re building something interesting, I want
-            to hear about it.
+            Freelance work, collaborations, hackathons, or something I haven&apos;t thought of yet. If you&apos;re building something interesting, I want to hear about it.
           </p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -58,7 +62,7 @@ export default function ContactPage() {
           style={{
             width: 148,
             height: 148,
-            borderRadius: 12,
+            borderRadius: "var(--radius)",
             objectFit: "cover",
             border: "1px solid var(--line)",
             flexShrink: 0,
@@ -86,43 +90,34 @@ export default function ContactPage() {
       <div style={{ marginTop: 44 }}>
         <p className="eyebrow">Elsewhere</p>
         <div style={{ marginTop: 16 }}>
-          {channels.map((c) => {
-            const ready = !c.url.startsWith("TODO");
-            return (
-              <div
-                key={c.label}
-                style={{
-                  display: "flex",
-                  gap: 16,
-                  alignItems: "baseline",
-                  borderTop: "1px solid var(--line)",
-                  padding: "14px 0",
-                }}
+          {channels.map((c) => (
+            <div
+              key={c.label}
+              style={{
+                display: "flex",
+                gap: 16,
+                alignItems: "baseline",
+                borderTop: "1px solid var(--line)",
+                padding: "14px 0",
+              }}
+            >
+              <span
+                className="mono"
+                style={{ fontSize: ".76rem", color: "var(--ink-faint)", minWidth: 96 }}
               >
-                <span
-                  className="mono"
-                  style={{ fontSize: ".76rem", color: "var(--ink-faint)", minWidth: 96 }}
-                >
-                  {c.label}
-                </span>
-                {ready ? (
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="link mono"
-                    style={{ fontSize: ".95rem" }}
-                  >
-                    {c.handle}
-                  </a>
-                ) : (
-                  <span className="mono" style={{ fontSize: ".9rem", color: "var(--ink-faint)" }}>
-                    {c.handle}
-                  </span>
-                )}
-              </div>
-            );
-          })}
+                {c.label}
+              </span>
+              <a
+                href={c.url}
+                target="_blank"
+                rel="noreferrer"
+                className="link mono"
+                style={{ fontSize: ".95rem" }}
+              >
+                {c.handle}
+              </a>
+            </div>
+          ))}
           <div style={{ borderTop: "1px solid var(--line)" }} />
         </div>
       </div>

@@ -63,6 +63,13 @@ export const timeline: Milestone[] = [
   },
   {
     year: "2026",
+    title: "TheKitty",
+    context: "2nd place (Gnosis Circles hackathon)",
+    body: "A six-week detour into the Circles ecosystem on Gnosis: on-chain group pots that grew into a small services marketplace, with a recommender built on the Circles trust graph. It finished 2nd overall, my first hackathon placement.",
+    link: "/projects/thekitty",
+  },
+  {
+    year: "2026",
     title: "Hourglass",
     context: "Value delegation",
     body: "Deeper into value delegation with intuition.box: a non-custodial system where a beneficiary pulls their revenue directly at the source, from the account that pays them, via the MetaMask Delegation Framework (ERC-7710). We then took the idea to ETHGlobal Lisbon and built the automated version.",

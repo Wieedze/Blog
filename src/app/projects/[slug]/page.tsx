@@ -69,36 +69,25 @@ export default async function ProjectPage({
         </ul>
       </div>
 
-      <div className="rise d4" style={{ marginTop: 36 }}>
-        <p className="eyebrow">Stack</p>
-        <div
-          className="mono"
-          style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: 8 }}
-        >
-          {p.stack.map((s) => (
-            <span
-              key={s}
-              style={{
-                fontSize: ".78rem",
-                padding: "5px 11px",
-                border: "1px solid var(--line)",
-                borderRadius: "var(--radius)",
-                background: "var(--bg-raised)",
-              }}
-            >
-              {s}
-            </span>
-          ))}
+      <div className="rise d4 facts" style={{ marginTop: 44 }}>
+        {p.stack.length > 0 && (
+          <div className="facts-row">
+            <span className="facts-label">Stack</span>
+            <span className="facts-value">{p.stack.join(" · ")}</span>
+          </div>
+        )}
+        <div className="facts-row">
+          <span className="facts-label">Role</span>
+          <span className="facts-value">{p.role}</span>
+        </div>
+        <div className="facts-row">
+          <span className="facts-label">Year</span>
+          <span className="facts-value">{p.year}</span>
         </div>
       </div>
 
-      <div className="rise d5" style={{ marginTop: 36 }}>
-        <p className="eyebrow">My role</p>
-        <p style={{ marginTop: 10, color: "var(--ink-soft)" }}>{p.role}</p>
-      </div>
-
       {p.links.length > 0 && (
-        <div style={{ marginTop: 40, display: "flex", gap: 16 }}>
+        <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
           {p.links.map((l) => (
             <a
               key={l.url}

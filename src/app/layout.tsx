@@ -13,14 +13,14 @@ export const metadata: Metadata = {
     template: "%s · Wieedze",
   },
   description:
-    "Full-stack & web3 junior developer. I build products in the open across the Intuition and Circles ecosystems: Sofia, OurGlass, TheKitty, ARP, and more. An experimenter documenting the work as it happens.",
+    "Full-stack & web3 developer. I build products in the open across the Intuition and Circles ecosystems: Sofia, Hourglass, TheKitty, ARP, and more. An experimenter documenting the work as it happens.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Wieedze",
     title: "Maxime Saint-Joannis, builder, learning in public",
     description:
-      "I build web3 products in public: Sofia, OurGlass, TheKitty, ARP, and more. Documenting the work as it happens.",
+      "I build web3 products in public: Sofia, Hourglass, TheKitty, ARP, and more. Documenting the work as it happens.",
   },
   twitter: {
     card: "summary_large_image",

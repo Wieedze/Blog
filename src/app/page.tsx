@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { projects, statusLabel, type Project } from "@/lib/projects";
+import { projects, type Project } from "@/lib/projects";
 import Story from "@/components/Story";
 import Timeline from "@/components/Timeline";
 import Portrait from "@/components/Portrait";
+import ProjectRow from "@/components/ProjectRow";
 import Reveal from "@/components/Reveal";
 import Deck from "@/components/Deck";
 
@@ -24,27 +25,24 @@ export default function Home() {
             className="rise d3"
             style={{
               marginTop: 28,
-              maxWidth: "54ch",
+              maxWidth: "68ch",
               fontSize: "1.2rem",
               color: "var(--ink-soft)",
               lineHeight: 1.6,
             }}
           >
-            Full-stack & web3 junior developer. A product live with real users,
-            an Intuition grant, a mission landed with a DAO, and a wide-open
-            field still left to explore.
+            Full-stack & web3 developer.
           </p>
           <p
             className="rise d3 mono"
             style={{
               marginTop: 20,
-              maxWidth: "54ch",
+              maxWidth: "68ch",
               fontSize: ".92rem",
               color: "var(--ink-faint)",
             }}
           >
-            Not an expert, an experimenter. I build in the open and write it
-            down as it happens: what ships, what breaks, what I learn next.
+            Not an expert, an experimenter. I build in the open and write it down as it happens.
           </p>
 
           <div
@@ -60,7 +58,6 @@ export default function Home() {
                 padding: "13px 26px",
                 borderRadius: "var(--radius)",
                 fontSize: ".9rem",
-                transition: "opacity .25s var(--ease)",
               }}
             >
               View my work →
@@ -128,70 +125,12 @@ function WorkBlock({
         </Link>
       </div>
 
-      <Reveal style={{ marginTop: 24 }} y={24} stagger={0.1}>
+      <Reveal style={{ marginTop: 24 }} y={16} stagger={0.07}>
         {items.map((p) => (
-          <Link
-            key={p.slug}
-            href={`/projects/${p.slug}`}
-            style={{
-              display: "block",
-              borderBottom: "1px solid var(--line)",
-              padding: "26px 0",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 16,
-                alignItems: "baseline",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ flex: "1 1 320px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <h3 style={{ fontSize: "1.5rem" }}>{p.name}</h3>
-                  <StatusPill status={p.status} />
-                </div>
-                <p style={{ color: "var(--ink-soft)", marginTop: 6 }}>
-                  {p.tagline}
-                </p>
-              </div>
-              <div
-                className="mono"
-                style={{
-                  fontSize: ".78rem",
-                  color: "var(--ink-faint)",
-                  textAlign: "right",
-                }}
-              >
-                {p.stack.slice(0, 3).join(" · ")}
-                <div style={{ marginTop: 4 }}>{statusLabel[p.status]}</div>
-              </div>
-            </div>
-          </Link>
+          <ProjectRow key={p.slug} project={p} />
         ))}
       </Reveal>
+      <div style={{ borderTop: "1px solid var(--line)" }} />
     </section>
-  );
-}
-
-function StatusPill({ status }: { status: string }) {
-  const isLive = status === "live";
-  return (
-    <span
-      className="mono"
-      style={{
-        fontSize: ".64rem",
-        letterSpacing: ".1em",
-        textTransform: "uppercase",
-        padding: "3px 8px",
-        borderRadius: 999,
-        background: isLive ? "var(--accent)" : "var(--accent-soft)",
-        color: isLive ? "var(--bg)" : "var(--ink-soft)",
-      }}
-    >
-      {isLive ? "live" : status}
-    </span>
   );
 }

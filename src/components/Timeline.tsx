@@ -4,10 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { timeline } from "@/lib/timeline";
 
-function clean(value: string): string {
-  return value && !value.startsWith("TODO") ? value : "";
-}
-
 export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -63,7 +59,7 @@ export default function Timeline() {
                 className="mono tl-year"
                 style={{ fontSize: ".9rem", color: "var(--accent)", minWidth: 76 }}
               >
-                {clean(m.year)}
+                {m.year}
               </div>
               <div style={{ flex: "1 1 440px" }}>
                 <div style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
