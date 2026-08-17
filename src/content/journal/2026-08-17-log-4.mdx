@@ -1,0 +1,32 @@
+---
+title: "log 4: lisbon, a governance poc, and a board game that breathes"
+date: "2026-08-17"
+description: "a month in one log: hourglass pitched at ethglobal lisbon, a liquid democracy poc where the knowledge graph is the permission system, and the music thread turning into a real client."
+tags: ["build", "ourglass", "liquid-democracy", "loka", "hackathons", "music"]
+---
+
+fourth log, and it covers a month instead of a week. the gap is the story: too much shipping, not enough writing it down. catching up.
+
+## ethglobal lisbon: hourglass, automated
+
+took [hourglass](/projects/ourglass) to ethglobal lisbon (july 24). the version we built there is the automated one: you delegate a bounded permission to an ai agent and it runs a defi yield plan for you (deposits, liquidity positions, limit orders) strictly inside the erc-7710 caveats you sign. presenting forced the pitch down to what a judge can verify in a minute: one signature, one on-chain cap, revocable anytime. that pressure is also what convinced me the delegation framework is a product surface, not just plumbing.
+
+## liquid democracy: the graph is the permission system
+
+back from lisbon i started the poc i'm on right now, a mission for the intuition.box dao. the idea: a three-level delegation chain (voter to delegate to executor) where voting authority is scoped by *domain*, and the scope check is resolved by traversing the intuition knowledge graph. the thesis in one move: add "branding is a sub-domain of design" to the graph, and every design-scoped delegation instantly covers branding, no contract redeploy. the core piece is a custom erc-7710 caveat enforcer that verifies a domain path against live multivault state, plus a frontend where you extend the graph live and watch a delegation signed earlier authorize a domain that did not exist when it was signed. same delegation thread as hourglass, pointed at governance.
+
+## the music thread became a client: loka
+
+the sound work brought in a real client. loka is an initiatory board game built around meditation, and i'm designing its companion app: a web app behind a qr code on the game box that carries the whole audio journey. soundtracks, guided meditations, mantras, threshold moments. it sounds simple and it is not: a meditation has to duck the soundtrack and hand it back, mantras layer on top, universes crossfade into each other, and a session runs well over an hour on a phone. so: web audio api for real-time mixing, full offline preload as a pwa, wake lock so a sleeping screen does not kill the sound mid-journey. music, dev, game design and meditation in one project; the venn diagram of everything i do.
+
+## what i learned
+
+a hackathon pitch and a dao mission get judged the same way: by what someone can verify live, on their feet. i've started building the demo script before the feature list, and it changes what i build first.
+
+the loka scoping also taught me that on a client project the irreversible thing is not the code, it's the qr code printed on the game boxes. the first technical decision was a boring one: a stable domain with a redirect layer, frozen before anything goes to print.
+
+## what's next
+
+- liquid democracy: seed the domain graph on testnet, ship the enforcer with its test suite, then rehearse the live demo.
+- loka: audio inventory back from the client, then a first playable audio prototype.
+- the site itself got a redesign this week (stacked sheets, the real timeline). that one has [its own note](/journal/2026-08-17-stacked-sheets-real-story).

@@ -1,0 +1,30 @@
+---
+title: "Stacked sheets and the real story"
+date: "2026-08-17"
+summary: "A redesign session on the home page: a timeline that finally tells my actual story, projects split into their two worlds, a stacked-sheets scroll borrowed from a site I love, and a hydration bug I inflicted on myself."
+tags: ["site", "design", "building-in-public"]
+---
+
+Redesign session on the home page today. Two things had been bothering me: the timeline was a skeleton of placeholders in an order that told no story, and the projects read as one undifferentiated pile.
+
+## A timeline that tells the truth
+
+The old milestones were guesses. The real arc goes like this: I produced my own music in Ableton Live and performed it live, professionally. Building the machinery behind the sound (processing chains, racks, presets) became its own obsession, and that itch for tooling is what pushed me into code, through The Hacking Project, into the web and then web3. Sofia started there with a schoolmate, a graduation project that a grant turned into a real product. Our first hackathon at ETHGlobal Cannes produced [WisPear](/projects/wispear), and WisPear left me with the question that became [ARP](/projects/arp): an agent is not just a model, it is a wrapper of components that should be enumerated and weighted by the agents that use them. In parallel came the [FeeProxy](/projects/intuition-fee-proxy) mission, then [Hourglass](/projects/ourglass) and the delegation thread that I am still pulling on today with the liquid democracy POC. TrackHunter happened in the middle of all of it, and Loka is the music side coming back as a real client.
+
+Writing it down in order did something unexpected: the site finally has a narrative spine instead of a list of nouns.
+
+## Two worlds, one itch
+
+The other fix was admitting that my projects live in two different worlds. Web3 on one side: protocols, DAO missions, hackathon builds. Music and sound on the other: not the same techniques, not the same scope of mission, not the same clients. A `domain` field on each project now splits the home and the projects page into two blocks, and the music block lands on slightly warmer paper so you feel the world change as you scroll into it.
+
+## The scroll: stacked sheets
+
+I love how passive-records.box brings each section in as a full page that covers the previous one, so I view-sourced it. The core is almost nothing: `position: sticky; top: 0; min-height: 100svh` on each section, and later siblings naturally paint over pinned earlier ones. The catch nobody mentions: any section taller than one viewport pins too early and its lower content becomes unreachable. The fix is a negative sticky top per section (top equals viewport height minus section height, clamped to zero), measured in JS, so a tall section scrolls all the way through before pinning on its final screen. A scroll-driven veil dims the covered sheet and shrinks it a hair as the next one slides over.
+
+## What did not survive
+
+I tried inverting the direction: a curtain dropping from the top, built from a translateY that glues the incoming sheet to the viewport top plus an animated `clip-path` wipe. It worked, technically. It also felt wrong immediately. Scroll has a physics, content comes from below, and fighting that reads as a gimmick. Reverted the same day. Cheap experiments are the point of building this way.
+
+## The bug I inflicted on myself
+
+Every page suddenly threw a React hydration error. The culprit: Sofia, my own extension, injects a `data-sofia-extension` attribute on `<html>` before React hydrates, and the server obviously never rendered it. One `suppressHydrationWarning` on the html tag fixed the site. It also left a note for Sofia's backlog: inject after load instead, or every Next.js dev running the extension sees their console turn red. Nothing teaches you a bug class faster than shipping both sides of it.

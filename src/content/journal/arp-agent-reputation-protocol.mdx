@@ -5,41 +5,20 @@ summary: "Why agents need reputation, the MetaMask Snap MVP, and learning ZK wit
 tags: ["arp", "intuition", "ai-agents", "zk", "noir", "building-in-public"]
 ---
 
-[ARP](/projects/arp), Agent Reputation Protocol, is the project I'm most
-excited about right now, and the one most likely to humble me. The MVP shipped
-this week for the MetaMask Snap Smart Wallet hackathon.
+[ARP](/projects/arp), Agent Reputation Protocol, is the project I'm most excited about right now, and the one most likely to humble me. The MVP shipped this week for the MetaMask Snap Smart Wallet hackathon.
 
-It didn't come from nowhere. After ETHGlobal Cannes I started thinking seriously
-about agent reputation and worked it out in two posts: [the wrapper
-problem](/journal/wrapper-problem) (reputation should flow through the tools an
-agent uses, not stop at the agent) and [attribution as graph
-traversal](/journal/attribution-graph-traversal), a two-layer way to make that
-honest and auditable. ARP is the attempt to actually build it.
+It didn't come from nowhere. After ETHGlobal Cannes I started thinking seriously about agent reputation and worked it out in two posts: [the wrapper problem](/journal/wrapper-problem) (reputation should flow through the tools an agent uses, not stop at the agent) and [attribution as graph traversal](/journal/attribution-graph-traversal), a two-layer way to make that honest and auditable. ARP is the attempt to actually build it.
 
 ## Why agents need this
 
-We're about to hand agents real autonomy (money, tools, decisions) with
-almost no way to ask "is this one any good?" A score isn't enough: an agent can
-be excellent at one task and reckless at another. So ARP models reputation as
-something **multi-dimensional**: agent × tool × category × period, expressed as
-Intuition triples. Not "this agent is 8/10," but "this agent, with this tool,
-in this category, lately, looks like this."
+We're about to hand agents real autonomy (money, tools, decisions) with almost no way to ask "is this one any good?" A score isn't enough: an agent can be excellent at one task and reckless at another. So ARP models reputation as something **multi-dimensional**: agent × tool × category × period, expressed as Intuition triples. Not "this agent is 8/10," but "this agent, with this tool, in this category, lately, looks like this."
 
-It's the same conviction behind [Sofia](/projects/sofia) and
-[WisPear](/projects/wispear): reputation should be legible and on-chain, not a
-private number someone controls.
+It's the same conviction behind [Sofia](/projects/sofia) and [WisPear](/projects/wispear): reputation should be legible and on-chain, not a private number someone controls.
 
 ## The ZK part (where I'm out of my depth, happily)
 
-The piece I'm learning in public is **zero-knowledge proofs with
-[Noir](https://noir-lang.org/)**. The goal: let an agent prove it clears a
-reputation *threshold* without revealing its full history. Useful, and genuinely
-hard. I'm still at the stage where every concept costs me a day. Writing that
-down instead of pretending otherwise is the whole point of this journal.
+The piece I'm learning in public is **zero-knowledge proofs with [Noir](https://noir-lang.org/)**. The goal: let an agent prove it clears a reputation *threshold* without revealing its full history. Useful, and genuinely hard. I'm still at the stage where every concept costs me a day. Writing that down instead of pretending otherwise is the whole point of this journal.
 
 ## What's next
 
-ETHGlobal Lisbon, with ARP as the thing I bring. Between now and then it's
-Noir, sharpening the data model, and finding a team: building a trust graph is
-not a solo sport. If you're into agents, ZK, or Intuition, this is the one to
-talk to me about.
+ETHGlobal Lisbon, with ARP as the thing I bring. Between now and then it's Noir, sharpening the data model, and finding a team: building a trust graph is not a solo sport. If you're into agents, ZK, or Intuition, this is the one to talk to me about.

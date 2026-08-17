@@ -5,36 +5,20 @@ summary: "A DAO in the Intuition ecosystem hired me to build a proxy factory on 
 tags: ["intuition", "solidity", "dao", "building-in-public"]
 ---
 
-[The Intuition Fee Proxy Factory](/projects/intuition-fee-proxy) is a first for
-me: a **paid contract with a DAO** in the Intuition ecosystem, rather than one
-of my own projects. Different stakes, different muscle.
+[The Intuition Fee Proxy Factory](/projects/intuition-fee-proxy) is a first for me: a **paid contract with a DAO** in the Intuition ecosystem, rather than one of my own projects. Different stakes, different muscle.
 
 ## The brief
 
-Any business launching on Intuition needs two things: a way to **prove its
-engagement metrics on-chain**, and a way to **handle fee collection**. The job
-is a factory that spins up proxies on Intuition's **MultiVault** to do exactly
-that, packaged as contracts, an SDK, Safe transaction tooling, and a webapp,
-with a Forge-based deployment flow.
+Any business launching on Intuition needs two things: a way to **prove its engagement metrics on-chain**, and a way to **handle fee collection**. The job is a factory that spins up proxies on Intuition's **MultiVault** to do exactly that, packaged as contracts, an SDK, Safe transaction tooling, and a webapp, with a Forge-based deployment flow.
 
 ## What's different about paid work
 
-When it's your own project, the spec lives in your head and you can change it at
-will. Building to a DAO's requirements is the opposite: the spec is the
-contract, and "I'd have done it differently" isn't the point. That constraint is
-clarifying. It forces decisions you'd otherwise keep deferring.
+When it's your own project, the spec lives in your head and you can change it at will. Building to a DAO's requirements is the opposite: the spec is the contract, and "I'd have done it differently" isn't the point. That constraint is clarifying. It forces decisions you'd otherwise keep deferring.
 
 ## Where it bites
 
-Upgradeability. The factory uses the **UUPS proxy pattern**, which means the
-upgrade path *is* the design. Get the storage layout or the authorization wrong
-and you've shipped a footgun that's expensive to walk back. Add Safe multisig
-flows on top and the careful part isn't the feature code, it's everything around
-how it gets deployed and changed safely.
+Upgradeability. The factory uses the **UUPS proxy pattern**, which means the upgrade path *is* the design. Get the storage layout or the authorization wrong and you've shipped a footgun that's expensive to walk back. Add Safe multisig flows on top and the careful part isn't the feature code, it's everything around how it gets deployed and changed safely.
 
 ## Why it matters to me
 
-It's proof the on-chain reputation thinking has a commercial edge: businesses
-will pay to make their metrics legible and verifiable. That's the same thread
-running through [Sofia](/projects/sofia) and [ARP](/projects/arp): legible,
-on-chain truth, pointed at a concrete, paid use case.
+It's proof the on-chain reputation thinking has a commercial edge: businesses will pay to make their metrics legible and verifiable. That's the same thread running through [Sofia](/projects/sofia) and [ARP](/projects/arp): legible, on-chain truth, pointed at a concrete, paid use case.
