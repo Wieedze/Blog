@@ -55,6 +55,11 @@ export default function Deck({ children }: { children: ReactNode }) {
               start: "top bottom",
               end: "top top",
               scrub: true,
+              // Flag covered sheets so fixed overlays inside them (the
+              // project jump rail) can fade out as the next sheet arrives.
+              onUpdate: (self) => {
+                sheets[i].classList.toggle("is-covered", self.progress > 0.06);
+              },
             },
           }
         );

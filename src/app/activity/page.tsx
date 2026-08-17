@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import activity from "@/content/activity.json";
+import PageShell from "@/components/PageShell";
 
 type Day = { date: string; count: number; level: number };
 type Calendar = { total: number; weeks: Day[][] };
@@ -52,26 +53,19 @@ export default function ActivityPage() {
   const calendar = data.calendars?.[String(year)];
 
   return (
-    <section className="wrap" style={{ paddingTop: 80 }}>
-      <div
-        className="rise d1"
-        style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}
-      >
-        <p className="eyebrow">Developer activity</p>
-        <p className="mono" style={{ fontSize: ".78rem", color: "var(--ink-faint)" }}>
+    <PageShell
+      eyebrow="Developer activity"
+      eyebrowRight={
+        <p className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}>
           GitHub: <span style={{ color: "var(--accent)" }}>@{data.user}</span> · synced {fmtDate(data.syncedAt)}
         </p>
-      </div>
-      <h1 className="rise d2" style={{ marginTop: 14 }}>
-        Activity
-      </h1>
-
+      }
+      title="Activity"
+    >
       {/* ---------- STATS ---------- */}
       {data.stats && (
         <div
-          className="rise d3"
           style={{
-            marginTop: 40,
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
             gap: 24,
@@ -86,7 +80,6 @@ export default function ActivityPage() {
       {/* ---------- CONTRIBUTION HEATMAP ---------- */}
       {calendar && (
         <div
-          className="rise d4"
           style={{
             marginTop: 40,
             borderTop: "1px solid var(--line)",
@@ -101,7 +94,7 @@ export default function ActivityPage() {
                   onClick={() => setYear(y)}
                   className="mono"
                   style={{
-                    fontSize: ".82rem",
+                    fontSize: "var(--fs-sm)",
                     padding: "2px 0",
                     cursor: "pointer",
                     border: "none",
@@ -117,7 +110,7 @@ export default function ActivityPage() {
                 </button>
               ))}
             </div>
-            <div className="mono" style={{ fontSize: ".74rem", color: "var(--ink-faint)", display: "flex", alignItems: "center", gap: 6 }}>
+            <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", display: "flex", alignItems: "center", gap: 6 }}>
               <span>Less</span>
               {HEAT.map((c, i) => (
                 <span key={i} style={{ width: 11, height: 11, borderRadius: 2, background: c, display: "inline-block" }} />
@@ -126,7 +119,7 @@ export default function ActivityPage() {
             </div>
           </div>
 
-          <p className="mono" style={{ fontSize: ".76rem", color: "var(--ink-soft)", marginTop: 14 }}>
+          <p className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-soft)", marginTop: 14 }}>
             {fmtNum(calendar.total)} contributions in {year}
           </p>
 
@@ -137,7 +130,7 @@ export default function ActivityPage() {
       {/* ---------- REPOSITORIES ---------- */}
       {data.repos && data.repos.length > 0 && (
         <div style={{ marginTop: 48 }}>
-          <p className="eyebrow rise">Repositories</p>
+          <p className="eyebrow">Repositories</p>
           <div
             style={{
               marginTop: 18,
@@ -146,34 +139,32 @@ export default function ActivityPage() {
               gap: 16,
             }}
           >
-            {data.repos.map((r, i) => (
+            {data.repos.map((r) => (
               <a
                 key={r.fullName}
                 href={r.url}
                 target="_blank"
                 rel="noreferrer"
-                className="rise"
                 style={{
                   borderTop: "1px solid var(--line)",
                   padding: "18px 0 4px",
                   display: "flex",
                   flexDirection: "column",
                   gap: 10,
-                  animationDelay: `${0.06 + Math.min(i, 8) * 0.045}s`,
                 }}
               >
                 <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem" }}>{r.name}</span>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-lede)" }}>{r.name}</span>
                   <span className="status-word">
                     {r.isPrivate ? "private" : "public"}
                   </span>
                 </div>
-                <p style={{ fontSize: ".92rem", color: "var(--ink-soft)", lineHeight: 1.5, flex: 1 }}>
+                <p style={{ fontSize: "var(--fs-sm)", color: "var(--ink-soft)", lineHeight: 1.5, flex: 1 }}>
                   {r.description}
                 </p>
                 <div
                   className="mono"
-                  style={{ fontSize: ".76rem", color: "var(--ink-faint)", display: "flex", gap: 16, alignItems: "center" }}
+                  style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", display: "flex", gap: 16, alignItems: "center" }}
                 >
                   {r.language && (
                     <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -201,7 +192,7 @@ export default function ActivityPage() {
       {/* ---------- RECENT EVENTS (fallback / extra) ---------- */}
       {!data.stats && data.events && (
         <div style={{ marginTop: 44 }}>
-          <p className="mono" style={{ fontSize: ".82rem", color: "var(--ink-faint)" }}>
+          <p className="mono" style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}>
             Set a <code>GITHUB_TOKEN</code> and run <code>bun run sync:activity</code> to load the full dashboard.
           </p>
           <div style={{ marginTop: 24 }}>
@@ -218,14 +209,14 @@ export default function ActivityPage() {
               >
                 <span
                   className="mono"
-                  style={{ fontSize: ".66rem", textTransform: "uppercase", color: "var(--accent)", minWidth: 96 }}
+                  style={{ fontSize: "var(--fs-xs)", textTransform: "uppercase", color: "var(--accent)", minWidth: 96 }}
                 >
                   {e.type}
                 </span>
                 <div style={{ flex: 1 }}>
-                  <span className="mono" style={{ fontSize: ".9rem" }}>{e.repo}</span>
+                  <span className="mono" style={{ fontSize: "var(--fs-sm)" }}>{e.repo}</span>
                   {e.message && <span style={{ color: "var(--ink-soft)" }}>: {e.message}</span>}
-                  <div className="mono" style={{ fontSize: ".72rem", color: "var(--ink-faint)", marginTop: 2 }}>
+                  <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 2 }}>
                     {e.detail} · {fmtDate(e.date)}
                   </div>
                 </div>
@@ -234,17 +225,17 @@ export default function ActivityPage() {
           </div>
         </div>
       )}
-    </section>
+    </PageShell>
   );
 }
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
     <div style={{ borderTop: "1px solid var(--line)", paddingTop: 18 }}>
-      <div style={{ fontFamily: "var(--font-display)", fontSize: "2.4rem", fontWeight: 600, lineHeight: 1 }}>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-h2)", fontWeight: 600, lineHeight: 1 }}>
         {fmtNum(value)}
       </div>
-      <div className="mono" style={{ fontSize: ".74rem", color: "var(--ink-faint)", marginTop: 8 }}>
+      <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 8 }}>
         {label}
       </div>
     </div>
@@ -272,7 +263,7 @@ function Heatmap({ calendar }: { calendar: Calendar }) {
             <div
               key={i}
               className="mono"
-              style={{ width: 11, fontSize: ".62rem", color: "var(--ink-faint)", whiteSpace: "nowrap" }}
+              style={{ width: 11, fontSize: "var(--fs-xs)", color: "var(--ink-faint)", whiteSpace: "nowrap" }}
             >
               {m}
             </div>

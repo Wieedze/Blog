@@ -18,19 +18,19 @@ export default function Footer() {
         }}
       >
         <div>
-          <div style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem" }}>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-lede)" }}>
             Maxime Saint-Joannis
           </div>
           <div
             className="mono"
-            style={{ fontSize: ".82rem", color: "var(--ink-faint)", marginTop: 4 }}
+            style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)", marginTop: 4 }}
           >
             Building in public
           </div>
         </div>
         <div
           className="mono"
-          style={{ display: "flex", gap: 20, fontSize: ".88rem" }}
+          style={{ display: "flex", gap: 20, fontSize: "var(--fs-sm)" }}
         >
           <a href="https://github.com/Wieedze" className="link" target="_blank" rel="noreferrer">
             GitHub

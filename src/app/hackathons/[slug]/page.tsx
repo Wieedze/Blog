@@ -41,7 +41,7 @@ export default async function HackathonPage({
       <Link
         href="/hackathons"
         className="mono link"
-        style={{ fontSize: ".85rem", color: "var(--ink-faint)" }}
+        style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}
       >
         ← hackathons
       </Link>
@@ -52,12 +52,12 @@ export default async function HackathonPage({
           {h.prize ? ` · ${h.prize}` : ""}
         </p>
         <h1 style={{ marginTop: 12 }}>{h.project}</h1>
-        <p style={{ fontSize: "1.25rem", color: "var(--ink-soft)", marginTop: 14 }}>
+        <p style={{ fontSize: "var(--fs-lede)", color: "var(--ink-soft)", marginTop: 14 }}>
           {h.pitch}
         </p>
         <p
           className="mono"
-          style={{ fontSize: ".82rem", color: "var(--ink-faint)", marginTop: 16 }}
+          style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)", marginTop: 16 }}
         >
           {meta}
         </p>
@@ -115,7 +115,7 @@ export default async function HackathonPage({
                 color: "var(--bg)",
                 padding: "11px 22px",
                 borderRadius: "var(--radius)",
-                fontSize: ".85rem",
+                fontSize: "var(--fs-sm)",
               }}
             >
               {linkLabels[kind] ?? kind} ↗

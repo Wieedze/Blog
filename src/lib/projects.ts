@@ -9,6 +9,9 @@ export type Project = {
   description: string;
   highlights: string[];
   links: { label: string; url: string }[];
+  // Live site shown as a scaled iframe preview (SitePreview). Only set it
+  // for sites verified to allow framing (no X-Frame-Options / frame-ancestors).
+  preview?: string;
   featured: boolean;
   year: string;
 };
@@ -40,6 +43,7 @@ export const projects: Project[] = [
         url: "https://atlas.discourse.group/t/sofia-grant-application-december-2025/1177",
       },
     ],
+    preview: "https://sofia.intuition.box",
     featured: true,
     year: "2025–2026",
   },
@@ -64,6 +68,7 @@ export const projects: Project[] = [
       { label: "Live demo", url: "https://arp-app-flax.vercel.app" },
       { label: "Repo", url: "https://github.com/Wieedze/ARP" },
     ],
+    preview: "https://arp-app-flax.vercel.app",
     featured: true,
     year: "2026",
   },
@@ -85,9 +90,11 @@ export const projects: Project[] = [
       "ServiceRegistry contract, Sourcify-verified",
     ],
     links: [
+      { label: "Site", url: "https://thekitty.gnosis.box/services" },
       { label: "2nd place", url: "https://garage.aboutcircles.com/leaderboard" },
       { label: "Repo", url: "https://github.com/gnosis-box/TheKitty" },
     ],
+    preview: "https://thekitty.gnosis.box/services",
     featured: true,
     year: "2026",
   },
@@ -112,6 +119,7 @@ export const projects: Project[] = [
       { label: "Site", url: "https://hourglass.box" },
       { label: "Repo", url: "https://github.com/intuition-box/Hourglass" },
     ],
+    preview: "https://hourglass.box",
     featured: true,
     year: "2026",
   },
@@ -133,7 +141,11 @@ export const projects: Project[] = [
       "Earlier per-affiliate factory/proxy design retired for the singleton",
       "Live on Intuition testnet; design polish (in public) ahead of mainnet",
     ],
-    links: [{ label: "Repo", url: "https://github.com/intuition-box/FeeProxy" }],
+    links: [
+      { label: "Site", url: "https://proxy.intuition.box" },
+      { label: "Repo", url: "https://github.com/intuition-box/FeeProxy" },
+    ],
+    preview: "https://proxy.intuition.box",
     featured: true,
     year: "2025–2026",
   },
@@ -158,6 +170,7 @@ export const projects: Project[] = [
       { label: "Site", url: "https://wispear.ai" },
       { label: "Repo", url: "https://github.com/intuition-box/WisPear" },
     ],
+    preview: "https://wispear.ai",
     featured: true,
     year: "2026",
   },
@@ -182,6 +195,7 @@ export const projects: Project[] = [
       { label: "Site", url: "https://oddwavestudio.com" },
       { label: "Repo", url: "https://github.com/Wieedze/OddWave-Studio-" },
     ],
+    preview: "https://oddwavestudio.com",
     featured: true,
     year: "2026",
   },
@@ -243,6 +257,7 @@ export const projects: Project[] = [
       { label: "Site", url: "https://track-hunter.com/" },
       { label: "Repo", url: "https://github.com/Wieedze/TrackHunter" },
     ],
+    preview: "https://track-hunter.com/",
     featured: false,
     year: "2024–2026",
   },

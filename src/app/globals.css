@@ -20,6 +20,18 @@
   --maxw:          1120px;
   --maxw-prose:    780px;
 
+  /* --- Échelle typographique ---
+     8 tailles pour tout le site (corps 17px inclus), aucune font-size en
+     dehors de ces variables. Deux crans sous le corps, deux crans de
+     lecture au-dessus, trois tailles display. */
+  --fs-xs:    .72rem;                       /* mono micro: eyebrows, labels, meta */
+  --fs-sm:    .88rem;                       /* petit texte: nav, liens, captions */
+  --fs-prose: 1.08rem;                      /* corps de lecture des articles */
+  --fs-lede:  1.2rem;                       /* chapeau sous un titre de page */
+  --fs-h3:    1.4rem;                       /* titres de cartes, entrées de liste */
+  --fs-h2:    clamp(1.6rem, 2.5vw, 2rem);   /* titres de section, une seule taille */
+  --fs-h1:    clamp(2.3rem, 5vw, 3.3rem);   /* display, un par page */
+
   --font-display:  "Fraunces", Georgia, serif;
   --font-body:     "IBM Plex Sans", system-ui, sans-serif;
   --font-mono:     "IBM Plex Mono", ui-monospace, monospace;
@@ -63,14 +75,14 @@ h1, h2, h3, h4 {
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
-h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 600; }
-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-h3 { font-size: 1.35rem; }
+h1 { font-size: var(--fs-h1); font-weight: 600; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
 
 .mono { font-family: var(--font-mono); }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: .72rem;
+  font-size: var(--fs-xs);
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--accent);
@@ -101,12 +113,32 @@ h3 { font-size: 1.35rem; }
 .d4 { animation-delay: .21s; }
 .d5 { animation-delay: .27s; }
 
+/* --- Project rows (ProjectRow.tsx) --- */
+/* Fixed columns so the previews and the status/year meta align from row to
+   row: text takes the slack, the preview column is a constant 200px, the
+   meta column a constant 96px. Rows without a preview keep an empty middle
+   cell so nothing drifts. Stacks to one column on narrow screens. */
+.project-row-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px 28px;
+  align-items: center;
+}
+/* The empty preview placeholder only exists to hold the column open. */
+.project-row-grid > [aria-hidden] { display: none; }
+@media (min-width: 880px) {
+  .project-row-grid {
+    grid-template-columns: minmax(0, 1fr) 200px 96px;
+  }
+  .project-row-grid > [aria-hidden] { display: block; }
+}
+
 /* --- Project meta: status words, stack lines, fact rows --- */
 /* Typographic only: status is a word, never a pill; stacks read as a quiet
    mono line; facts are ruled rows like a colophon. */
 .status-word {
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: var(--fs-xs);
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -114,7 +146,7 @@ h3 { font-size: 1.35rem; }
 .status-word.is-strong { color: var(--accent); }
 .stack-line {
   font-family: var(--font-mono);
-  font-size: .74rem;
+  font-size: var(--fs-xs);
   letter-spacing: .02em;
   color: var(--ink-faint);
 }
@@ -128,7 +160,7 @@ h3 { font-size: 1.35rem; }
 .facts-label {
   flex: 0 0 92px;
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: var(--fs-xs);
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -136,7 +168,7 @@ h3 { font-size: 1.35rem; }
 }
 .facts-value {
   font-family: var(--font-mono);
-  font-size: .84rem;
+  font-size: var(--fs-sm);
   color: var(--ink-soft);
   line-height: 1.7;
 }
@@ -168,6 +200,28 @@ h3 { font-size: 1.35rem; }
   }
 }
 
+/* --- Pinned sections (JS-gated via .pin-ready, see PinnedSection.tsx) --- */
+/* Default: normal flow. Ready: the stage pins under the nav like the story's
+   and the content translates through the clipped frame below the fixed
+   header. No fades, just the scroll (PinnedSection.tsx drives the transform).
+   Used by the timeline and the two work sheets on the home. */
+.pin-track { position: relative; }
+.pin-ready .pin-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 84px 0 40px; /* clears the 68px sticky nav */
+}
+.pin-ready .pin-frame {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.pin-ready .pin-list { will-change: transform; }
+
 /* --- Story scrollytelling (JS-gated via .story-ready) --- */
 /* Default: chapters stack in normal flow (no-JS, reduced motion, small
    screens). Ready: the stage pins for the height of the track and Story.tsx
@@ -196,6 +250,58 @@ h3 { font-size: 1.35rem; }
   right: 0;
   will-change: opacity, transform;
 }
+
+/* --- Scrollytelling jump rail (ScrollyRail.tsx) --- */
+/* A quiet ladder truly fixed at the middle of the screen edge: one tick per
+   panel, the name surfaces on hover and on the active tick. Rendered in a
+   portal on <body> (the deck's scaled sheets would otherwise trap
+   position: fixed), so visibility is state-driven via .is-on, not gated by
+   ancestor classes. */
+.scrolly-rail {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s var(--ease);
+}
+.scrolly-rail.is-on { opacity: 1; pointer-events: auto; }
+.scrolly-rail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+  opacity: .35;
+  transition: opacity .25s var(--ease), color .25s var(--ease);
+}
+.scrolly-rail-item:hover { opacity: 1; }
+.scrolly-rail-item[data-active] { opacity: 1; color: var(--accent); }
+.scrolly-rail-label {
+  opacity: 0;
+  transform: translateX(4px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.scrolly-rail-item:hover .scrolly-rail-label,
+.scrolly-rail-item[data-active] .scrolly-rail-label { opacity: 1; transform: none; }
+.scrolly-rail-tick {
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  transition: width .25s var(--ease);
+}
+.scrolly-rail-item[data-active] .scrolly-rail-tick { width: 26px; }
 
 /* --- Scroll reveal (Sprint 4) --- */
 /* Progressive: only browsers with scroll-driven animations start hidden, so
@@ -255,7 +361,7 @@ h3 { font-size: 1.35rem; }
 }
 
 /* --- Prose (MDX articles) --- */
-.prose { font-size: 1.08rem; }
+.prose { font-size: var(--fs-prose); }
 .prose > * + * { margin-top: 1.4rem; }
 .prose h2 { margin-top: 2.6rem; }
 .prose h3 { margin-top: 2rem; }
@@ -286,7 +392,7 @@ h3 { font-size: 1.35rem; }
   padding: 1.2rem 1.4rem;
   border-radius: 6px;
   overflow-x: auto;
-  font-size: .86rem;
+  font-size: var(--fs-sm);
   line-height: 1.6;
 }
 .prose pre code { background: none; padding: 0; font-size: inherit; }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageShell from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -25,40 +26,17 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <section className="wrap" style={{ paddingTop: 80 }}>
-      <div
-        style={{
-          display: "flex",
-          gap: 40,
-          alignItems: "flex-start",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ flex: "1 1 320px" }}>
-          <p className="eyebrow rise d1">Contact</p>
-          <h1 className="rise d2" style={{ marginTop: 16 }}>
-            Let&apos;s talk
-          </h1>
-          <p
-            className="rise d3"
-            style={{
-              marginTop: 20,
-              maxWidth: "68ch",
-              fontSize: "1.15rem",
-              color: "var(--ink-soft)",
-              lineHeight: 1.6,
-            }}
-          >
-            Freelance work, collaborations, hackathons, or something I haven&apos;t thought of yet. If you&apos;re building something interesting, I want to hear about it.
-          </p>
-        </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+    <PageShell
+      eyebrow="Contact"
+      title={"Let's talk"}
+      lede="Freelance work, collaborations, hackathons, or something I haven't thought of yet. If you're building something interesting, I want to hear about it."
+      aside={
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src="/portrait.jpg"
           alt="Maxime Saint-Joannis"
           width={148}
           height={148}
-          className="rise d2"
           style={{
             width: 148,
             height: 148,
@@ -68,9 +46,9 @@ export default function ContactPage() {
             flexShrink: 0,
           }}
         />
-      </div>
-
-      <div className="rise d4" style={{ marginTop: 40 }}>
+      }
+    >
+      <div>
         <a
           href={`mailto:${EMAIL}`}
           className="mono"
@@ -79,7 +57,7 @@ export default function ContactPage() {
             color: "var(--bg)",
             padding: "13px 26px",
             borderRadius: "var(--radius)",
-            fontSize: ".9rem",
+            fontSize: "var(--fs-sm)",
             display: "inline-block",
           }}
         >
@@ -103,7 +81,7 @@ export default function ContactPage() {
             >
               <span
                 className="mono"
-                style={{ fontSize: ".76rem", color: "var(--ink-faint)", minWidth: 96 }}
+                style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", minWidth: 96 }}
               >
                 {c.label}
               </span>
@@ -112,7 +90,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 className="link mono"
-                style={{ fontSize: ".95rem" }}
+                style={{ fontSize: "var(--fs-sm)" }}
               >
                 {c.handle}
               </a>
@@ -121,6 +99,6 @@ export default function ContactPage() {
           <div style={{ borderTop: "1px solid var(--line)" }} />
         </div>
       </div>
-    </section>
+    </PageShell>
   );
 }

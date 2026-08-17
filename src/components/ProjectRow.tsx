@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { statusLabel, type Project } from "@/lib/projects";
+import SitePreview from "@/components/SitePreview";
 
-// Editorial list row shared by the home work blocks and /projects.
-// Name and tagline lead; the stack reads as a quiet left-aligned mono line
-// under them; the right column carries only short strings (status + year)
-// so nothing ever wraps into a block.
+// Editorial list row (home work blocks). Name and tagline lead; the stack
+// reads as a quiet left-aligned mono line under them; the right column
+// carries only short strings (status + year). The row is a fixed-column
+// grid (.project-row-grid) so previews and meta stay aligned across rows,
+// with an empty middle cell when a project has no preview.
 export default function ProjectRow({
   project: p,
   className,
@@ -26,17 +28,9 @@ export default function ProjectRow({
         ...style,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          gap: 24,
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-        }}
-      >
-        <div style={{ flex: "1 1 380px" }}>
-          <h3 style={{ fontSize: "1.5rem" }}>{p.name}</h3>
+      <div className="project-row-grid">
+        <div>
+          <h3>{p.name}</h3>
           <p style={{ color: "var(--ink-soft)", marginTop: 6, maxWidth: "72ch" }}>
             {p.tagline}
           </p>
@@ -46,6 +40,11 @@ export default function ProjectRow({
             </p>
           )}
         </div>
+        {p.preview ? (
+          <SitePreview url={p.preview} title={`${p.name}, live site`} />
+        ) : (
+          <div aria-hidden />
+        )}
         <div style={{ textAlign: "right" }}>
           <span
             className={
@@ -56,7 +55,7 @@ export default function ProjectRow({
           </span>
           <div
             className="mono"
-            style={{ fontSize: ".78rem", color: "var(--ink-faint)", marginTop: 6 }}
+            style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 6 }}
           >
             {p.year}
           </div>

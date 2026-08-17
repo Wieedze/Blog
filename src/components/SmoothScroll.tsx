@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,11 +12,45 @@ gsap.registerPlugin(ScrollTrigger);
 // it just drives window scroll. Disabled under prefers-reduced-motion so the
 // page keeps native scroll for users who ask for less motion.
 export default function SmoothScroll() {
+  const pathname = usePathname();
+  const firstRoute = useRef(true);
+  const popped = useRef(false);
+
+  // Route changes: jump to the top THROUGH Lenis. Next scrolls the window
+  // itself, but Lenis keeps its own animated position and would snap right
+  // back to the old scroll on the next frame. Skipped on the initial load
+  // and on back/forward (popstate), where the browser restores the position.
+  useEffect(() => {
+    const onPop = () => {
+      popped.current = true;
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  useEffect(() => {
+    if (firstRoute.current) {
+      firstRoute.current = false;
+      return;
+    }
+    if (popped.current) {
+      popped.current = false;
+      return;
+    }
+    const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+    if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
+    else window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
+    // Expose the instance for programmatic jumps (useScrollytelling's
+    // jumpTo), so they glide through Lenis instead of fighting it.
+    const w = window as unknown as { __lenis?: Lenis };
+    w.__lenis = lenis;
 
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
@@ -23,6 +58,7 @@ export default function SmoothScroll() {
 
     return () => {
       gsap.ticker.remove(raf);
+      delete w.__lenis;
       lenis.destroy();
     };
   }, []);
