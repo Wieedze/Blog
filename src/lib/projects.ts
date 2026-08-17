@@ -1,5 +1,6 @@
 export type Project = {
   slug: string;
+  domain: "web3" | "music";
   name: string;
   tagline: string;
   status: "live" | "building" | "shipped" | "exploring";
@@ -16,6 +17,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "sofia",
+    domain: "web3",
     name: "Sofia",
     tagline: "Turn your browsing into certified knowledge, on-chain.",
     status: "live",
@@ -43,6 +45,7 @@ export const projects: Project[] = [
   },
   {
     slug: "arp",
+    domain: "web3",
     name: "ARP: Agent Reputation Protocol",
     tagline: "Weighted, on-chain reputation for AI agents.",
     status: "building",
@@ -66,6 +69,7 @@ export const projects: Project[] = [
   },
   {
     slug: "thekitty",
+    domain: "web3",
     name: "TheKitty",
     tagline: "Onchain group pots & a services marketplace, CRC-native.",
     status: "live",
@@ -89,6 +93,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ourglass",
+    domain: "web3",
     name: "Hourglass",
     tagline: "On-chain scoped permission for Safe treasuries: recurring payments and agent-run DeFi.",
     status: "live",
@@ -112,6 +117,7 @@ export const projects: Project[] = [
   },
   {
     slug: "intuition-fee-proxy",
+    domain: "web3",
     name: "Intuition FeeProxy",
     tagline: "The affiliate webapp for Intuition's FeeProxy singleton.",
     status: "live",
@@ -133,6 +139,7 @@ export const projects: Project[] = [
   },
   {
     slug: "wispear",
+    domain: "web3",
     name: "WisPear",
     tagline: "Community wisdom, whispered to your agent.",
     status: "shipped",
@@ -156,25 +163,28 @@ export const projects: Project[] = [
   },
   {
     slug: "oddwave-studio",
+    domain: "music",
     name: "OddWave Studio",
-    tagline: "A design-led site for a mastering and sound-design studio.",
+    tagline: "A studio brand and site, designed and built end to end.",
     status: "shipped",
-    role: "Creator: design + full-stack",
-    stack: ["TypeScript", "React", "Vite"],
+    role: "Solo: brand identity, art direction, design & build",
+    stack: ["Brand identity", "Art direction", "TypeScript", "React", "Vite"],
     description:
-      "A design-led website for OddWave, a mastering and sound-design studio (tied to Sleeping Tracks Records). A Spotify-embedded portfolio wiring dozens of releases to their covers, a sound-design reel, and a scrollytelling section that reveals text over an IPFS feedback video. Built on my music background, and likely to grow into a studio-management SaaS.",
+      "A mastering and sound-design studio (tied to Sleeping Tracks Records) where I owned the whole thing, not just the implementation: the visual identity and graphic charter, the art direction, and the build. A Spotify-embedded portfolio wiring dozens of releases to their covers, a sound-design reel, and a scrollytelling section that reveals text over an IPFS feedback video. Built on my music background, and likely to grow into a studio-management SaaS.",
     highlights: [
-      "Design-led studio site, on the music side",
+      "Full visual identity and graphic charter, designed by me end to end",
+      "Art direction, design and build, not just the code",
       "Spotify-embedded portfolio + sound-design reel",
       "Scrollytelling over an IPFS feedback video",
       "Planned to evolve into a studio-management SaaS",
     ],
     links: [{ label: "Repo", url: "https://github.com/Wieedze/OddWave-Studio-" }],
-    featured: false,
+    featured: true,
     year: "2026",
   },
   {
     slug: "liquid-democracy",
+    domain: "web3",
     name: "Liquid Democracy for intuition.box",
     tagline: "A liquid-democracy mission for the intuition.box DAO.",
     status: "building",
@@ -193,6 +203,7 @@ export const projects: Project[] = [
   },
   {
     slug: "loka",
+    domain: "music",
     name: "Loka",
     tagline: "A platform for an initiatory meditation board game.",
     status: "building",
@@ -211,6 +222,7 @@ export const projects: Project[] = [
   },
   {
     slug: "trackhunter",
+    domain: "music",
     name: "TrackHunter",
     tagline: "Search & compare tracks across every platform, from one playlist.",
     status: "live",
