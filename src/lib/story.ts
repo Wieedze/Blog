@@ -17,7 +17,7 @@ export type Chapter = {
 
 export const story: Chapter[] = [
   {
-    theme: "Music production & live performance",
+    theme: "Music production and live performance",
     title: "Sound first",
     body: "I was a music producer: writing my own tracks in Ableton Live and performing them live, professionally, around the world. Making that music meant building the machinery behind it (processing chains, racks, presets), and the tools ended up fascinating me as much as the sound.",
     detail:

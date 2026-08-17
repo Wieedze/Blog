@@ -31,7 +31,7 @@ export default function Home() {
               lineHeight: 1.6,
             }}
           >
-            Full-stack & web3 developer.
+            Full-stack and web3 developer.
           </p>
           <p
             className="rise d3 mono"
@@ -50,7 +50,7 @@ export default function Home() {
             style={{ marginTop: 40, display: "flex", gap: 18, flexWrap: "wrap" }}
           >
             <Link
-              href="/hackathons"
+              href="/projects"
               className="mono"
               style={{
                 background: "var(--ink)",
@@ -85,12 +85,12 @@ export default function Home() {
 
       {/* ---------- SHEET 4: WEB3 WORK ---------- */}
       <div className="sheet">
-        <WorkBlock title="Web3 & on-chain" items={web3} />
+        <WorkBlock title="Web3 and on-chain" items={web3} />
       </div>
 
       {/* ---------- SHEET 5: MUSIC & SOUND WORK ---------- */}
       <div className="sheet sheet-alt">
-        <WorkBlock title="Music & sound" items={music} />
+        <WorkBlock title="Music and sound" items={music} />
       </div>
 
       {/* ---------- SHEET 6: PORTRAIT ---------- */}

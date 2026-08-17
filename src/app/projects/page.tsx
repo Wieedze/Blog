@@ -6,7 +6,7 @@ import Deck from "@/components/Deck";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Maxime Saint-Joannis's projects. Web3: Sofia, ARP, TheKitty, Hourglass, the Intuition FeeProxy, WisPear. Music & sound: TrackHunter, OddWave Studio, Loka.",
+    "Maxime Saint-Joannis's projects. Web3: Sofia, ARP, TheKitty, Hourglass, the Intuition FeeProxy, WisPear. Music and sound: TrackHunter, OddWave Studio, Loka.",
 };
 
 const groups: {
@@ -18,14 +18,14 @@ const groups: {
   {
     domain: "web3",
     eyebrow: "01 · web3",
-    title: "Web3 & on-chain",
+    title: "Web3 and on-chain",
     blurb:
       "Protocols, DAO missions and hackathon builds: TypeScript, Solidity, delegation frameworks, the Intuition graph.",
   },
   {
     domain: "music",
     eyebrow: "02 · music",
-    title: "Music & sound",
+    title: "Music and sound",
     blurb:
       "Where it all started, and still running: tools and platforms on the sound side, for DJs, a mastering studio and a meditation board game.",
   },
@@ -57,14 +57,30 @@ export default function ProjectsPage() {
                 </>
               )}
 
-              <div style={{ marginTop: gi === 0 ? 56 : 0 }}>
-                <p className="eyebrow rise">{g.eyebrow}</p>
-                <h2 className="rise" style={{ fontSize: "1.7rem", marginTop: 8 }}>
-                  {g.title}
-                </h2>
-                <p
+              <div style={{ marginTop: gi === 0 ? 88 : 0 }}>
+                <div
                   className="rise"
-                  style={{ marginTop: 10, maxWidth: "72ch", color: "var(--ink-soft)" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
+                    gap: 24,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <h2 style={{ fontSize: "2.2rem" }}>{g.title}</h2>
+                  <p className="eyebrow" style={{ margin: 0 }}>
+                    {g.eyebrow}
+                  </p>
+                </div>
+                <p
+                  className="rise mono"
+                  style={{
+                    marginTop: 12,
+                    maxWidth: "72ch",
+                    fontSize: ".85rem",
+                    color: "var(--ink-faint)",
+                  }}
                 >
                   {g.blurb}
                 </p>

@@ -16,7 +16,7 @@ export type Milestone = {
 export const timeline: Milestone[] = [
   {
     year: "",
-    title: "Music production & live performance",
+    title: "Music production and live performance",
     context: "The origin",
     body: "I produced my own music in Ableton Live and performed it live, professionally, on stages around the world. What hooked me as much as the music was building the machinery behind it (processing chains, racks, presets), and that urge to build my own tools is what eventually pushed me toward code.",
   },
