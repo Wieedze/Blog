@@ -20,6 +20,18 @@
   --maxw:          1120px;
   --maxw-prose:    780px;
 
+  /* --- Échelle typographique ---
+     8 tailles pour tout le site (corps 17px inclus), aucune font-size en
+     dehors de ces variables. Deux crans sous le corps, deux crans de
+     lecture au-dessus, trois tailles display. */
+  --fs-xs:    .72rem;                       /* mono micro: eyebrows, labels, meta */
+  --fs-sm:    .88rem;                       /* petit texte: nav, liens, captions */
+  --fs-prose: 1.08rem;                      /* corps de lecture des articles */
+  --fs-lede:  1.2rem;                       /* chapeau sous un titre de page */
+  --fs-h3:    1.4rem;                       /* titres de cartes, entrées de liste */
+  --fs-h2:    clamp(1.6rem, 2.5vw, 2rem);   /* titres de section, une seule taille */
+  --fs-h1:    clamp(2.3rem, 5vw, 3.3rem);   /* display, un par page */
+
   --font-display:  "Fraunces", Georgia, serif;
   --font-body:     "IBM Plex Sans", system-ui, sans-serif;
   --font-mono:     "IBM Plex Mono", ui-monospace, monospace;
@@ -63,14 +75,14 @@ h1, h2, h3, h4 {
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
-h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 600; }
-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-h3 { font-size: 1.35rem; }
+h1 { font-size: var(--fs-h1); font-weight: 600; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
 
 .mono { font-family: var(--font-mono); }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: .72rem;
+  font-size: var(--fs-xs);
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--accent);
@@ -106,7 +118,7 @@ h3 { font-size: 1.35rem; }
    mono line; facts are ruled rows like a colophon. */
 .status-word {
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: var(--fs-xs);
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -114,7 +126,7 @@ h3 { font-size: 1.35rem; }
 .status-word.is-strong { color: var(--accent); }
 .stack-line {
   font-family: var(--font-mono);
-  font-size: .74rem;
+  font-size: var(--fs-xs);
   letter-spacing: .02em;
   color: var(--ink-faint);
 }
@@ -128,7 +140,7 @@ h3 { font-size: 1.35rem; }
 .facts-label {
   flex: 0 0 92px;
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: var(--fs-xs);
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -136,7 +148,7 @@ h3 { font-size: 1.35rem; }
 }
 .facts-value {
   font-family: var(--font-mono);
-  font-size: .84rem;
+  font-size: var(--fs-sm);
   color: var(--ink-soft);
   line-height: 1.7;
 }
@@ -255,7 +267,7 @@ h3 { font-size: 1.35rem; }
 }
 
 /* --- Prose (MDX articles) --- */
-.prose { font-size: 1.08rem; }
+.prose { font-size: var(--fs-prose); }
 .prose > * + * { margin-top: 1.4rem; }
 .prose h2 { margin-top: 2.6rem; }
 .prose h3 { margin-top: 2rem; }
@@ -286,7 +298,7 @@ h3 { font-size: 1.35rem; }
   padding: 1.2rem 1.4rem;
   border-radius: 6px;
   overflow-x: auto;
-  font-size: .86rem;
+  font-size: var(--fs-sm);
   line-height: 1.6;
 }
 .prose pre code { background: none; padding: 0; font-size: inherit; }

@@ -64,7 +64,7 @@ export default async function JournalPost({
       <Link
         href="/journal"
         className="mono link"
-        style={{ fontSize: ".85rem", color: "var(--ink-faint)" }}
+        style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}
       >
         ← journal
       </Link>
@@ -72,7 +72,7 @@ export default async function JournalPost({
       <div className="rise d1" style={{ marginTop: 28 }}>
         <div
           className="mono"
-          style={{ fontSize: ".78rem", color: "var(--ink-faint)" }}
+          style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}
         >
           {post.date} · {post.readingTime}
         </div>

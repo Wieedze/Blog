@@ -47,7 +47,7 @@ export default async function Portrait() {
           />
         )}
         <div style={{ flex: "1 1 320px" }}>
-          <div style={{ fontFamily: "var(--font-display)", fontSize: "1.35rem" }}>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-h3)" }}>
             Maxime Saint-Joannis
           </div>
           <p style={{ color: "var(--ink-soft)", marginTop: 6, maxWidth: "62ch" }}>

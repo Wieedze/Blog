@@ -40,7 +40,7 @@ export default function Timeline() {
     <section className="wrap" style={{ paddingTop: 48 }}>
       <div style={{ borderTop: "1px solid var(--line)", paddingTop: 28 }}>
         <p className="eyebrow">The timeline</p>
-        <h2 style={{ fontSize: "1.6rem", marginTop: 8 }}>Milestones</h2>
+        <h2 style={{ marginTop: 8 }}>Milestones</h2>
 
         <div ref={containerRef} className="tl" style={{ marginTop: 28 }}>
           {timeline.map((m, i) => (
@@ -57,13 +57,13 @@ export default function Timeline() {
             >
               <div
                 className="mono tl-year"
-                style={{ fontSize: ".9rem", color: "var(--accent)", minWidth: 76 }}
+                style={{ fontSize: "var(--fs-sm)", color: "var(--accent)", minWidth: 76 }}
               >
                 {m.year}
               </div>
               <div style={{ flex: "1 1 440px" }}>
                 <div style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
-                  <h3 style={{ fontSize: "1.25rem" }}>
+                  <h3>
                     {m.link ? (
                       <Link href={m.link} className="link">
                         {m.title}
@@ -72,7 +72,7 @@ export default function Timeline() {
                       m.title
                     )}
                   </h3>
-                  <span className="mono" style={{ fontSize: ".72rem", color: "var(--ink-faint)" }}>
+                  <span className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}>
                     {m.context}
                   </span>
                 </div>

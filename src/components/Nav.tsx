@@ -24,12 +24,12 @@ export default function Nav() {
         <Link
           href="/"
           className="mono"
-          style={{ fontWeight: 600, letterSpacing: "-0.02em", fontSize: "1rem" }}
+          style={{ fontWeight: 600, letterSpacing: "-0.02em" }}
         >
           Wieedze<span style={{ color: "var(--accent)" }}>.</span>
         </Link>
         <div
-          style={{ display: "flex", gap: 22, fontSize: ".95rem", alignItems: "center" }}
+          style={{ display: "flex", gap: 22, fontSize: "var(--fs-sm)", alignItems: "center" }}
           className="mono"
         >
           <Link href="/hackathons" className="link">hackathons</Link>

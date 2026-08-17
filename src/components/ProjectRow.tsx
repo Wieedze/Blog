@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { statusLabel, type Project } from "@/lib/projects";
+import SitePreview from "@/components/SitePreview";
 
 // Editorial list row shared by the home work blocks and /projects.
 // Name and tagline lead; the stack reads as a quiet left-aligned mono line
 // under them; the right column carries only short strings (status + year)
-// so nothing ever wraps into a block.
+// so nothing ever wraps into a block. Rows with a preview URL get a small
+// live window on the site, framed like a figure, between text and status.
 export default function ProjectRow({
   project: p,
   className,
@@ -36,7 +38,7 @@ export default function ProjectRow({
         }}
       >
         <div style={{ flex: "1 1 380px" }}>
-          <h3 style={{ fontSize: "1.5rem" }}>{p.name}</h3>
+          <h3>{p.name}</h3>
           <p style={{ color: "var(--ink-soft)", marginTop: 6, maxWidth: "72ch" }}>
             {p.tagline}
           </p>
@@ -46,6 +48,13 @@ export default function ProjectRow({
             </p>
           )}
         </div>
+        {p.preview && (
+          <SitePreview
+            url={p.preview}
+            title={`${p.name}, live site`}
+            style={{ flex: "0 0 200px", alignSelf: "center" }}
+          />
+        )}
         <div style={{ textAlign: "right" }}>
           <span
             className={
@@ -56,7 +65,7 @@ export default function ProjectRow({
           </span>
           <div
             className="mono"
-            style={{ fontSize: ".78rem", color: "var(--ink-faint)", marginTop: 6 }}
+            style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 6 }}
           >
             {p.year}
           </div>

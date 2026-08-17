@@ -44,7 +44,7 @@ export default function ContactPage() {
             style={{
               marginTop: 20,
               maxWidth: "68ch",
-              fontSize: "1.15rem",
+              fontSize: "var(--fs-lede)",
               color: "var(--ink-soft)",
               lineHeight: 1.6,
             }}
@@ -79,7 +79,7 @@ export default function ContactPage() {
             color: "var(--bg)",
             padding: "13px 26px",
             borderRadius: "var(--radius)",
-            fontSize: ".9rem",
+            fontSize: "var(--fs-sm)",
             display: "inline-block",
           }}
         >
@@ -103,7 +103,7 @@ export default function ContactPage() {
             >
               <span
                 className="mono"
-                style={{ fontSize: ".76rem", color: "var(--ink-faint)", minWidth: 96 }}
+                style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", minWidth: 96 }}
               >
                 {c.label}
               </span>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer"
                 className="link mono"
-                style={{ fontSize: ".95rem" }}
+                style={{ fontSize: "var(--fs-sm)" }}
               >
                 {c.handle}
               </a>

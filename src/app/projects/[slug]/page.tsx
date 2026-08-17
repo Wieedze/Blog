@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { projects, statusLabel } from "@/lib/projects";
+import SitePreview from "@/components/SitePreview";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -32,7 +33,7 @@ export default async function ProjectPage({
       <Link
         href="/projects"
         className="mono link"
-        style={{ fontSize: ".85rem", color: "var(--ink-faint)" }}
+        style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}
       >
         ← projects
       </Link>
@@ -42,7 +43,7 @@ export default async function ProjectPage({
         <h1 style={{ marginTop: 12 }}>{p.name}</h1>
         <p
           style={{
-            fontSize: "1.25rem",
+            fontSize: "var(--fs-lede)",
             color: "var(--ink-soft)",
             marginTop: 14,
           }}
@@ -51,9 +52,27 @@ export default async function ProjectPage({
         </p>
       </div>
 
+      {p.preview && (
+        <a
+          href={p.preview}
+          target="_blank"
+          rel="noreferrer"
+          className="rise d2"
+          style={{ display: "block", marginTop: 36 }}
+        >
+          <SitePreview url={p.preview} title={`${p.name}, live site`} />
+          <p
+            className="mono"
+            style={{ marginTop: 10, fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}
+          >
+            {new URL(p.preview).hostname} ↗
+          </p>
+        </a>
+      )}
+
       <div
         className="rise d2"
-        style={{ marginTop: 36, fontSize: "1.08rem", color: "var(--ink-soft)" }}
+        style={{ marginTop: 36, fontSize: "var(--fs-prose)", color: "var(--ink-soft)" }}
       >
         {p.description}
       </div>
@@ -100,7 +119,7 @@ export default async function ProjectPage({
                 color: "var(--bg)",
                 padding: "11px 22px",
                 borderRadius: "var(--radius)",
-                fontSize: ".85rem",
+                fontSize: "var(--fs-sm)",
               }}
             >
               {l.label} ↗

@@ -44,11 +44,11 @@ export default function JournalPage() {
           >
             <div
               className="mono"
-              style={{ fontSize: ".76rem", color: "var(--ink-faint)" }}
+              style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}
             >
               {post.date} · {post.readingTime}
             </div>
-            <h3 style={{ fontSize: "1.4rem", marginTop: 8 }}>{post.title}</h3>
+            <h3 style={{ marginTop: 8 }}>{post.title}</h3>
             <p style={{ color: "var(--ink-soft)", marginTop: 8, maxWidth: "72ch" }}>
               {post.summary}
             </p>

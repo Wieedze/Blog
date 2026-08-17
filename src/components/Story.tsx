@@ -100,9 +100,13 @@ export default function Story() {
     <section ref={rootRef} className="wrap" style={{ paddingTop: 24, width: "100%" }}>
       <div className="story-track">
         <div className="story-stage">
-          <div style={{ borderTop: "1px solid var(--line)", paddingTop: 28 }}>
+          {/* Header inverted to the right: the chapters below stay left, so
+              the title answers the body across the page's diagonal. */}
+          <div
+            style={{ borderTop: "1px solid var(--line)", paddingTop: 28, textAlign: "right" }}
+          >
             <p className="eyebrow">The story</p>
-            <h2 style={{ fontSize: "1.6rem", marginTop: 8 }}>How I got here</h2>
+            <h2 style={{ marginTop: 8 }}>How I got here</h2>
           </div>
 
           <div className="story-panels">
@@ -113,7 +117,7 @@ export default function Story() {
                     <div
                       className="mono"
                       style={{
-                        fontSize: ".72rem",
+                        fontSize: "var(--fs-xs)",
                         letterSpacing: ".14em",
                         textTransform: "uppercase",
                         color: "var(--ink-faint)",
@@ -121,7 +125,7 @@ export default function Story() {
                     >
                       {c.theme}
                     </div>
-                    <h3 style={{ fontSize: "1.5rem", marginTop: 8 }}>{c.title}</h3>
+                    <h3 style={{ marginTop: 8 }}>{c.title}</h3>
                     <p style={{ color: "var(--ink-soft)", marginTop: 10, lineHeight: 1.65 }}>
                       {c.body}
                     </p>

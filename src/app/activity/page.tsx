@@ -58,7 +58,7 @@ export default function ActivityPage() {
         style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}
       >
         <p className="eyebrow">Developer activity</p>
-        <p className="mono" style={{ fontSize: ".78rem", color: "var(--ink-faint)" }}>
+        <p className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}>
           GitHub: <span style={{ color: "var(--accent)" }}>@{data.user}</span> · synced {fmtDate(data.syncedAt)}
         </p>
       </div>
@@ -101,7 +101,7 @@ export default function ActivityPage() {
                   onClick={() => setYear(y)}
                   className="mono"
                   style={{
-                    fontSize: ".82rem",
+                    fontSize: "var(--fs-sm)",
                     padding: "2px 0",
                     cursor: "pointer",
                     border: "none",
@@ -117,7 +117,7 @@ export default function ActivityPage() {
                 </button>
               ))}
             </div>
-            <div className="mono" style={{ fontSize: ".74rem", color: "var(--ink-faint)", display: "flex", alignItems: "center", gap: 6 }}>
+            <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", display: "flex", alignItems: "center", gap: 6 }}>
               <span>Less</span>
               {HEAT.map((c, i) => (
                 <span key={i} style={{ width: 11, height: 11, borderRadius: 2, background: c, display: "inline-block" }} />
@@ -126,7 +126,7 @@ export default function ActivityPage() {
             </div>
           </div>
 
-          <p className="mono" style={{ fontSize: ".76rem", color: "var(--ink-soft)", marginTop: 14 }}>
+          <p className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-soft)", marginTop: 14 }}>
             {fmtNum(calendar.total)} contributions in {year}
           </p>
 
@@ -163,17 +163,17 @@ export default function ActivityPage() {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem" }}>{r.name}</span>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-lede)" }}>{r.name}</span>
                   <span className="status-word">
                     {r.isPrivate ? "private" : "public"}
                   </span>
                 </div>
-                <p style={{ fontSize: ".92rem", color: "var(--ink-soft)", lineHeight: 1.5, flex: 1 }}>
+                <p style={{ fontSize: "var(--fs-sm)", color: "var(--ink-soft)", lineHeight: 1.5, flex: 1 }}>
                   {r.description}
                 </p>
                 <div
                   className="mono"
-                  style={{ fontSize: ".76rem", color: "var(--ink-faint)", display: "flex", gap: 16, alignItems: "center" }}
+                  style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", display: "flex", gap: 16, alignItems: "center" }}
                 >
                   {r.language && (
                     <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -201,7 +201,7 @@ export default function ActivityPage() {
       {/* ---------- RECENT EVENTS (fallback / extra) ---------- */}
       {!data.stats && data.events && (
         <div style={{ marginTop: 44 }}>
-          <p className="mono" style={{ fontSize: ".82rem", color: "var(--ink-faint)" }}>
+          <p className="mono" style={{ fontSize: "var(--fs-sm)", color: "var(--ink-faint)" }}>
             Set a <code>GITHUB_TOKEN</code> and run <code>bun run sync:activity</code> to load the full dashboard.
           </p>
           <div style={{ marginTop: 24 }}>
@@ -218,14 +218,14 @@ export default function ActivityPage() {
               >
                 <span
                   className="mono"
-                  style={{ fontSize: ".66rem", textTransform: "uppercase", color: "var(--accent)", minWidth: 96 }}
+                  style={{ fontSize: "var(--fs-xs)", textTransform: "uppercase", color: "var(--accent)", minWidth: 96 }}
                 >
                   {e.type}
                 </span>
                 <div style={{ flex: 1 }}>
-                  <span className="mono" style={{ fontSize: ".9rem" }}>{e.repo}</span>
+                  <span className="mono" style={{ fontSize: "var(--fs-sm)" }}>{e.repo}</span>
                   {e.message && <span style={{ color: "var(--ink-soft)" }}>: {e.message}</span>}
-                  <div className="mono" style={{ fontSize: ".72rem", color: "var(--ink-faint)", marginTop: 2 }}>
+                  <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 2 }}>
                     {e.detail} · {fmtDate(e.date)}
                   </div>
                 </div>
@@ -241,10 +241,10 @@ export default function ActivityPage() {
 function Stat({ label, value }: { label: string; value: number }) {
   return (
     <div style={{ borderTop: "1px solid var(--line)", paddingTop: 18 }}>
-      <div style={{ fontFamily: "var(--font-display)", fontSize: "2.4rem", fontWeight: 600, lineHeight: 1 }}>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: "var(--fs-h2)", fontWeight: 600, lineHeight: 1 }}>
         {fmtNum(value)}
       </div>
-      <div className="mono" style={{ fontSize: ".74rem", color: "var(--ink-faint)", marginTop: 8 }}>
+      <div className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)", marginTop: 8 }}>
         {label}
       </div>
     </div>
@@ -272,7 +272,7 @@ function Heatmap({ calendar }: { calendar: Calendar }) {
             <div
               key={i}
               className="mono"
-              style={{ width: 11, fontSize: ".62rem", color: "var(--ink-faint)", whiteSpace: "nowrap" }}
+              style={{ width: 11, fontSize: "var(--fs-xs)", color: "var(--ink-faint)", whiteSpace: "nowrap" }}
             >
               {m}
             </div>
