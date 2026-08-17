@@ -5,9 +5,10 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 // Hero entrance, one timeline: "Let's build," lands first, slow and fluid;
-// "in public." follows; a real pause, then the lede and the mono tagline
-// together; well after, the eyebrow and the scroll cue close the sequence
-// (no buttons: the next sheet is the call to action, so the hero points down).
+// "in public." slides in from the side; then everything else (lede, tagline,
+// eyebrow, scroll cue, and the nav via the hero:eyebrow event) enters as one
+// synchronized movement that lands at the exact same moment (no buttons: the
+// next sheet is the call to action, so the hero points down).
 // gsap.from throughout, so without JS everything stays at its natural
 // visible state. Skipped entirely under prefers-reduced-motion.
 export default function Hero() {
@@ -23,24 +24,27 @@ export default function Hero() {
         .timeline({ defaults: { ease: "power3.out" } })
         // 1. "Let's build," alone, slow and fluid.
         .from(q("[data-hero='build']"), { opacity: 0, y: 34, duration: 1.4 })
-        // 2. "in public." lands.
-        .from(q("[data-hero='public']"), { opacity: 0, y: 26, duration: 1 }, "-=0.25")
-        // 3. A real pause, then the lede and the mono phrase together.
-        .from(q("[data-hero='lede']"), { opacity: 0, y: 16, duration: 0.9 }, "+=1")
+        // 2. "in public." slides in from the side to complete the phrase.
+        .from(q("[data-hero='public']"), { opacity: 0, x: 36, duration: 1 }, "-=0.25")
+        // 3. A short beat, then everything else as ONE movement: the lede,
+        //    the mono phrase, the eyebrow, the scroll cue and the nav (which
+        //    listens for this beat) start together and land at the exact
+        //    same moment (same 0.9s duration everywhere, nav included).
+        .call(() => window.dispatchEvent(new Event("hero:eyebrow")), undefined, "+=0.3")
+        .from(q("[data-hero='lede']"), { opacity: 0, y: 16, duration: 0.9 }, "<")
         .from(
           q("[data-hero='tagline']"),
           { opacity: 0, duration: 0.9, ease: "power1.inOut" },
           "<"
         )
-        // 4. Well after: the eyebrow and the scroll cue together, closing.
         .from(
           q("[data-hero='eyebrow']"),
-          { opacity: 0, duration: 1, ease: "power1.inOut" },
-          "+=0.8"
+          { opacity: 0, duration: 0.9, ease: "power1.inOut" },
+          "<"
         )
         .from(
           q("[data-hero='cue']"),
-          { opacity: 0, duration: 1, ease: "power1.inOut" },
+          { opacity: 0, duration: 0.9, ease: "power1.inOut" },
           "<"
         )
         // The arrow keeps a slow bob once everything is in place.

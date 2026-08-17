@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import activity from "@/content/activity.json";
+import PageShell from "@/components/PageShell";
 
 type Day = { date: string; count: number; level: number };
 type Calendar = { total: number; weeks: Day[][] };
@@ -52,26 +53,19 @@ export default function ActivityPage() {
   const calendar = data.calendars?.[String(year)];
 
   return (
-    <section className="wrap" style={{ paddingTop: 80 }}>
-      <div
-        className="rise d1"
-        style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}
-      >
-        <p className="eyebrow">Developer activity</p>
+    <PageShell
+      eyebrow="Developer activity"
+      eyebrowRight={
         <p className="mono" style={{ fontSize: "var(--fs-xs)", color: "var(--ink-faint)" }}>
           GitHub: <span style={{ color: "var(--accent)" }}>@{data.user}</span> · synced {fmtDate(data.syncedAt)}
         </p>
-      </div>
-      <h1 className="rise d2" style={{ marginTop: 14 }}>
-        Activity
-      </h1>
-
+      }
+      title="Activity"
+    >
       {/* ---------- STATS ---------- */}
       {data.stats && (
         <div
-          className="rise d3"
           style={{
-            marginTop: 40,
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
             gap: 24,
@@ -86,7 +80,6 @@ export default function ActivityPage() {
       {/* ---------- CONTRIBUTION HEATMAP ---------- */}
       {calendar && (
         <div
-          className="rise d4"
           style={{
             marginTop: 40,
             borderTop: "1px solid var(--line)",
@@ -137,7 +130,7 @@ export default function ActivityPage() {
       {/* ---------- REPOSITORIES ---------- */}
       {data.repos && data.repos.length > 0 && (
         <div style={{ marginTop: 48 }}>
-          <p className="eyebrow rise">Repositories</p>
+          <p className="eyebrow">Repositories</p>
           <div
             style={{
               marginTop: 18,
@@ -146,20 +139,18 @@ export default function ActivityPage() {
               gap: 16,
             }}
           >
-            {data.repos.map((r, i) => (
+            {data.repos.map((r) => (
               <a
                 key={r.fullName}
                 href={r.url}
                 target="_blank"
                 rel="noreferrer"
-                className="rise"
                 style={{
                   borderTop: "1px solid var(--line)",
                   padding: "18px 0 4px",
                   display: "flex",
                   flexDirection: "column",
                   gap: 10,
-                  animationDelay: `${0.06 + Math.min(i, 8) * 0.045}s`,
                 }}
               >
                 <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
@@ -234,7 +225,7 @@ export default function ActivityPage() {
           </div>
         </div>
       )}
-    </section>
+    </PageShell>
   );
 }
 

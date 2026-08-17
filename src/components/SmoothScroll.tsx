@@ -16,6 +16,10 @@ export default function SmoothScroll() {
 
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
+    // Expose the instance for programmatic jumps (useScrollytelling's
+    // jumpTo), so they glide through Lenis instead of fighting it.
+    const w = window as unknown as { __lenis?: Lenis };
+    w.__lenis = lenis;
 
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
@@ -23,6 +27,7 @@ export default function SmoothScroll() {
 
     return () => {
       gsap.ticker.remove(raf);
+      delete w.__lenis;
       lenis.destroy();
     };
   }, []);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageShell from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: "Now",
@@ -8,13 +9,8 @@ export const metadata: Metadata = {
 // Edit this page often: it's the pulse of the site.
 export default function NowPage() {
   return (
-    <section className="wrap" style={{ paddingTop: 80 }}>
-      <p className="eyebrow rise d1">Updated: August 2026</p>
-      <h1 className="rise d2" style={{ marginTop: 16 }}>
-        Right now
-      </h1>
-
-      <div className="prose rise d3" style={{ marginTop: 36 }}>
+    <PageShell eyebrow="Updated: August 2026" title="Right now">
+      <div className="prose">
         <p>What I'm working on at the moment. Updated whenever the focus shifts.</p>
 
         <h2>Main focus</h2>
@@ -45,6 +41,6 @@ export default function NowPage() {
           <li>Sofia, the Intuition FeeProxy, TrackHunter, music production, a VST plugin.</li>
         </ul>
       </div>
-    </section>
+    </PageShell>
   );
 }

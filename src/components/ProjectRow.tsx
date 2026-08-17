@@ -3,11 +3,11 @@ import type { CSSProperties } from "react";
 import { statusLabel, type Project } from "@/lib/projects";
 import SitePreview from "@/components/SitePreview";
 
-// Editorial list row shared by the home work blocks and /projects.
-// Name and tagline lead; the stack reads as a quiet left-aligned mono line
-// under them; the right column carries only short strings (status + year)
-// so nothing ever wraps into a block. Rows with a preview URL get a small
-// live window on the site, framed like a figure, between text and status.
+// Editorial list row (home work blocks). Name and tagline lead; the stack
+// reads as a quiet left-aligned mono line under them; the right column
+// carries only short strings (status + year). The row is a fixed-column
+// grid (.project-row-grid) so previews and meta stay aligned across rows,
+// with an empty middle cell when a project has no preview.
 export default function ProjectRow({
   project: p,
   className,
@@ -28,16 +28,8 @@ export default function ProjectRow({
         ...style,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          gap: 24,
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignItems: "baseline",
-        }}
-      >
-        <div style={{ flex: "1 1 380px" }}>
+      <div className="project-row-grid">
+        <div>
           <h3>{p.name}</h3>
           <p style={{ color: "var(--ink-soft)", marginTop: 6, maxWidth: "72ch" }}>
             {p.tagline}
@@ -48,12 +40,10 @@ export default function ProjectRow({
             </p>
           )}
         </div>
-        {p.preview && (
-          <SitePreview
-            url={p.preview}
-            title={`${p.name}, live site`}
-            style={{ flex: "0 0 200px", alignSelf: "center" }}
-          />
+        {p.preview ? (
+          <SitePreview url={p.preview} title={`${p.name}, live site`} />
+        ) : (
+          <div aria-hidden />
         )}
         <div style={{ textAlign: "right" }}>
           <span

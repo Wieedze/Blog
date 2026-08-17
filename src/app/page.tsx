@@ -5,7 +5,7 @@ import Story from "@/components/Story";
 import Timeline from "@/components/Timeline";
 import Portrait from "@/components/Portrait";
 import ProjectRow from "@/components/ProjectRow";
-import Reveal from "@/components/Reveal";
+import PinnedSection from "@/components/PinnedSection";
 import Deck from "@/components/Deck";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
 
       {/* ---------- SHEET 4: WEB3 WORK ---------- */}
       <div className="sheet">
-        <WorkBlock title="Web3 and on-chain" items={web3} />
+        <WorkBlock title="Web3" items={web3} />
       </div>
 
       {/* ---------- SHEET 5: MUSIC & SOUND WORK ---------- */}
@@ -55,28 +55,29 @@ function WorkBlock({
   items: Project[];
 }) {
   return (
-    <section className="wrap" style={{ width: "100%" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          gap: 16,
-          flexWrap: "wrap",
-        }}
-      >
-        <h2>{title}</h2>
-        <Link href="/projects" className="mono link" style={{ fontSize: "var(--fs-sm)" }}>
-          view all
-        </Link>
-      </div>
-
-      <Reveal style={{ marginTop: 24 }} y={16} stagger={0.07}>
-        {items.map((p) => (
-          <ProjectRow key={p.slug} project={p} />
-        ))}
-      </Reveal>
+    <PinnedSection
+      gap={24}
+      header={
+        <div
+          style={{
+            display: "flex",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            gap: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <h2>{title}</h2>
+          <Link href="/projects" className="mono link" style={{ fontSize: "var(--fs-sm)" }}>
+            view all
+          </Link>
+        </div>
+      }
+    >
+      {items.map((p) => (
+        <ProjectRow key={p.slug} project={p} />
+      ))}
       <div style={{ borderTop: "1px solid var(--line)" }} />
-    </section>
+    </PinnedSection>
   );
 }
