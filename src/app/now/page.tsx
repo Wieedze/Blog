@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function NowPage() {
   return (
     <section className="prose-wrap" style={{ paddingTop: 80 }}>
-      <p className="eyebrow rise d1">Updated: July 2026</p>
+      <p className="eyebrow rise d1">Updated: August 2026</p>
       <h1 className="rise d2" style={{ marginTop: 16 }}>
         Right now
       </h1>
@@ -23,44 +23,39 @@ export default function NowPage() {
         <h2>Main focus</h2>
         <ul>
           <li>
-            <strong>Sofia</strong>: the "Add to Sofia" capture flow (right-click,
-            then auto-mint the missing context atoms), an explorer onboarding
-            tour, and extension v1.2. This is what I'm heads-down on right now.
+            <strong>Liquid Democracy</strong>: a new paid mission for the
+            intuition.box DAO, delegated and revocable voting. Repo not public
+            yet.
           </li>
           <li>
-            <strong>OddWave Studio</strong>: a design-led site for a mastering
-            and sound-design studio (Sleeping Tracks Records). The most
-            design-focused thing I've built lately.
+            <strong>Loka</strong>: a platform for an initiatory board game built
+            around meditation. A sound-side mission, back near my music roots.
+            Repo not public yet.
           </li>
           <li>
-            <strong>Intuition FeeProxy</strong>: finishing the design before it
-            goes to mainnet.
-          </li>
-          <li>
-            <strong>ARP</strong>: still working out which ontology to adopt (the
-            discussion lives on the Intuition Atlas). It's the foundation, so I
-            want it right before writing the code.
+            <strong>Hourglass</strong>: after presenting at ETHGlobal Lisbon,
+            extending it with Agent DeFi: an AI agent that runs investments for
+            you within scoped ERC-7710 permissions.
           </li>
         </ul>
 
         <h2>Recently shipped</h2>
         <ul>
           <li>
+            <strong>OddWave Studio</strong>: the design-led site for a mastering
+            and sound-design studio is done. Likely to grow into a
+            studio-management SaaS.
+          </li>
+          <li>
             <strong>TheKitty</strong>: finished 2nd overall in the Gnosis Circles
             hackathon (official). Onchain group pots and a services marketplace,
             CRC-native on Gnosis.
-          </li>
-          <li>
-            <strong>OurGlass</strong>: live, a Safe App for recurring on-chain
-            payments. It pulled ~6,000 likes at the hackathon, but that wasn't
-            enough to place (the winner had ~14,000). Didn't make the ranking.
-            Still, it's live and I'm keeping it.
           </li>
         </ul>
 
         <h2>In the background</h2>
         <ul>
-          <li>TrackHunter, music production, a VST plugin.</li>
+          <li>Sofia, the Intuition FeeProxy, TrackHunter, music production, a VST plugin.</li>
         </ul>
       </div>
     </section>

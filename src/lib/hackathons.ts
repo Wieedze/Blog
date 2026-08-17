@@ -29,19 +29,19 @@ export const hackathons: Hackathon[] = [
     date: "2026-07-24", // 24–26 July 2026
     duration: "TODO(maxime): duration",
     team: ["TODO(maxime): solo or teammates"],
-    project: "OurGlass: A2A delegation streaming",
+    project: "Hourglass: scoped permission + Agent DeFi",
     pitch:
-      "Agent-to-agent delegation streaming on OurGlass: recurring, capped payments over ERC-7710, without ERC-4337.",
-    stack: ["TypeScript", "Solidity", "ERC-7710", "ENS", "The Graph"],
-    sponsors: ["ENS", "The Graph"],
-    result: "submitted",
-    // TODO(maxime): confirm the result (finalist / prize?) once announced.
+      "Scoped, revocable on-chain permission for Safe treasuries: recurring payments plus an AI agent that runs DeFi yield within the ERC-7710 caveats you sign.",
+    stack: ["TypeScript", "Solidity", "ERC-7710", "AI agents", "Intuition", "Safe App"],
+    sponsors: ["TODO(maxime): tracks"],
+    result: "submitted", // presented at Lisbon; TODO(maxime): confirm placement
     links: {
-      repo: "https://github.com/intuition-box/OurGlass",
-      demo: "https://ourglass.intuition.box",
+      repo: "https://github.com/intuition-box/Hourglass",
+      demo: "https://hourglass.box",
     },
     media: [],
-    learned: "TODO(maxime): honest takeaway + any jury feedback.",
+    learned:
+      "TODO(maxime): what presenting at Lisbon and adding the AI investment agent taught you.",
   },
   {
     slug: "gnosis-circles-thekitty",

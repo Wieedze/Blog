@@ -48,9 +48,9 @@ export const timeline: Milestone[] = [
   },
   {
     year: "2026",
-    title: "OurGlass",
+    title: "Hourglass",
     context: "Safe treasuries",
-    body: "TODO(maxime): recurring payments for Safe treasuries, ERC-7710, plus the independent IPFS verifier.",
+    body: "TODO(maxime): scoped on-chain permission for Safe treasuries (ERC-7710): recurring payments, then agent-run DeFi, presented at ETHGlobal Lisbon.",
     link: "/projects/ourglass",
   },
   {
