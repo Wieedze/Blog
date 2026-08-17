@@ -26,18 +26,45 @@ const channels = [
 export default function ContactPage() {
   return (
     <section className="prose-wrap" style={{ paddingTop: 80 }}>
-      <p className="eyebrow rise d1">Contact</p>
-      <h1 className="rise d2" style={{ marginTop: 16 }}>
-        Let&apos;s talk
-      </h1>
-      <p
-        className="rise d3"
-        style={{ marginTop: 20, fontSize: "1.15rem", color: "var(--ink-soft)", lineHeight: 1.6 }}
+      <div
+        style={{
+          display: "flex",
+          gap: 40,
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+        }}
       >
-        Freelance work, collaborations, hackathons, or something I haven&apos;t
-        thought of yet. If you&apos;re building something interesting, I want
-        to hear about it.
-      </p>
+        <div style={{ flex: "1 1 320px" }}>
+          <p className="eyebrow rise d1">Contact</p>
+          <h1 className="rise d2" style={{ marginTop: 16 }}>
+            Let&apos;s talk
+          </h1>
+          <p
+            className="rise d3"
+            style={{ marginTop: 20, fontSize: "1.15rem", color: "var(--ink-soft)", lineHeight: 1.6 }}
+          >
+            Freelance work, collaborations, hackathons, or something I haven&apos;t
+            thought of yet. If you&apos;re building something interesting, I want
+            to hear about it.
+          </p>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/portrait.jpg"
+          alt="Maxime Saint-Joannis"
+          width={148}
+          height={148}
+          className="rise d2"
+          style={{
+            width: 148,
+            height: 148,
+            borderRadius: 12,
+            objectFit: "cover",
+            border: "1px solid var(--line)",
+            flexShrink: 0,
+          }}
+        />
+      </div>
 
       <div className="rise d4" style={{ marginTop: 40 }}>
         <a
