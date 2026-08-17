@@ -178,7 +178,10 @@ export const projects: Project[] = [
       "Scrollytelling over an IPFS feedback video",
       "Planned to evolve into a studio-management SaaS",
     ],
-    links: [{ label: "Repo", url: "https://github.com/Wieedze/OddWave-Studio-" }],
+    links: [
+      { label: "Site", url: "https://oddwavestudio.com" },
+      { label: "Repo", url: "https://github.com/Wieedze/OddWave-Studio-" },
+    ],
     featured: true,
     year: "2026",
   },
