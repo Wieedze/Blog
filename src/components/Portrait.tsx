@@ -71,7 +71,7 @@ export default async function Portrait() {
             Maxime Saint-Joannis
           </div>
           <p style={{ color: "var(--ink-soft)", marginTop: 6, maxWidth: "48ch" }}>
-            Building in public across the Intuition and Circles ecosystems.{" "}
+            I build, I learn, and I like meeting people who do the same.{" "}
             <Link href="/contact" className="link">
               Let&apos;s talk
             </Link>
