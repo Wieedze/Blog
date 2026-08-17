@@ -1,0 +1,30 @@
+---
+title: "log 2: sofia's social layer, an independent verifier, feeproxy live"
+date: "2026-06-23"
+description: "a verifier you can't quietly swap out, a fee proxy live on testnet, and the same affiliate UI rebuilt twice until it made sense."
+tags: ["build", "sofia", "ourglass", "feeproxy", "intuition", "web3"]
+---
+
+second log. quieter on arp this stretch, busier everywhere else.
+
+## what i shipped
+
+**sofia** grew a social layer. gated group-join (request, then admin review) backed by a new `group-api` workspace (privy + ably, modelled on atlas), plus a notifications page rebuilt x-style: sticky account cluster, a bell, a profile drawer rail. also a circle-pro DAO flow, and i had to harden the mastra phala TEE deploy after an incident.
+
+**ourglass** grew a verifier, and i made it a *separate* app on purpose. it's pinned to ipfs via pinata and reachable at a canonical ENS, [verify.ourglass.eth](https://verify.ourglass.eth), so it doesn't live on a domain i control. the main app got a public `/verify` provenance page that deep-links into it. along the way: a streaming-payments redesign, a subscription detail panel with revoke, and i finally ripped out the last relayer path.
+
+**feeproxy** is live on intuition's official testnet as an affiliate webapp: register as an affiliate, set your per-call fees, track on-chain stats (react + wagmi/viem). shipped a copy-paste agent integration guide and a minimal "useless dApp" demo that routes a fee through an affiliate, so the whole flow is visible end to end.
+
+**thekitty**: small one, promoted the pool to a top-level tab.
+
+## what i learned
+
+the verifier being its own thing is the whole point. a tool that checks my delegations is worth less if it's baked into the app it's checking, or if it sits on a domain i can change. pointing an ENS name at an ipfs build means the checker is about as immutable as the thing it checks. that constraint, *make it independent*, turned out to be the actual feature, not a nice-to-have.
+
+honest one: i rebuilt the feeproxy affiliate UI twice (#13 then #14). it wasn't a code problem, it was that i didn't know what an affiliate needs to see first. the second build was me finally answering that, not fixing a bug.
+
+## what's next
+
+- sofia: get the gated-group flow working end to end and in front of real circles.
+- feeproxy: a real agent integrating the singleton via the paste-in guide.
+- ourglass: a first real recurring agreement, checked against the live verifier.

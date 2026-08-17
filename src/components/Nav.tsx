@@ -29,13 +29,21 @@ export default function Nav() {
           Wieedze<span style={{ color: "var(--accent)" }}>.</span>
         </Link>
         <div
-          style={{ display: "flex", gap: 28, fontSize: ".95rem" }}
+          style={{ display: "flex", gap: 22, fontSize: ".95rem", alignItems: "center" }}
           className="mono"
         >
+          <Link href="/hackathons" className="link">hackathons</Link>
           <Link href="/projects" className="link">projects</Link>
           <Link href="/journal" className="link">journal</Link>
           <Link href="/now" className="link">now</Link>
           <Link href="/activity" className="link">activity</Link>
+          <Link
+            href="/contact"
+            className="link"
+            style={{ color: "var(--accent)", borderColor: "var(--accent)" }}
+          >
+            contact
+          </Link>
         </div>
       </nav>
     </header>

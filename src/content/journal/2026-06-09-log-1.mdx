@@ -1,0 +1,34 @@
+---
+title: "log 1: arp got clickable, thekitty cycle 3, and this blog"
+date: "2026-06-09"
+description: "a lot of plumbing, a recommender that's secretly a graph traversal, and shipping code upstream instead of vendoring it."
+tags: ["build", "arp", "thekitty", "circles", "intuition", "web3"]
+---
+
+first log. writing it down because the [activity feed](/activity) shows commits but not what they were for.
+
+## what i shipped
+
+**arp** went from a deck idea to something you can actually click. there's a self-serve "register a tool" page with an anti-spam stake, a keyword matcher that gets the demo to a 100% hit rate, one-click runtime bring-up on the agent flow, and a "just bet" mode so a non-agent can stake on a tool too. agent atoms now use the caip-10 of the runtime wallet, and i renamed the package to `@arp-protocol/sdk` and wired up the spa deploy. most of the week here was unglamorous: `getLogs` kept timing out until i scoped it to the module atom ids, and the triples didn't resolve until i pinned real ipfs cids for the modules.
+
+**thekitty**: cycle 3 of the gnosis hackathon (came 2nd in week 2, this was the week-3 push). the services board is now the default surface: a pay sheet, a group-pot small-spend source, an on-chain reward pool (`RewardPool` + `OpenMintPolicy` + claimable winnings), and a "recommended by your circle" panel. merged the audit fixes too: proportional withdrawal + tontine liveness ([#1](https://github.com/gnosis-box/TheKitty/pull/1)).
+
+instead of vendoring the miniapp runner i packaged it and opened an upstream PR to [aboutcircles/sdk #52](https://github.com/aboutcircles/sdk/pull/52).
+
+**sofia** shipped extension [v1.0.3](https://github.com/intuition-box/Sofia/releases/tag/v1.0.3): dropped unused permissions, cleaned up the explorer and fixed a profile crash.
+
+and **this blog**: built it from scratch, static export, github pages. you're reading it.
+
+## what i learned
+
+the "recommended by your circle" feature in thekitty is just a traversal over who-trusts-what in the circles graph. which is the exact same shape as the attribution idea behind [arp](/journal/attribution-graph-traversal): different surface, same primitive. building the small concrete version taught me more about the general one than staring at the general one did.
+
+the other thing: opening the runner as an upstream PR instead of keeping it in my repo forced the code to be honest. you can't hide your assumptions when someone else has to read and merge it. vendoring lets you cheat.
+
+and an annoyance worth naming: the feature code was the easy part. deploy config, workspace `dist/` ordering, faucet urls, ipfs cids: that plumbing ate more hours than anything i'd call "the work".
+
+## what's next
+
+- thekitty week-4 submission: polish the reward pool + recommender.
+- arp: tighten the agent-runtime story before the metamask snap deadline.
+- get the [aboutcircles/sdk PR](https://github.com/aboutcircles/sdk/pull/52) reviewed and merged.

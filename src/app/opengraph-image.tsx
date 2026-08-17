@@ -48,7 +48,7 @@ async function loadFont(familyParam: string, text: string): Promise<ArrayBuffer>
 export default async function OpengraphImage() {
   const display = "I build, in public. W";
   const mono =
-    "MAXIME SAINT-JOANNIS Full-stack & web3 junior developer wieedze.eth";
+    "MAXIME SAINT-JOANNIS Full-stack and web3 developer wieedze.eth";
 
   const [fraunces, plex, photo] = await Promise.all([
     loadFont("Fraunces:opsz,wght@144,600", display),
@@ -154,7 +154,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ display: "flex" }}>
-            Full-stack &amp; web3 junior developer
+            Full-stack and web3 developer
           </div>
           <div style={{ display: "flex", color: "#8c2f39" }}>wieedze.eth</div>
         </div>

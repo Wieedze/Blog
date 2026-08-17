@@ -18,7 +18,7 @@
   --code-bg:       #1c1a17;   /* code blocks, contrast */
 
   --maxw:          1120px;
-  --maxw-prose:    680px;
+  --maxw-prose:    780px;
 
   --font-display:  "Fraunces", Georgia, serif;
   --font-body:     "IBM Plex Sans", system-ui, sans-serif;
@@ -33,6 +33,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
+
+/* Lenis smooth scroll (only active once the script adds these classes). */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 body {
   background: var(--bg);
@@ -85,19 +91,167 @@ h3 { font-size: 1.35rem; }
 
 /* --- Entrance animations --- */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.rise { animation: rise .7s var(--ease) both; }
-.d1 { animation-delay: .05s; }
-.d2 { animation-delay: .14s; }
-.d3 { animation-delay: .23s; }
-.d4 { animation-delay: .32s; }
-.d5 { animation-delay: .41s; }
+.rise { animation: rise .55s var(--ease) both; }
+.d1 { animation-delay: .03s; }
+.d2 { animation-delay: .09s; }
+.d3 { animation-delay: .15s; }
+.d4 { animation-delay: .21s; }
+.d5 { animation-delay: .27s; }
+
+/* --- Project meta: status words, stack lines, fact rows --- */
+/* Typographic only: status is a word, never a pill; stacks read as a quiet
+   mono line; facts are ruled rows like a colophon. */
+.status-word {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.status-word.is-strong { color: var(--accent); }
+.stack-line {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .02em;
+  color: var(--ink-faint);
+}
+.facts { border-top: 1px solid var(--line); }
+.facts-row {
+  display: flex;
+  gap: 24px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts-label {
+  flex: 0 0 92px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: .3em;
+}
+.facts-value {
+  font-family: var(--font-mono);
+  font-size: .84rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+/* --- Timeline progressive reveal (JS-gated: no-JS keeps content visible) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .tl.tl-ready .tl-row {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+  }
+  .tl.tl-ready .tl-row .tl-year {
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity .65s var(--ease) .08s, transform .65s var(--ease) .08s;
+  }
+  .tl.tl-ready .tl-row.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tl.tl-ready .tl-row.in .tl-year {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Story scrollytelling (JS-gated via .story-ready) --- */
+/* Default: chapters stack in normal flow (no-JS, reduced motion, small
+   screens). Ready: the stage pins for the height of the track and Story.tsx
+   crossfades one chapter into the next as you scroll. */
+.story-track { position: relative; }
+.story-stage { display: flex; flex-direction: column; justify-content: center; }
+.story-panels {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.story-ready .story-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+.story-ready .story-panels {
+  display: block;
+  position: relative;
+}
+.story-ready .story-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: opacity, transform;
+}
+
+/* --- Scroll reveal (Sprint 4) --- */
+/* Progressive: only browsers with scroll-driven animations start hidden, so
+   unsupported browsers and reduced-motion users always see full content. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 18%;
+    }
+  }
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Stacked sheets (home deck) --- */
+/* Each .sheet pins at the viewport top and the next slides over it. The
+   sticky `top` is set by Deck.tsx (negative for sheets taller than the
+   viewport, so their content scrolls through before pinning). No-JS falls
+   back to normal flow. */
+.deck { position: relative; }
+.deck > .sheet {
+  position: sticky;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 0 80px;
+  background-color: var(--bg);
+  /* Re-paint the body's paper texture so a sheet is opaque over the one below */
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,23,20,.025) 1px, transparent 0);
+  background-size: 22px 22px;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -22px 48px rgba(26,23,20,.12);
+  transform-origin: center top;
+}
+.deck > .sheet:first-child { border-top: none; box-shadow: none; }
+/* Veil: driven by Deck.tsx (--veil 0 → .5) to dim a covered sheet */
+.deck > .sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: var(--veil, 0);
+  pointer-events: none;
+}
+/* Variant: the music & sound sheet, a different world on warmer paper */
+.deck > .sheet.sheet-alt {
+  background-color: color-mix(in srgb, var(--accent-soft) 38%, var(--bg));
+}
+.deck > .sheet.sheet-alt::after {
+  background: color-mix(in srgb, var(--accent-soft) 38%, var(--bg));
 }
 
 /* --- Prose (MDX articles) --- */
@@ -109,6 +263,11 @@ h3 { font-size: 1.35rem; }
 .prose a { color: var(--accent); border-bottom: 1px solid var(--accent-soft); }
 .prose ul, .prose ol { padding-left: 1.4rem; color: var(--ink-soft); }
 .prose li + li { margin-top: .4rem; }
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin-top: 2.2rem;
+}
 .prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 1.2rem;

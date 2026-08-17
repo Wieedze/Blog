@@ -66,7 +66,7 @@ export default function ActivityPage() {
         Activity
       </h1>
 
-      {/* ---------- STAT CARDS ---------- */}
+      {/* ---------- STATS ---------- */}
       {data.stats && (
         <div
           className="rise d3"
@@ -74,7 +74,7 @@ export default function ActivityPage() {
             marginTop: 40,
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: 16,
+            gap: 24,
           }}
         >
           <Stat label="Total commits" value={data.stats.commits} />
@@ -88,28 +88,29 @@ export default function ActivityPage() {
         <div
           className="rise d4"
           style={{
-            marginTop: 28,
-            border: "1px solid var(--line)",
-            borderRadius: "var(--radius)",
-            background: "var(--bg-raised)",
-            padding: "24px 22px",
+            marginTop: 40,
+            borderTop: "1px solid var(--line)",
+            paddingTop: 20,
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <div style={{ display: "flex", gap: 8 }}>
+            <div style={{ display: "flex", gap: 18 }}>
               {years.map((y) => (
                 <button
                   key={y}
                   onClick={() => setYear(y)}
                   className="mono"
                   style={{
-                    fontSize: ".78rem",
-                    padding: "5px 12px",
-                    borderRadius: 999,
+                    fontSize: ".82rem",
+                    padding: "2px 0",
                     cursor: "pointer",
-                    border: "1px solid var(--line)",
-                    background: y === year ? "var(--accent-soft)" : "transparent",
-                    color: y === year ? "var(--ink)" : "var(--ink-faint)",
+                    border: "none",
+                    borderBottom:
+                      y === year
+                        ? "1px solid var(--accent)"
+                        : "1px solid transparent",
+                    background: "transparent",
+                    color: y === year ? "var(--accent)" : "var(--ink-faint)",
                   }}
                 >
                   {y}
@@ -133,7 +134,7 @@ export default function ActivityPage() {
         </div>
       )}
 
-      {/* ---------- REPO CARDS ---------- */}
+      {/* ---------- REPOSITORIES ---------- */}
       {data.repos && data.repos.length > 0 && (
         <div style={{ marginTop: 48 }}>
           <p className="eyebrow rise">Repositories</p>
@@ -153,30 +154,17 @@ export default function ActivityPage() {
                 rel="noreferrer"
                 className="rise"
                 style={{
-                  border: "1px solid var(--line)",
-                  borderRadius: "var(--radius)",
-                  background: "var(--bg-raised)",
-                  padding: "20px 20px 18px",
+                  borderTop: "1px solid var(--line)",
+                  padding: "18px 0 4px",
                   display: "flex",
                   flexDirection: "column",
                   gap: 10,
-                  animationDelay: `${0.1 + i * 0.05}s`,
+                  animationDelay: `${0.06 + Math.min(i, 8) * 0.045}s`,
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
                   <span style={{ fontFamily: "var(--font-display)", fontSize: "1.15rem" }}>{r.name}</span>
-                  <span
-                    className="mono"
-                    style={{
-                      fontSize: ".6rem",
-                      letterSpacing: ".08em",
-                      textTransform: "uppercase",
-                      padding: "2px 7px",
-                      borderRadius: 999,
-                      border: "1px solid var(--line)",
-                      color: "var(--ink-faint)",
-                    }}
-                  >
+                  <span className="status-word">
                     {r.isPrivate ? "private" : "public"}
                   </span>
                 </div>
@@ -252,14 +240,7 @@ export default function ActivityPage() {
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (
-    <div
-      style={{
-        border: "1px solid var(--line)",
-        borderRadius: "var(--radius)",
-        background: "var(--bg-raised)",
-        padding: "22px 24px",
-      }}
-    >
+    <div style={{ borderTop: "1px solid var(--line)", paddingTop: 18 }}>
       <div style={{ fontFamily: "var(--font-display)", fontSize: "2.4rem", fontWeight: 600, lineHeight: 1 }}>
         {fmtNum(value)}
       </div>

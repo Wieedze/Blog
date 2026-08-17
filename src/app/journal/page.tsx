@@ -12,17 +12,16 @@ export default function JournalPage() {
   const posts = getAllJournal();
 
   return (
-    <section className="prose-wrap" style={{ paddingTop: 80 }}>
+    <section className="wrap" style={{ paddingTop: 80 }}>
       <p className="eyebrow rise d1">Building in public</p>
       <h1 className="rise d2" style={{ marginTop: 16 }}>
         Journal
       </h1>
       <p
         className="rise d3"
-        style={{ marginTop: 18, color: "var(--ink-soft)" }}
+        style={{ marginTop: 18, maxWidth: "70ch", color: "var(--ink-soft)" }}
       >
-        Build notes, lines of thinking, raw learnings. No expert posturing,
-        just the work as it unfolds.
+        Build notes written as the work happens.
       </p>
 
       <div style={{ marginTop: 48 }}>
@@ -40,7 +39,7 @@ export default function JournalPage() {
               display: "block",
               borderTop: "1px solid var(--line)",
               padding: "26px 0",
-              animationDelay: `${0.1 + i * 0.07}s`,
+              animationDelay: `${0.06 + Math.min(i, 8) * 0.045}s`,
             }}
           >
             <div
@@ -50,7 +49,7 @@ export default function JournalPage() {
               {post.date} · {post.readingTime}
             </div>
             <h3 style={{ fontSize: "1.4rem", marginTop: 8 }}>{post.title}</h3>
-            <p style={{ color: "var(--ink-soft)", marginTop: 8 }}>
+            <p style={{ color: "var(--ink-soft)", marginTop: 8, maxWidth: "72ch" }}>
               {post.summary}
             </p>
           </Link>
