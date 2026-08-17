@@ -38,7 +38,12 @@ export default function Footer() {
           <a href="https://x.com/MoodzMaxime" className="link" target="_blank" rel="noreferrer">
             X
           </a>
-          <a href="https://www.linkedin.com" className="link" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.linkedin.com/in/maxime-saint-joannis-65163b345/"
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+          >
             LinkedIn
           </a>
         </div>

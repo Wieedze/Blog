@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Open to a freelance mission, an Intuition / Circles ecosystem contribution, or a hackathon team. Reach out.",
+    "Freelance work, collaborations, hackathons, or something I haven't thought of yet. Reach out.",
 };
 
 const EMAIL = "maxime.moodz@gmail.com";
@@ -11,8 +11,16 @@ const EMAIL = "maxime.moodz@gmail.com";
 const channels = [
   { label: "X", handle: "@MoodzMaxime", url: "https://x.com/MoodzMaxime" },
   { label: "GitHub", handle: "Wieedze", url: "https://github.com/Wieedze" },
-  { label: "LinkedIn", handle: "TODO(maxime): profile URL", url: "TODO(maxime)" },
-  { label: "Book a call", handle: "TODO(maxime): scheduling link", url: "TODO(maxime)" },
+  {
+    label: "LinkedIn",
+    handle: "maxime-saint-joannis",
+    url: "https://www.linkedin.com/in/maxime-saint-joannis-65163b345/",
+  },
+  {
+    label: "Book a call",
+    handle: "calendar.app.google",
+    url: "https://calendar.app.google/a7yB8LgGLLJKHVq99",
+  },
 ];
 
 export default function ContactPage() {
@@ -26,9 +34,9 @@ export default function ContactPage() {
         className="rise d3"
         style={{ marginTop: 20, fontSize: "1.15rem", color: "var(--ink-soft)", lineHeight: 1.6 }}
       >
-        I&apos;m open to three things: a freelance mission, contributing to a
-        project in the Intuition or Circles ecosystem, or teaming up for a
-        hackathon. If any of that fits, get in touch.
+        Freelance work, collaborations, hackathons, or something I haven&apos;t
+        thought of yet. If you&apos;re building something interesting, I want
+        to hear about it.
       </p>
 
       <div className="rise d4" style={{ marginTop: 40 }}>
