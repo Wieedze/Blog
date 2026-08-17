@@ -145,6 +145,46 @@ h3 { font-size: 1.35rem; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Stacked sheets (home deck) --- */
+/* Each .sheet pins at the viewport top and the next slides over it. The
+   sticky `top` is set by Deck.tsx (negative for sheets taller than the
+   viewport, so their content scrolls through before pinning). No-JS falls
+   back to normal flow. */
+.deck { position: relative; }
+.deck > .sheet {
+  position: sticky;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 0 80px;
+  background-color: var(--bg);
+  /* Re-paint the body's paper texture so a sheet is opaque over the one below */
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(26,23,20,.025) 1px, transparent 0);
+  background-size: 22px 22px;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -22px 48px rgba(26,23,20,.12);
+  transform-origin: center top;
+}
+.deck > .sheet:first-child { border-top: none; box-shadow: none; }
+/* Veil: driven by Deck.tsx (--veil 0 → .5) to dim a covered sheet */
+.deck > .sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: var(--veil, 0);
+  pointer-events: none;
+}
+/* Variant: the music & sound sheet, a different world on warmer paper */
+.deck > .sheet.sheet-alt {
+  background-color: color-mix(in srgb, var(--accent-soft) 38%, var(--bg));
+}
+.deck > .sheet.sheet-alt::after {
+  background: color-mix(in srgb, var(--accent-soft) 38%, var(--bg));
+}
+
 /* --- Prose (MDX articles) --- */
 .prose { font-size: 1.08rem; }
 .prose > * + * { margin-top: 1.4rem; }

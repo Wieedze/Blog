@@ -33,8 +33,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // suppressHydrationWarning: the Sofia extension injects data-sofia-extension
+  // on <html> before hydration; only attribute diffs on this tag are ignored.
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <SmoothScroll />
         <Nav />

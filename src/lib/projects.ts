@@ -3,7 +3,7 @@ export type Project = {
   domain: "web3" | "music";
   name: string;
   tagline: string;
-  status: "live" | "building" | "shipped" | "exploring";
+  status: "live" | "building" | "exploring";
   role: string;
   stack: string[];
   description: string;
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     domain: "web3",
     name: "WisPear",
     tagline: "Community wisdom, whispered to your agent.",
-    status: "shipped",
+    status: "live",
     role: "Hackathon build: team of 5 (ETHGlobal Cannes 2026)",
     stack: ["TypeScript", "React", "Intuition Protocol", "AI agents"],
     description:
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     domain: "music",
     name: "OddWave Studio",
     tagline: "A studio brand and site, designed and built end to end.",
-    status: "shipped",
+    status: "live",
     role: "Solo: brand identity, art direction, design & build",
     stack: ["Brand identity", "Art direction", "TypeScript", "React", "Vite"],
     description:
@@ -245,8 +245,7 @@ export const projects: Project[] = [
 ];
 
 export const statusLabel: Record<Project["status"], string> = {
-  live: "In production",
+  live: "Live",
   building: "Building",
-  shipped: "Shipped",
   exploring: "Exploring",
 };
