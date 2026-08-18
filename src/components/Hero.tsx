@@ -5,10 +5,10 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 // Hero entrance, one timeline: "Let's build," lands first, slow and fluid;
-// "in public." slides in from the side; then everything else (lede, tagline,
-// eyebrow, scroll cue, and the nav via the hero:eyebrow event) enters as one
-// synchronized movement that lands at the exact same moment (no buttons: the
-// next sheet is the call to action, so the hero points down).
+// "in public." slides in from the side; the nav drops from the top a beat
+// early to catch the eye (hero:eyebrow event); then lede, tagline, eyebrow
+// and scroll cue answer by rising from below as one synchronized movement
+// (no buttons: the next sheet is the call to action, so the hero points down).
 // gsap.from throughout, so without JS everything stays at its natural
 // visible state. Skipped entirely under prefers-reduced-motion.
 export default function Hero() {
@@ -26,26 +26,18 @@ export default function Hero() {
         .from(q("[data-hero='build']"), { opacity: 0, y: 34, duration: 1.4 })
         // 2. "in public." slides in from the side to complete the phrase.
         .from(q("[data-hero='public']"), { opacity: 0, x: 36, duration: 1 }, "-=0.25")
-        // 3. A short beat, then everything else as ONE movement: the lede,
-        //    the mono phrase, the eyebrow, the scroll cue and the nav (which
-        //    listens for this beat) start together and land at the exact
-        //    same moment (same 0.9s duration everywhere, nav included).
-        .call(() => window.dispatchEvent(new Event("hero:eyebrow")), undefined, "+=0.3")
-        .from(q("[data-hero='lede']"), { opacity: 0, y: 16, duration: 0.9 }, "<")
+        // 3. The nav leads by a quarter second: its downward drop catches the
+        //    eye first (it listens for this beat, same 0.9s cubic-out in CSS).
+        .call(() => window.dispatchEvent(new Event("hero:eyebrow")), undefined, "+=0.1")
+        // 4. Then the answering move: lede, tagline, eyebrow and scroll cue
+        //    rise from below as ONE tween (same rise, duration and ease, no
+        //    stagger), the eyebrow coming up to underline the title.
         .from(
-          q("[data-hero='tagline']"),
-          { opacity: 0, duration: 0.9, ease: "power1.inOut" },
-          "<"
-        )
-        .from(
-          q("[data-hero='eyebrow']"),
-          { opacity: 0, duration: 0.9, ease: "power1.inOut" },
-          "<"
-        )
-        .from(
-          q("[data-hero='cue']"),
-          { opacity: 0, duration: 0.9, ease: "power1.inOut" },
-          "<"
+          q(
+            "[data-hero='lede'], [data-hero='tagline'], [data-hero='eyebrow'], [data-hero='cue']"
+          ),
+          { opacity: 0, y: 14, duration: 0.9 },
+          "+=0.25"
         )
         // The arrow keeps a slow bob once everything is in place.
         .to(q("[data-hero='arrow']"), {
