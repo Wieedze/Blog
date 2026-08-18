@@ -35,12 +35,12 @@ export default function ContactPage() {
         <img
           src="/portrait.jpg"
           alt="Maxime Saint-Joannis"
-          width={148}
-          height={148}
+          width={208}
+          height={208}
           style={{
-            width: 148,
-            height: 148,
-            borderRadius: "var(--radius)",
+            width: 208,
+            height: 208,
+            borderRadius: "50%",
             objectFit: "cover",
             border: "1px solid var(--line)",
             flexShrink: 0,

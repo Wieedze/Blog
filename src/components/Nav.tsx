@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 
 // Auto-hiding nav. On the home the first reveal is synchronized with the
 // hero's closing beat (hero:eyebrow event, timeout as a safety net), so the
-// nav, the eyebrow and the scroll cue enter together; elsewhere it shows
-// right away. After that it hides while scrolling down and comes
-// back on scroll up, near the page top, or when the pointer reaches the top
-// edge. Reduced motion keeps it permanently visible.
+// nav, the eyebrow, the lede, the tagline and the scroll cue all land
+// together; elsewhere it shows right away. After that it hides while
+// scrolling down and comes back on scroll up, near the page top, or when the
+// pointer reaches the top edge. Reduced motion keeps it permanently visible.
 export default function Nav() {
   const [visible, setVisible] = useState(true);
   const lastY = useRef(0);
@@ -66,8 +66,11 @@ export default function Nav() {
         backdropFilter: "blur(8px)",
         transform: visible ? "translateY(0)" : "translateY(-101%)",
         opacity: visible ? 1 : 0,
-        /* .9s to land exactly with the hero's closing beat (same duration) */
-        transition: "transform .9s var(--ease), opacity .9s var(--ease)",
+        /* Same duration AND same curve as the hero's closing tween
+           (GSAP power3.out ≈ this cubic-out bezier), so the nav lands
+           in sync with the eyebrow, lede, tagline and scroll cue. */
+        transition:
+          "transform .9s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .9s cubic-bezier(0.215, 0.61, 0.355, 1)",
       }}
     >
       <nav
