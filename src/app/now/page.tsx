@@ -9,15 +9,12 @@ export const metadata: Metadata = {
 // Edit this page often: it's the pulse of the site.
 export default function NowPage() {
   return (
-    <PageShell eyebrow="Updated: August 2026" title="Right now">
+    <PageShell eyebrow="Updated: October 2026" title="Right now">
       <div className="prose">
         <p>What I'm working on at the moment. Updated whenever the focus shifts.</p>
 
         <h2>Main focus</h2>
         <ul>
-          <li>
-            <strong>Liquid Democracy</strong>: a new paid mission for the intuition.box DAO, delegated and revocable voting. Repo not public yet.
-          </li>
           <li>
             <strong>Loka</strong>: a platform for an initiatory board game built around meditation. A sound-side mission, back near my music roots. Repo not public yet.
           </li>
@@ -28,6 +25,9 @@ export default function NowPage() {
 
         <h2>Recently shipped</h2>
         <ul>
+          <li>
+            <strong>Liquid Democracy</strong>: Mission 10 for the intuition.box DAO is delivered. Vote delegation by domain, where the Intuition graph decides what a domain covers. Anchored at the protocol level and built to plug into any DAO running OpenZeppelin's Governor, live on Intuition testnet. <a href="/journal/liquid-democracy-graph-scoped-delegation">The write-up</a>.
+          </li>
           <li>
             <strong>OddWave Studio</strong>: the design-led site for a mastering and sound-design studio is done. Likely to grow into a studio-management SaaS.
           </li>

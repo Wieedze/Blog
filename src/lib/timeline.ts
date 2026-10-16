@@ -78,8 +78,8 @@ export const timeline: Milestone[] = [
   {
     year: "2026",
     title: "Liquid Democracy",
-    context: "Current mission (intuition.box)",
-    body: "What I'm working on right now: a POC showing that governance responsibility itself can be delegated, scoped and enforced by ERC-7710 caveat enforcers. The same delegation thread as Hourglass, pointed at voting.",
+    context: "Mission delivered (intuition.box)",
+    body: "Delegating a vote by domain, with the Intuition knowledge graph deciding what a domain covers: add a sub-domain and every delegation already signed reaches it. Anchored at the protocol level (ERC-7710 + the curated graph) and built to plug into any DAO running OpenZeppelin's Governor, nothing forked. The same delegation thread as Hourglass, pointed at voting.",
     link: "/projects/liquid-democracy",
   },
   {

@@ -40,7 +40,7 @@ export const story: Chapter[] = [
   {
     theme: "Building in public",
     title: "In the open",
-    body: "I document the work as it happens, and every claim on this site points at something you can check: a repo, a live demo, or an address on-chain. Sofia and TrackHunter are still live, Liquid Democracy and Loka are what I'm building right now.",
+    body: "I document the work as it happens, and every claim on this site points at something you can check: a repo, a live demo, or an address on-chain. Sofia and TrackHunter are still live, Liquid Democracy just shipped, and Loka is what I'm building right now.",
     detail:
       "This site is the log: journal notes written as things ship, hackathon debriefs that keep the misses in, and a now page that says what I'm actually doing this month.",
   },
