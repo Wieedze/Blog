@@ -1,0 +1,170 @@
+---
+title: "Liquid democracy: delegating a vote by domain, scoped by a knowledge graph"
+date: "2026-10-16"
+summary: "Mission 10 for the intuition.box DAO is delivered. Per-domain vote delegation where the Intuition graph decides what a domain covers, anchored at the protocol level and built to plug into any DAO running OpenZeppelin's Governor."
+tags: ["intuition", "solidity", "erc-7710", "governance", "dao", "building-in-public"]
+---
+
+[Liquid Democracy](/projects/liquid-democracy) is delivered. It's my answer to
+Mission 10 of the intuition.box DAO: a proof of concept of liquid democracy, live on
+Intuition testnet. Built solo, and the most careful thing I've shipped so far.
+
+## The problem
+
+In a DAO, delegating your vote is all or nothing. You hand your voice to someone
+and they vote on everything: treasury, protocol parameters, community events.
+Nobody is competent everywhere.
+
+What you'd actually want to say is: *"I trust you with my vote on the treasury.
+Not on the rest."*
+
+The catch is that "the treasury" isn't an address or a number. It's a
+**domain**, with sub-parts that keep moving: grants, then builder grants, then
+micro-grants, and a new programme every quarter. A classic system would list the
+allowed domains at signing time, and every new programme would mean re-signing
+every delegation.
+
+## The idea
+
+The hierarchy already exists, in the Intuition graph, where the DAO can describe
+its own organisation as triples: `grants, is a sub-domain of, treasury`.
+
+So the delegation doesn't carry a list. It carries a **question**: *is this
+proposal's domain under `treasury` in the graph?* Add a branch to the graph and
+every delegation already signed covers it immediately. No redeploy, no new
+signature. That's the core of the demo: mint a domain live, and a delegation
+signed before the meeting authorizes a vote on it.
+
+Under the hood, each delegation is an [ERC-7710](https://eips.ethereum.org/EIPS/eip-7710)
+delegation (MetaMask's Delegation Framework) with one custom caveat,
+`GraphDomainScope`.
+
+## The storage fact that shaped everything
+
+My first instinct was to have the contract walk the graph up from `micro-grants`
+to `treasury`. That turned out to be not expensive but **impossible**. The
+MultiVault stores triples keyed by `hash(subject, predicate, object)`: a
+contract can check that an edge it already knows exists, but it can never ask
+"what are the children of this node?". There's no reverse index.
+
+So the work is split, the same way a Merkle proof is. The browser finds the path
+and attaches it to the vote as a **witness**. The contract doesn't believe it: it
+recomputes every hop against live chain state, for about 14k gas each.
+
+## Existence is not attestation
+
+On Intuition, anyone can mint any triple for a fraction of a cent. If the
+contract only checked that an edge exists, a delegate trusted with `treasury`
+could publish `events, is a sub-domain of, treasury` and widen their own
+mandate for almost nothing.
+
+So an edge only counts if the curator has **staked** on it. Writing stays free
+and open; it just doesn't authorize anything anymore. And the contract checks
+the vault type too: Intuition lets you stake on the *counter*-triple ("no, A is
+not part of B"), and the convenient `isTriple` helper answers yes for both.
+I almost used it.
+
+## What I didn't have to write
+
+The part I'm happiest about is code that doesn't exist. Revocation comes from
+the standard. Narrowing too: if A delegates `treasury` to B and B only passes
+`grants` to C, C can't vote on `payroll`, and no line anywhere forbids it. The
+framework runs every caveat in the chain and requires all of them to pass, so
+the intersection does the narrowing on its own.
+
+## Any DAO on OpenZeppelin can plug it in
+
+Most on-chain DAOs run some version of **OpenZeppelin's Governor**. So the real
+question was never "does it work on my governor?" but "does it work on theirs?".
+I started on a governor I wrote myself, then moved the whole app onto
+OpenZeppelin's, to take that objection off the table.
+
+It works, and without forking anything. `Governor`, `GovernorSettings`,
+`GovernorCountingSimple` and `GovernorVotes` are inherited exactly as published.
+The integration is three small pieces sitting beside them:
+
+- **`DomainVotes`** overrides `_getVotes`, the hook OpenZeppelin marks `virtual`
+  precisely so a counting scheme can be swapped in. The token still says *how
+  much* weight an account holds; the register says *who may use it, and where*.
+- **`castVoteFor`**, because an ERC-7710 redemption executes from the
+  delegator's account while OpenZeppelin reads the caller. Without it, a vote B
+  casts with A's voice would be recorded as A's. It hands straight off to
+  OpenZeppelin's own `_castVote`, so the tally, the double-vote guard and the
+  events stay the audited ones.
+- **`ProposalDomains`**, because `propose` has no field for a domain, and adding
+  one would mean forking audited code. The domain lives in a resolver beside the
+  governor, written once, so nobody can re-scope a proposal after votes are cast.
+
+The split is clean: **the caveat scopes, the governor counts.** And it holds
+live, on the unmodified governor. A holds 2 tokens and hands `treasury` to B,
+who holds 2. A vote on `grants` (under `treasury`) counts 4. The same vote on
+`community` counts 2.
+
+## Anchored at the protocol level, not in an app
+
+The scope of a delegation isn't stored in my front end, or in a database I run.
+It lives in two places nobody owns:
+
+- **a signed ERC-7710 delegation**, a standard, which brings revocation, chains
+  and narrowing with it;
+- **the Intuition graph**, where the DAO curates its own organisation, and where
+  the curator's stake is what makes an edge count.
+
+So any interface, any wallet able to redeem a delegation can use it; my app is
+just one window onto it. Every voice cast in someone's name is logged on-chain
+under that person, so a delegator can audit their delegate with one query
+instead of trusting a dashboard. Delegating by domain is only worth it if you
+stay accountable, and that has to be readable from the chain.
+
+It also travels. Atom ids on Intuition are deterministic and chain-independent,
+so the domain vocabulary seeded on testnet keeps its ids on mainnet. And *whose*
+stake counts is a dial in the signed terms: a DAO's curator address for
+institutional curation, or the delegator themself, so each level of a chain
+reads the graph through its own signer's view of the organisation.
+
+## What a DAO would need to adopt it
+
+Being straight about what's left between a POC and a real DAO:
+
+- deploy the governor extension and the domain resolver next to its voting
+  token (a DAO with a governor already live would migrate or upgrade to it);
+- describe its domains in the Intuition graph, and stake on the edges it
+  endorses;
+- decide what an attestation means. `> 0` stake is a POC test; production wants
+  a ratio against the counter-triple, or a quorum of curators, and that number is
+  a governance decision, not mine.
+
+The resolver is designed to be swappable: domain in calldata, a registry, or an
+adapter for a specific governor, pinned in the signed terms so nobody can
+re-map a domain after the fact. That's what lets the same mechanism fit DAOs
+that are organised very differently.
+
+## Where it bit
+
+The counting rules were where the honest work was:
+
+- **A voice is spent once.** Delegating by domain moves no token, so without
+  bookkeeping a delegator could take a domain back after their delegate voted,
+  and vote again with the same weight.
+- **One signature per voice carried.** My first version bundled B's own voice and
+  the one B relayed from A into one signed object. When A revoked, C lost
+  *both*, including what B had given on their own. Fixed by signing one
+  delegation per voice.
+
+And the last stretch was me attacking my own repo. The commit log from those days
+reads like a confession: `castVoteFor` trusted whoever called it; anyone could
+pick which electorate decided a proposal; the production build shipped all four
+private keys; the faucet could be drained. All fixed, and a `verify` script now
+replays the four closed attacks against the deployed contracts before every demo.
+
+## What I take from it
+
+Two things. A constraint read early (no reverse index) saves weeks of building
+the wrong thing. And building on someone else's governor instead of mine
+changed what I was making: not a demo that works in its own little world, but a
+piece other DAOs could actually pick up.
+
+It's the same delegation thread as [Hourglass](/projects/ourglass), pointed at
+voting, and the same idea running through [Sofia](/projects/sofia) and
+[ARP](/projects/arp): a knowledge graph as the source of authority, read
+on-chain, and stake as the signal that someone stands behind a claim.
