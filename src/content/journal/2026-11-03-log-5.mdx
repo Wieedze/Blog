@@ -1,0 +1,44 @@
+---
+title: "log 5: a label site goes live, a first vst, and two products that got sharper"
+date: "2026-11-03"
+summary: "the transubtil records site is live, my first vst plugin loads in ableton, arp is heading to its mvp with a sharper pitch, and sofia got repositioned around one gesture."
+tags: ["build", "music", "vst", "arp", "sofia", "building-in-public"]
+---
+
+fifth log, and again it covers more than a week. this time the music side and the web3 side moved at the same speed, which has not happened before.
+
+## transubtil records is live
+
+the site of [transubtil records](/projects/transubtil-records), the psytrance label i'm part of, is up at [transubtil-record.com](https://transubtil-record.com). it does two jobs: show the label (roster, the whole bandcamp catalogue, a demo form) and let organizers book its artists. the backend is all cloudflare: pages functions for the forms, d1 for subscribers and submissions, email routing on the label's own domain, and a newsletter with double opt-in through resend.
+
+my favorite piece is the smallest one. a fan account on a label address follows the label on bandcamp, so every new release triggers a bandcamp email. an email worker reads that email and turns it into a draft newsletter plus an alert to the label. nobody has to remember to announce a release anymore. every public page is also prerendered with structured data, so crawlers and ai assistants get real html instead of an empty react shell.
+
+## my first vst: moodzfilter
+
+the oldest thread in my story is building my own sound tools, and it finally reached code. [moodzfilter](/projects/moodzfilter) is a multi-model filter with drive and an lfo synced to the tempo, vst3 on windows, open source under agpl, made first for my own tracks.
+
+it's also my first real c++, so i did the boring part first: a [knowledge base](https://wieedze.github.io/VstKnowledgeBase-/) of rules and decisions written before the plugin existed, then a pure dsp layer kept out of juce, golden audio references compared in ci, a realtime sanitizer job that fails the build if the audio thread allocates, and pluginval on every push. the filters come from sst-filters, surge's library, instead of my own code. reuse what's proven, spend the time listening.
+
+the first gate passed yesterday: the plugin loads in ableton live, and a saved session reloads with its settings. now the fun part: an audition build with seven low pass candidates, and i pick four by ear, on my own music.
+
+## arp: a sharper sentence, and close to an mvp
+
+[arp](/projects/arp) spent october finding the one sentence it needs. it used to open with "a registry that points at ai things". then i read a census counting more agent marketplaces than mcp servers, and "registry" stopped meaning anything. the new line: arp makes money flow to the tools agents actually use. stars show who looked, arp shows who used it.
+
+underneath, the core is rebuilt as a monorepo on testnet: a cli, a runtime hook that records a tool when an agent finds it and when a call works, an mcp server, a probe, and plugins for claude code and gemini. nobody is scored; every figure is a deposit someone made and can take back. november is for building, the demo is aimed at ethcc 2027. no users and no metrics yet, and this log is where i say so.
+
+## sofia: one gesture
+
+[sofia](/projects/sofia) got a repositioning. the new line is "the web, recommended by people", and everything now serves one gesture: recommend a page. the biggest change is free recommends. you sign in with email, google or a wallet, and you can recommend without signing a transaction or holding trust. our relayer pays, the position stays yours. that removes the wall every web3 product hits on day one.
+
+around it: the explorer shows what the community backs and what's trending, a daily queue of pages waiting for a second opinion, and spotters, a monthly game of finding good pages before everyone else, with a trust pool for the top ten. we also cut a lot (old packages, a view-as mode, dead paths) and wrote a proper handbook for the team.
+
+## what i learned
+
+the same lesson came back three times. on the label site, the useful thing was a tiny worker, not a feature page. on the vst, it's a library i chose not to rewrite. on arp and sofia, it's a single sentence and a single gesture. most of my progress this month came from removing things.
+
+## what's next
+
+- moodzfilter: pick the four filter models, then drive with oversampling and the synced lfo.
+- arp: build toward the mvp, then put the hook in front of the first real agents.
+- sofia: watch how free recommends change who shows up, and the first spotters month in november.
