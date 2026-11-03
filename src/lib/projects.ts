@@ -198,6 +198,7 @@ export const projects: Project[] = [
       { label: "Bandcamp", url: "https://transubtilrec.bandcamp.com" },
       { label: "Repo", url: "https://github.com/Wieedze/SPA-TransubtilRecord-website-" },
     ],
+    preview: "https://transubtil-record.com",
     featured: true,
     year: "2025–2026",
   },
