@@ -58,16 +58,18 @@ const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const PINNED = [
   "intuition-box/Sofia",
   "Wieedze/ARP",
-  "intuition-box/OurGlass",
-  "intuition-box/WisPear",
+  "intuition-box/Hourglass",
+  "Wieedze/SPA-TransubtilRecord-website-",
+  "Wieedze/MoodzFilter",
   "intuition-box/FeeProxy",
-  "Wieedze/TrackHunter",
+  "intuition-box/WisPear",
   "gnosis-box/TheKitty",
+  "Wieedze/TrackHunter",
   "Wieedze/OddWave-Studio-",
 ];
 
 // Max number of repo cards to write to the dashboard.
-const REPO_LIMIT = 9;
+const REPO_LIMIT = 12;
 
 const REST_HEADERS = {
   Accept: "application/vnd.github+json",
