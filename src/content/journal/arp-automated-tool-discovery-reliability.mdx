@@ -1,0 +1,96 @@
+---
+title: "Where the time went: automating tool discovery and reliability with ARP"
+date: "2026-11-03"
+summary: "October went into systems more than features: a loop where an agent finds a tool on its own, a hook that records whether the call worked, a probe that checks who still answers, and the agentic method that built all of it."
+tags: ["arp", "agents", "mcp", "reliability", "agentic-workflow", "building-in-public"]
+---
+
+Most of October on [ARP](/projects/arp) didn't produce anything you could screenshot.
+It went into systems: the plumbing that lets an agent find a tool without a human
+pointing at it, the record of whether that tool actually worked, and the method I
+use to build all of it with coding agents without losing control of the codebase.
+This note is the honest accounting of that time.
+
+## The problem, measured by someone else
+
+Before building anything I wanted the gap stated with numbers that weren't mine. A
+study of the ERC-8004 ecosystem ([arXiv 2606.26028](https://arxiv.org/abs/2606.26028))
+found that most registered agents are placeholders: on Base, only about one in
+seven exposes a registration with a live endpoint, and nine reviewers in ten
+there show coordinated Sybil behaviour. ARP's own measurement on Base was even
+lower: 3 of 122 parsed registrations answered a protocol handshake.
+
+So the two questions an agent actually has, *which tool should I use for this* and
+*will it answer*, have no reliable answer today. That's what the time went into.
+
+## 1. Discovery: an agent finds the tool itself
+
+The loop now runs end to end on Intuition testnet, and it's four commands that
+anyone can rerun against their own wallet. The agent asks `arp_find_tools` for a
+domain (say `image`) over a domain tree, gets a list back, and picks. The part I
+care about: nobody hands it the tool. On the first real run, eight tools came back
+for `image` and the choice was the agent's. A demo where you tell the agent which
+tool to stake on proves nothing; this is the step those demos skip.
+
+To make that usable outside my machine, I spent real time on installation, which
+is the least glamorous part of any protocol. `arp init` now finds Claude Code,
+Cursor, Gemini CLI, Codex, Copilot and Grok Build on a machine, adds the ARP MCP
+server to each, asks before touching anything, backs up every file it edits, and
+`arp uninstall` removes exactly what it added. `arp doctor` checks it worked. I run
+it on my own setup, so the agents I code with every day query ARP for tools.
+
+## 2. Reliability: record the outcome, not the content
+
+Discovery is only half. The other half is knowing whether a call worked, and that
+is what the runtime hook does. On every tool call it writes one line: an outcome
+(`ok`, `tool_error`, `auth`, `timeout`, `unreachable` or `payment`), the duration,
+the size of the response, and which tool or MCP server was invoked.
+
+What it never writes took longer to get right than what it does. No arguments, no
+response content, no error text, and nothing from a configured URL that could be a
+credential. That rule exists because the verifier agent caught a real leak: an
+`?apiKey=` in a server URL reaching the log verbatim. Credentials are now stripped
+before anything is normalised. The thesis behind the hook is simple: usage is
+utility, so a call that worked is the signal worth recording, and a failure is
+just as useful.
+
+## 3. The probe is not the pulse
+
+Then there's the question "does this server still answer?". I added a probe: a
+small Cloudflare Worker on a cron that sends one `initialize` handshake to each
+remote endpoint and keeps the history. Packages, which can't be probed, get their
+registry record instead (latest version, date, deprecated or not).
+
+The decision I'm happiest with is keeping two signals apart. The probe says "this
+server answered ARP at 14:10". The pulse says "it works for the operators who use
+it", from their signed reports and their `uses` declarations. A server can answer
+a handshake and fail every real call, so merging the two would be lying with good
+intentions. Neither one is turned into a score, and neither is painted red. The
+page states what was read, and when.
+
+## 4. The system that builds the system
+
+The other big investment isn't in the product, it's in how I build it. ARP is made
+with coding agents, and early on I watched that drift: confident code that quietly
+did more than asked, decisions nobody remembered. So the repo now runs on a method:
+
+- every piece of work is a task file with deliverables and an explicit "do not do"
+  list (47 so far);
+- a separate `task-verifier` agent has to pass a task before it counts as done, and
+  it fails them often, which is the point;
+- every non-obvious decision is an ADR (93 of them), and every passed task leaves a
+  short post-mortem (31) so the same mistake isn't made twice.
+
+It costs time on every task. It has also caught a credential leak, a hook that
+never recorded failures, and analysis documents that had drifted from what the
+code does. And it's portable: I lifted the same method into the knowledge base behind
+[MoodzFilter](/projects/moodzfilter), my first VST, where a realtime bug is just as
+silent and just as costly.
+
+## What I'd say plainly
+
+None of this has users yet. The loop runs on testnet, the probe runs, the hook
+runs on my machine and on nobody else's. What October bought is that when the
+first agents do plug in, the answers they get will be checkable: a tool they found
+themselves, an outcome recorded without their data, and a liveness fact with a
+date on it. November is for turning that into an MVP.
