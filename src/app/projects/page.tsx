@@ -7,7 +7,7 @@ import ProjectsShowcase from "@/components/ProjectsShowcase";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Maxime Saint-Joannis's projects. Web3: Sofia, ARP, TheKitty, Hourglass, the Intuition FeeProxy, WisPear. Music and sound: TrackHunter, OddWave Studio, Loka.",
+    "Maxime Saint-Joannis's projects. Web3: Sofia, ARP, TheKitty, Hourglass, the Intuition FeeProxy, WisPear. Music and sound: Transubtil Records, MoodzFilter, OddWave Studio, TrackHunter, Loka.",
 };
 
 const groups: {

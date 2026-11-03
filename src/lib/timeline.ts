@@ -89,4 +89,18 @@ export const timeline: Milestone[] = [
     body: "The sound work kept running alongside the code and brought in a new client: Loka, a board game built around meditation. I'm designing their companion app, the place where all the audio plays and the guidance happens.",
     link: "/projects/loka",
   },
+  {
+    year: "2026",
+    title: "Transubtil Records",
+    context: "Music, for the label",
+    body: "I rebuilt the site of Transubtil Records, the psytrance label I'm part of: showcase, artist booking, the whole catalogue, and a release watcher that turns a Bandcamp notification into a newsletter draft. The first time my two worlds shipped as one thing for my own people.",
+    link: "/projects/transubtil-records",
+  },
+  {
+    year: "2026",
+    title: "MoodzFilter",
+    context: "First VST",
+    body: "Back to where it started: building my own sound tools, this time in C++. MoodzFilter is a multi-model filter with drive and a tempo-synced LFO, made for my own productions, with the same agentic method I use on ARP.",
+    link: "/projects/moodzfilter",
+  },
 ];

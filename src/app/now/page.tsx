@@ -9,36 +9,36 @@ export const metadata: Metadata = {
 // Edit this page often: it's the pulse of the site.
 export default function NowPage() {
   return (
-    <PageShell eyebrow="Updated: October 2026" title="Right now">
+    <PageShell eyebrow="Updated: November 2026" title="Right now">
       <div className="prose">
         <p>What I'm working on at the moment. Updated whenever the focus shifts.</p>
 
         <h2>Main focus</h2>
         <ul>
           <li>
-            <strong>Loka</strong>: a platform for an initiatory board game built around meditation. A sound-side mission, back near my music roots. Repo not public yet.
+            <strong>ARP</strong>: heading toward the MVP. The core is rebuilt as a monorepo on testnet (CLI, runtime hook, MCP server, probe, Claude Code and Gemini plugins) and the pitch is sharper: ARP makes money flow to the tools agents actually use. November is for building, with a demo aimed at EthCC 2027. No users yet, and I'd rather say it. <a href="/projects/arp">Project page</a>.
           </li>
           <li>
-            <strong>Hourglass</strong>: after presenting at ETHGlobal Lisbon, extending it with Agent DeFi: an AI agent that runs investments for you within scoped ERC-7710 permissions.
+            <strong>MoodzFilter</strong>: my first VST, a multi-model filter with drive and a tempo-synced LFO, in C++ with JUCE. It loads in Ableton Live; this week I'm choosing its four filter models by ear, on my own tracks. <a href="/projects/moodzfilter">Project page</a>.
+          </li>
+          <li>
+            <strong>Sofia</strong>: a repositioning around one gesture, recommending a page. Free Recommends through our relayer (sign in with email or Google, no wallet needed), a cleaner explorer and Spotters, a monthly game of finding good pages first. <a href="/projects/sofia">Project page</a>.
           </li>
         </ul>
 
         <h2>Recently shipped</h2>
         <ul>
           <li>
-            <strong>Liquid Democracy</strong>: Mission 10 for the intuition.box DAO is delivered. Vote delegation by domain, where the Intuition graph decides what a domain covers. Anchored at the protocol level and built to plug into any DAO running OpenZeppelin's Governor, live on Intuition testnet. <a href="/journal/liquid-democracy-graph-scoped-delegation">The write-up</a>.
+            <strong>Transubtil Records</strong>: the new site of the psytrance label I'm part of is live. Label showcase, artist booking, the full catalogue, and a newsletter that drafts itself when a release lands on Bandcamp. <a href="/projects/transubtil-records">Project page</a>.
           </li>
           <li>
-            <strong>OddWave Studio</strong>: the design-led site for a mastering and sound-design studio is done. Likely to grow into a studio-management SaaS.
-          </li>
-          <li>
-            <strong>TheKitty</strong>: finished 2nd overall in the Gnosis Circles hackathon (official). Onchain group pots and a services marketplace, CRC-native on Gnosis.
+            <strong>Liquid Democracy</strong>: Mission 10 for the intuition.box DAO, delivered. Vote delegation by domain, scoped by the Intuition graph. <a href="/journal/liquid-democracy-graph-scoped-delegation">The write-up</a>.
           </li>
         </ul>
 
         <h2>In the background</h2>
         <ul>
-          <li>Sofia, the Intuition FeeProxy, TrackHunter, music production, a VST plugin.</li>
+          <li>Loka, Hourglass, the Intuition FeeProxy, TrackHunter, OddWave Studio, and music production as Radikal Moodz.</li>
         </ul>
       </div>
     </PageShell>
