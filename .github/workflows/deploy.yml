@@ -45,7 +45,11 @@ jobs:
         env:
           GITHUB_USER: Wieedze
           GITHUB_TOKEN: ${{ secrets.ACTIVITY_GITHUB_TOKEN }}
-        run: bun run sync:activity
+        run: |
+          bun run sync:activity || {
+            echo "::warning title=Activity not refreshed::sync:activity failed (an expired or revoked ACTIVITY_GITHUB_TOKEN gives HTTP 401). The site was built with the committed activity.json."
+            exit 1
+          }
 
       - name: Build (static export)
         run: bun run build
